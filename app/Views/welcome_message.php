@@ -138,53 +138,33 @@
             </div>
           </div>
 
+        <div class="section-cv p-3">
         <div class="container">
       <!-- Pemasangan Kartu CV -->
-      <div class="card-content">
-      <div class="row">
-        <div class="col-sm-4 mb-3 mb-sm-0">
-         <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">CV. Harapan Bunda</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-warning">Go somewhere</a>
+          <div class="card-content">
+          <div class="card" >
+              <img src="./heroes/engineer.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">CV. Harapan Bunda</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-warning">Go somewhere</a>
+              </div>
+            </div> 
           </div>
-        </div>
-       </div>
-       <div class="col-sm-4 mb-3 mb-sm-0">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">CV. Harapan Bunda</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-warning">Go somewhere</a>
+          <div class="pagination">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
           </div>
-        </div>
-       </div>
-       <div class="col-sm-4 mb-3 mb-sm-0">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">CV. Harapan Bunda</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-warning">Go somewhere</a>
-          </div>
-        </div>
-        </div>
       </div>
-      </div>
-      <div class="pagination">
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-      </nav>
-      </div>
+      
+        </div>
         </div>
        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
