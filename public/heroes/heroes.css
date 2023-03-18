@@ -1,0 +1,23 @@
+@media (min-width: 992px) {
+  .rounded-lg-3 { border-radius: .3rem; }
+}
+
+*{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+  font-size: 1rem;
+}
+
+
+
+.section-cv{
+  background-color: #D6D7D7;
+  margin: auto;
+
+}
+
+.card-content {
+  width: 18rem;
+  margin: auto;
+}
+
