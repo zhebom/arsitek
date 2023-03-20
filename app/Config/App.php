@@ -17,11 +17,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-<<<<<<< HEAD
-    public string $baseURL = 'http://localhost:8080/';
-=======
     public string $baseURL = 'http://localhost/arsitek/public';
->>>>>>> d6770f0397011f95e97ab1f953a3ec971f233529
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
