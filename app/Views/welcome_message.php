@@ -189,7 +189,8 @@
       </div>
 
       <!-- Pemasangan Kartu CV -->
-      <div class="card-content p-2">
+      
+        <div class="container p-3 text-center">
         
           <div class="pagination">
             <nav aria-label="Page navigation example">
@@ -201,10 +202,10 @@
                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
               </ul>
             </nav>
-          </div>
+         
+        </div>
+
         
-
-
       </div>
 
     </div>
