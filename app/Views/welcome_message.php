@@ -214,7 +214,41 @@
 
   </div>
   </div>
+  <div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+      <div class="col mb-4">
+        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
 
+          <h3>Architect Hub</h3>
+
+        </a>
+        <p class="text-muted">Architect Hub berdiri pada tahun 2023 yang diawali dengan kemerdekaan indonesia,
+          mengenai pemindahan kekuasaan dan lain - lain akan dilaksanakan dengan cara seksama dan dalam tempo yang sesingkat singkatnya.
+          
+        </p>
+      </div>
+
+      <div class="col mb-3">
+      </div>
+      <div class="col mb-3">
+        <h5>Informasi Kontak</h5>
+        <strong>Alamat</strong>
+        <p> 01, Jl. Halmahera No.KM, Mintaragen, Kec. Tegal Tim., Kota Tegal, Jawa Tengah 52121
+        </p>
+        <strong>Kontak</strong>
+        <p> Telp : +62 2833 51082
+          Email : Info@upstegal.ac.id
+        </p>
+      </div>
+
+      <div class="col mb-3">
+        <h5>Sosial Media</h5>
+     
+      </div>
+
+      
+    </footer>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
