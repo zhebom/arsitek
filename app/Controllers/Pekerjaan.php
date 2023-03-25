@@ -9,4 +9,10 @@ class Pekerjaan extends BaseController
   
          echo view('pages/pekerjaan');
     }
+
+    public function detail()
+    {
+  
+         echo view('pages/detail-pekerjaan');
+    }
 }
