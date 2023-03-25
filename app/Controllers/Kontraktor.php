@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Kontraktor extends BaseController
 {
     public function index()
     {
   
-         echo view('pages/home');
+         echo view('pages/kontraktor');
     }
 }
