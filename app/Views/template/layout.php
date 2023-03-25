@@ -63,12 +63,12 @@
 
     <!-- Custom styles for this template -->
     <link href="./heroes/heroes.css" rel="stylesheet">
-      <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../adminlte/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../adminlte/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
 </head>
 
 <body>
@@ -122,7 +122,13 @@
                     </div>
                 </div>
 
-                <form class="d-grid gap-2" role="search">
+                <form class="d-grid gap-2 p-2" role="search">
+                    <button class="btn btn-warning" type="submit"><strong>Login</strong></button>
+                 
+
+                </form>
+                <form class="d-grid gap-2 p-2" role="search">
+                
                     <button class="btn btn-outline-warning" type="submit"><strong>Sewa Sekarang</strong></button>
 
                 </form>
