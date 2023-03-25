@@ -144,7 +144,7 @@
 
   <div class="section-cv p-3">
     <div class="container">
-
+      <h5 class="mb-2">Data Kontraktor</h5>
       <div class="container text-center">
         <div class="row justify-content-center">
           <div class="col">
@@ -212,8 +212,57 @@
 
   </div>
 
+  <div class="section-putih p-3">
+
+    <div class="container">
+      <h5 class="mb-2">Pekerjaan Terbaru</h5>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 col-lg-6 col-xl-4">
+            <div class="card mb-2 bg-gradient-dark">
+              <img class="card-img-top" src="./heroes/photo1.png" alt="Dist Photo 1">
+              <div class="card-img-overlay d-flex flex-column justify-content-end">
+                <h5 class="card-title text-primary text-white">Card Title</h5>
+                <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
+                <a href="#" class="text-white">Last update 2 mins ago</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 col-xl-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="./heroes/photo1.png" alt="Dist Photo 2">
+              <div class="card-img-overlay d-flex flex-column justify-content-center">
+                <h5 class="card-title text-white mt-5 pt-2">Card Title</h5>
+                <p class="card-text pb-2 pt-1 text-white">
+                  Lorem ipsum dolor sit amet, <br>
+                  consectetur adipisicing elit <br>
+                  sed do eiusmod tempor.
+                </p>
+                <a href="#" class="text-white">Last update 15 hours ago</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 col-xl-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="./heroes/photo1.png" alt="Dist Photo 3">
+              <div class="card-img-overlay">
+                <h5 class="card-title text-primary">Card Title</h5>
+                <p class="card-text pb-1 pt-1 text-white">
+                  Lorem ipsum dolor <br>
+                  sit amet, consectetur <br>
+                  adipisicing elit sed <br>
+                  do eiusmod tempor. </p>
+                <a href="#" class="text-primary">Last update 3 days ago</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  </div>
+  
   <div class="container">
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
       <div class="col mb-4">
@@ -224,7 +273,7 @@
         </a>
         <p class="text-muted">Architect Hub berdiri pada tahun 2023 yang diawali dengan kemerdekaan indonesia,
           mengenai pemindahan kekuasaan dan lain - lain akan dilaksanakan dengan cara seksama dan dalam tempo yang sesingkat singkatnya.
-          
+
         </p>
       </div>
 
@@ -243,10 +292,10 @@
 
       <div class="col mb-3">
         <h5>Sosial Media</h5>
-     
+
       </div>
 
-      
+
     </footer>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
