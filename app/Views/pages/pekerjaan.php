@@ -16,7 +16,7 @@
               <div class="card-img-overlay d-flex flex-column justify-content-end">
                 <h5 class="card-title text-primary text-white">Card Title</h5>
                 <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                <a href="#" class="text-white">Last update 2 mins ago</a>
+                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-white">Last update 2 mins ago</a>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@
               <div class="card-img-overlay d-flex flex-column justify-content-end">
                 <h5 class="card-title text-primary text-white">Card Title</h5>
                 <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                <a href="#" class="text-white">Last update 2 mins ago</a>
+                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-white">Last update 2 mins ago</a>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
               <div class="card-img-overlay d-flex flex-column justify-content-end">
                 <h5 class="card-title text-primary text-white">Card Title</h5>
                 <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                <a href="#" class="text-white">Last update 2 mins ago</a>
+                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-white">Last update 2 mins ago</a>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
               <div class="card-img-overlay d-flex flex-column justify-content-end">
                 <h5 class="card-title text-primary text-white">Card Title</h5>
                 <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                <a href="#" class="text-white">Last update 2 mins ago</a>
+                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-white">Last update 2 mins ago</a>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
                   consectetur adipisicing elit <br>
                   sed do eiusmod tempor.
                 </p>
-                <a href="#" class="text-white">Last update 15 hours ago</a>
+                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-white">Last update 15 hours ago</a>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@
                   sit amet, consectetur <br>
                   adipisicing elit sed <br>
                   do eiusmod tempor. </p>
-                <a href="#" class="text-primary">Last update 3 days ago</a>
+                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-primary">Last update 3 days ago</a>
               </div>
             </div>
           </div>
