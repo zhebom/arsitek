@@ -99,7 +99,7 @@
                                     <a class="nav-link" href="<?= base_url("kontraktor"); ?>">Penyedia Jasa</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Cara Penggunaan Aplikasi</a>
+                                    <a class="nav-link" href="<?= base_url("faq"); ?>"> Cara Penggunaan Aplikasi</a>
                                 </li>
                                 <!-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -125,7 +125,7 @@
                 </div>
 
                 <form class="d-grid gap-2 p-2" role="search">
-                    <button class="btn btn-warning" type="submit"><strong>Login</strong></button>
+                    <button class="btn btn-primary" type="submit"><strong>Login</strong></button>
                  
 
                 </form>
