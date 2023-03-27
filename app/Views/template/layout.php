@@ -125,7 +125,7 @@
                 </div>
 
                 <form class="d-grid gap-2 p-2" role="search">
-                    <button class="btn btn-primary" type="submit"><strong>Login</strong></button>
+                    <button class="btn btn-danger" type="submit"><strong>Login</strong></button>
                  
 
                 </form>
