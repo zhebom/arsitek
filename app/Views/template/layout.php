@@ -124,12 +124,12 @@
                     </div>
                 </div>
 
-                <form class="d-grid gap-2 p-2" role="search">
-                    <button class="btn btn-warning" type="submit"><strong>Login</strong></button>
+                <form class="d-grid gap-2 p-1" role="search">
+                    <button class="btn btn-danger" type="submit"><strong>Login</strong></button>
 
 
                 </form>
-                <form class="d-grid gap-2 p-2" role="search">
+                <form class="d-grid gap-2 p-1" role="search">
 
                     <button class="btn btn-outline-warning" type="submit"><strong>Sewa Sekarang</strong></button>
 
