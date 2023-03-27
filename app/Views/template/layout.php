@@ -86,7 +86,7 @@
 
                 <div class="container text-center">
                     <div class="row align-items-center">
-                      
+
                         <div class="col">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
@@ -120,7 +120,7 @@
                             </ul>
 
                         </div>
-                     
+
                     </div>
                 </div>
 
@@ -129,8 +129,8 @@
                  
 
                 </form>
-                <form class="d-grid gap-2 p-2" role="search">
-                
+                <form class="d-grid gap-2 p-1" role="search">
+
                     <button class="btn btn-outline-warning" type="submit"><strong>Sewa Sekarang</strong></button>
 
                 </form>
@@ -181,5 +181,13 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
+<script>
+    var myModal = document.getElementById('Modal')
+
+
+    myModal.addEventListener('shown.bs.modal', function() {
+        myInput.focus()
+    })
+</script>
 
 </html>

@@ -15,29 +15,33 @@
           <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
             <div class="row">
               <div class="col-12 col-sm-6">
-                <div class="info-box bg-light">
-                  <div class="info-box-content">
-                    <div class="alert alert-dark" role="alert">
-                      <h4 class="alert-heading">Budget Yang Tersedia</h4>
-                      <p>2300
-                    </div>
-                    <!-- <span class="info-box-text text-center text-muted">Estimasi Biaya</span>
-                    <span class="info-box-number text-center text-muted mb-0">2300</span> -->
-                  </div>
+                <div class="alert alert-dark" role="alert">
+                  <h4 class="alert-heading">Estimasi Biaya</h4>
+                  <p>2300</p>
+
                 </div>
+
+                <!-- <div class="info-box bg-light">
+                  <div class="info-box-content">
+                    <span class="info-box-text text-center text-muted">Estimasi Biaya</span>
+                    <span class="info-box-number text-center text-muted mb-0">2300</span>
+                  </div>
+                </div> -->
               </div>
 
               <div class="col-12 col-sm-6">
-                <div class="info-box bg-light">
-                  <div class="info-box-content">
-                  <div class="alert alert-dark" role="alert">
-                      <h4 class="alert-heading">Perkiraan Waktu (hari)</h4>
-                      <p>23
-                    </div>
-                    <!-- <span class="info-box-text text-center text-muted">Perkiraan Waktu (hari)</span>
-                    <span class="info-box-number text-center text-muted mb-0">20</span> -->
-                  </div>
+
+                <div class="alert alert-dark" role="alert">
+                  <h4 class="alert-heading">Perkiraan Waktu (hari)</h4>
+                  <p>20</p>
+
                 </div>
+                <!-- <div class="info-box bg-light">
+                  <div class="info-box-content">
+                    <span class="info-box-text text-center text-muted">Perkiraan Waktu (hari)</span>
+                    <span class="info-box-number text-center text-muted mb-0">20</span>
+                  </div>
+                </div> -->
               </div>
             </div>
             <div class="row">
@@ -75,9 +79,12 @@
           </div>
           <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
 
-            <div class="d-grid mt-2 p-2">
+            <div class="d-grid mt-2 p-1 ">
 
-              <a href="#" class="btn btn-sm btn-warning">Kirim Penawaran</a>
+
+              <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Kirim Penawaran
+              </button>
             </div>
           </div>
         </div>
@@ -90,4 +97,29 @@
 
   </div>
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">kirim penawaran ke klien</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Nama Projek : lomba
+          Detail PRoject : sekiatn
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+
+
+  </div>
   <?= $this->endSection(); ?>
