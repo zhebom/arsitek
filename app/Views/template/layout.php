@@ -125,7 +125,19 @@
                 </div>
 
                 <form class="d-grid gap-2 p-2" role="search">
-                    <button class="btn btn-dangerg" type="submit"><strong>Login</strong></button>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-dangerg" type="submit"><strong>Login</strong></button>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Pengguna Jasa</a></li>
+                                        <li><a class="dropdown-item" href="#">Kontraktor</a></li>
+                                        
+                                    </ul>
+                                </li>
+                </ul>
+                <!-- //   <button class="btn btn-dangerg" type="submit"><strong>Login</strong></button> -->
                  
 
                 </form>
