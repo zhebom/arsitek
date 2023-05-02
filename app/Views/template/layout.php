@@ -131,7 +131,7 @@
                 </form>
                 <form class="d-grid gap-2 p-1" role="search">
 
-                    <button class="btn btn-outline-warning" type="submit"><strong>Sewa Sekarang</strong></button>
+                    <button class="btn btn-outline-warning" type="submit"><strong>Posting Pekerjaan</strong></button>
 
                 </form>
 
