@@ -115,6 +115,11 @@
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
+      <!-- /.card-body -->
     </div>
+    <!-- /.card -->
+
+
+
   </div>
   <?= $this->endSection(); ?>
