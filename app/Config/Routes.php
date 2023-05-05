@@ -32,7 +32,8 @@ $routes->set404Override();
 
 //validasi
 $routes->get('/login', 'LoginUser::index');
-$routes->get('/login/pilih', 'LoginUser::list');
+$routes->get('/login/user', 'LoginUser::list');
+$routes->get('/login/kontraktor', 'LoginKontrak::list');
 
 
 // Umum

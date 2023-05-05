@@ -131,8 +131,8 @@
                                     <button class="btn btn-dangerg" type="submit"><strong>Login</strong></button>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Pengguna Jasa</a></li>
-                                        <li><a class="dropdown-item" href="#">Kontraktor</a></li>
+                                        <li><a class="dropdown-item" href="<?= base_url('/login/user'); ?>">Pengguna Jasa</a></li>
+                                        <li><a class="dropdown-item" href="<?= base_url('/login/kontraktor'); ?>">Kontraktor</a></li>
                                         
                                     </ul>
                                 </li>
