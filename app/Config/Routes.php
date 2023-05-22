@@ -36,6 +36,10 @@ $routes->get('/login/user', 'LoginUser::list');
 $routes->get('/login/kontraktor', 'LoginKontrak::list');
 
 
+//admin
+$routes->get('/admin', 'Admin::index');
+
+
 // Umum
 $routes->get('/', 'Home::index');
 $routes->get('/kontraktor', 'Kontraktor::index');
