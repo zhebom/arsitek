@@ -244,15 +244,15 @@
             </li>
 
             <li class="nav-header">Pengaturan Situs</li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="iframe.html" class="nav-link">
 
                 <i class="nav-icon fa-solid fa-sign-hanging"></i>
                 <p>Judul</p>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
-              <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+              <a href="<?= base_url('/situs'); ?>" class="nav-link">
                 <i class="nav-icon fas fa-italic"></i>
                 <p>Deskripsi Situs</p>
               </a>

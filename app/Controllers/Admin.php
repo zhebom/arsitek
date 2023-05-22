@@ -12,7 +12,10 @@ class Admin extends BaseController
 
     public function judul()
     {
-  
+        
+
          echo view('admin/pages/deskripsi.php');
+
+         
     }
 }
