@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="adminlte/plugins/fontawesome-free/css/all.min.css">
+  
+  <script src="https://kit.fontawesome.com/14004c86b9.js" crossorigin="anonymous"></script>
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
@@ -239,45 +241,50 @@
             </ul>
           </li>
          
-          <li class="nav-header">Header</li>
+          <li class="nav-header">Pengaturan Situs</li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>Tabbed IFrame Plugin</p>
+            
+              <i class="nav-icon fa-solid fa-sign-hanging"></i>
+              <p>Judul</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
-            </a>
-          </li>
-          <li class="nav-header">Content</li>
-          <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>Tabbed IFrame Plugin</p>
+              <i class="nav-icon fas fa-italic"></i>
+              <p>Deskripsi Situs</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
+              <i class="nav-icon fas fa-share-nodes"></i>
+              <p>Sosial Media</p>
             </a>
           </li>
-          <li class="nav-header">Footer</li>
+          <li class="nav-header">Pengaturan Konten</li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>Tabbed IFrame Plugin</p>
+              <i class="nav-icon fas fa-pen-to-square"></i>
+              <p>Pelatihan</p>
+            </a>
+          </li>
+          
+          </li>
+
+          <li class="nav-header">Pengaturan Pengguna</li>
+          <li class="nav-item">
+            <a href="iframe.html" class="nav-link">
+              <i class="nav-icon fas fa-user-tie"></i>
+              <p>Daftar Pengguna</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
+              <i class="nav-icon fas fa-truck-monster"></i>
+              <p>Daftar Kontraktor</p>
             </a>
           </li>
+          
          
         </ul>
       </nav>
