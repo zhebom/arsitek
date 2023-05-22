@@ -9,4 +9,10 @@ class Admin extends BaseController
   
          echo view('admin/pages/beranda.php');
     }
+
+    public function judul()
+    {
+  
+         echo view('admin/pages/deskripsi.php');
+    }
 }
