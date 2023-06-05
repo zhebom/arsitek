@@ -18,4 +18,13 @@ class Admin extends BaseController
 
          
     }
+
+    public function faq()
+    {
+        
+
+         echo view('admin/pages/faq.php');
+
+         
+    }
 }

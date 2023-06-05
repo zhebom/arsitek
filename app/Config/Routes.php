@@ -38,7 +38,8 @@ $routes->get('/login/kontraktor', 'LoginKontrak::list');
 
 //admin
 $routes->get('/admin', 'Admin::index');
-$routes->get('/situs', 'Admin::judul');
+$routes->get('/admin/situs', 'Admin::judul');
+$routes->get('/admin/faqs', 'Admin::faq');
 
 // Umum
 $routes->get('/', 'Home::index');
