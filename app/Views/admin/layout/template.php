@@ -252,20 +252,20 @@
               </a>
             </li> -->
             <li class="nav-item">
-              <a href="<?= base_url('/situs'); ?>" class="nav-link">
+              <a href="<?= base_url('/admin/situs'); ?>" class="nav-link">
                 <i class="nav-icon fas fa-italic"></i>
                 <p>Deskripsi Situs</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+              <a href="£" class="nav-link">
                 <i class="nav-icon fas fa-share-nodes"></i>
                 <p>Sosial Media</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                <i class="nav-icon fas fa-share-nodes"></i>
+              <a href="<?= base_url('/admin/faqs'); ?>" class="nav-link">
+                <i class="nav-icon fas fa-question"></i>
                 <p>Faq</p>
               </a>
             </li>
