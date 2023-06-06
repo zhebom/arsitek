@@ -27,4 +27,22 @@ class Admin extends BaseController
 
          
     }
+
+     public function sosmed()
+    {
+        
+
+         echo view('admin/pages/sosmed.php');
+
+         
+    }
+
+    public function pelatihan()
+    {
+        
+
+         echo view('admin/pages/pelatihan.php');
+
+         
+    }
 }

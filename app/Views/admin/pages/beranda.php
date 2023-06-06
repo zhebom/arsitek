@@ -1,7 +1,7 @@
 <?= $this->extend('admin/layout/template'); ?>
 
 <?= $this->section('content'); ?>
-<section class="content">
+<!-- <section class="content"> -->
 
     <!-- Default box -->
     <div class="card">
@@ -18,5 +18,5 @@
     </div>
     <!-- /.card -->
 
-</section>
+<!-- </section> -->
 <?= $this->endSection(); ?>
