@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\situsModel;
 
 class Admin extends BaseController
 {
@@ -15,6 +16,22 @@ class Admin extends BaseController
         
 
          echo view('admin/pages/deskripsi.php');
+
+         
+    }
+
+    public function addjudul()
+    {
+        
+
+          $sM = new situsModel();
+
+          $sM->save([
+               'judul_situs' =  $this->request->getVar('judul'),
+               'desc_situs' =  $this->request->getVar('desc')
+          ]);
+
+     //     echo view('admin/pages/deskripsi.php');
 
          
     }

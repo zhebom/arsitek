@@ -43,6 +43,10 @@ $routes->get('/admin/faqs', 'Admin::faq');
 $routes->get('/admin/sosmed', 'Admin::sosmed');
 $routes->get('/admin/pelatihan', 'Admin::pelatihan');
 
+//judul & Deskripsi
+$routes->get('/admin/situs/add', 'Admin::addjudul');
+
+
 // Umum
 $routes->get('/', 'Home::index');
 $routes->get('/kontraktor', 'Kontraktor::index');
