@@ -44,7 +44,7 @@ $routes->get('/admin/sosmed', 'Admin::sosmed');
 $routes->get('/admin/pelatihan', 'Admin::pelatihan');
 
 //judul & Deskripsi
-$routes->get('/admin/situs/add', 'Admin::addjudul');
+$routes->post('/admin/situs/add', 'Admin::addjudul');
 
 
 // Umum
