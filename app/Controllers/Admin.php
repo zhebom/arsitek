@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\situsModel;
+use CodeIgniter\Database\Query;
 
 class Admin extends BaseController
 {
@@ -24,16 +25,26 @@ class Admin extends BaseController
 
           $today = date("Y-m-d H:i:s");
           $sM = new situsModel();
-          
-          $sM->save([
+          $sM1 = $sM->query("SELECT * FROM situs ")->getResult();
+          if ($sM1) {
+               $sM->replace([
 
-               'judul_situs' =>  $this->request->getVar('judul'),
-               'desc_situs' =>  $this->request->getVar('desc'),
-               'updated_at' => $today,
+                    'judul_situs' =>  $this->request->getVar('judul'),
+                    'desc_situs' =>  $this->request->getVar('desc'),
+                    'updated_at' => $today,
 
 
-          ]);
+               ]);
+          } else {
+               $sM->save([
 
+                    'judul_situs' =>  $this->request->getVar('judul'),
+                    'desc_situs' =>  $this->request->getVar('desc'),
+                    'updated_at' => $today,
+
+
+               ]);
+          }
           //     echo view('admin/pages/deskripsi.php');
 
 
