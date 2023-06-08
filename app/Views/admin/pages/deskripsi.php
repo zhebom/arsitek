@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Title</h3>
-
+<?php var_dump($a); ?>
     </div>
     <div class="card-body">
         <div class="card-body">

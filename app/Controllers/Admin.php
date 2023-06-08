@@ -7,10 +7,23 @@ use CodeIgniter\Database\Query;
 
 class Admin extends BaseController
 {
+
+     protected $sM;
+     public function __construct()
+     {
+          //    $this->userModel = new UserModel();//Create a instance of the model
+          //    helper('form', 'url');
+
+          $this->sM = new situsModel();
+          $this->sM->query("SELECT * FROM situs ")->getResult();
+     }
      public function index()
      {
+          // $data = [
+          //      'a' => $this->sM,
 
-          echo view('admin/pages/beranda.php');
+          // ];
+          echo view('admin/pages/beranda.php', $data);
      }
 
      public function judul()
@@ -24,10 +37,11 @@ class Admin extends BaseController
      {
 
           $today = date("Y-m-d H:i:s");
-          $sM = new situsModel();
-          $sM1 = $sM->query("SELECT * FROM situs ")->getResult();
-          if ($sM1) {
-               $sM->replace([
+          //  $sM = new situsModel();
+          //  $sM1 = $sM->query("SELECT * FROM situs ")->getResult();
+
+          if ($this->sM) {
+               $this->sM->replace([
 
                     'judul_situs' =>  $this->request->getVar('judul'),
                     'desc_situs' =>  $this->request->getVar('desc'),
@@ -36,7 +50,7 @@ class Admin extends BaseController
 
                ]);
           } else {
-               $sM->save([
+               $this->sM->save([
 
                     'judul_situs' =>  $this->request->getVar('judul'),
                     'desc_situs' =>  $this->request->getVar('desc'),
@@ -45,6 +59,8 @@ class Admin extends BaseController
 
                ]);
           }
+
+          return view('admin/pages/deskripsi.php');
           //     echo view('admin/pages/deskripsi.php');
 
 
