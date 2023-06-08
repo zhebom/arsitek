@@ -11,13 +11,13 @@
     </div>
     <div class="card-body">
         <div class="card-body">
-            <form>
+            <form action="<?= base_url('/admin/situs/add'); ?>" method="POST">
                 <div class="row">
                     <div class="col-sm-6">
                         <!-- text input -->
                         <div class="form-group">
                             <label>Judul Situs</label>
-                            <input type="text" class="form-control" placeholder="Masukan Judul Situs ..." name="judul" id="judul">
+                            <input type="text" class="form-control" placeholder="Masukan Judul Situs ..." id="judul" name="judul">
                         </div>
                     </div>
 
@@ -27,7 +27,7 @@
                         <!-- textarea -->
                         <div class="form-group">
                             <label>Deskripsi Situs</label>
-                            <textarea class="form-control" rows="3" placeholder="Masukan deskripsi ..." name="desc" id="desc"></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Masukan deskripsi ..." id="desc" name="desc"></textarea>
                         </div>
                     </div>
 
