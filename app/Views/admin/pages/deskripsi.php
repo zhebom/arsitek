@@ -17,7 +17,7 @@
                         <!-- text input -->
                         <div class="form-group">
                             <label>Judul Situs</label>
-                            <input type="text" class="form-control" placeholder="Masukan Judul Situs ...">
+                            <input type="text" class="form-control" placeholder="Masukan Judul Situs ..." name="judul" id="judul">
                         </div>
                     </div>
 
@@ -27,7 +27,7 @@
                         <!-- textarea -->
                         <div class="form-group">
                             <label>Deskripsi Situs</label>
-                            <textarea class="form-control" rows="3" placeholder="Masukan deskripsi ..."></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Masukan deskripsi ..." name="desc" id="desc"></textarea>
                         </div>
                     </div>
 
