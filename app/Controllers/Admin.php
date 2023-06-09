@@ -41,11 +41,7 @@ class Admin extends BaseController
      public function addjudul()
      {
 
-          $data = [
-               'title' => 'Pengaturan Situs',
-               'menu' => 'deskripsiSitus',
-               
-          ];
+          
            $sM = new situsModel();
           //  $sM1 = $sM->query("SELECT * FROM situs ")->getResult();
           $today = date("Y-m-d H:i:s");
