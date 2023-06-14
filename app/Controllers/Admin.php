@@ -7,26 +7,49 @@ use CodeIgniter\Database\Query;
 
 class Admin extends BaseController
 {
+
+     //  protected $sM;
+     public function __construct()
+     {
+          //    $this->userModel = new UserModel();//Create a instance of the model
+          //    helper('form', 'url');
+          // $sM = new situsModel();
+          
+          // $this->sM->query("SELECT * FROM situs ")->getResult();
+     }
      public function index()
      {
-
-          echo view('admin/pages/beranda.php');
+          $data = [
+               'title' => 'Dashboard',
+               'menu' => 'dashboard'
+          ];
+          echo view('admin/pages/beranda.php',$data);
      }
 
      public function judul()
      {
-
-
-          echo view('admin/pages/deskripsi.php');
+          $sM = new situsModel();
+          
+          $data = [
+               'title' => 'Pengaturan Situs',
+               'menu' => 'deskripsiSitus',
+               'tampil' => $sM->tampilData()
+          ];
+          echo view('admin/pages/deskripsi.php',$data);
      }
 
      public function addjudul()
      {
 
+          
+           $sM = new situsModel();
+          //  $sM1 = $sM->query("SELECT * FROM situs ")->getResult();
           $today = date("Y-m-d H:i:s");
-          $sM = new situsModel();
-          $sM1 = $sM->query("SELECT * FROM situs ")->getResult();
-          if ($sM1) {
+          if ($sM->tampilData()) {
+               
+               
+                    
+               
                $sM->replace([
 
                     'judul_situs' =>  $this->request->getVar('judul'),
@@ -35,6 +58,7 @@ class Admin extends BaseController
 
 
                ]);
+
           } else {
                $sM->save([
 
@@ -45,6 +69,8 @@ class Admin extends BaseController
 
                ]);
           }
+
+          return redirect()->to('admin/situs');
           //     echo view('admin/pages/deskripsi.php');
 
 

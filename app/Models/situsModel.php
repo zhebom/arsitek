@@ -11,5 +11,10 @@ class situsModel extends Model
 
     protected $useAutoIncrement = true;
     protected $allowedFields = ['id_situs', 'judul_situs','desc_situs','updated_at','deleted_at'];
-
+    
+    public function tampilData(){
+        $sM = new situsModel();
+        return  $sM->query("SELECT * FROM situs ")->getResult();
+        
+    }
 }
