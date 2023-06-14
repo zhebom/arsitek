@@ -75,8 +75,7 @@ class Admin extends BaseController
                return redirect()->to(base_url('admin/situs'))->withinput();
           }
 
-         // return redirect()->to('admin/situs');
-          //     echo view('admin/pages/deskripsi.php');
+         
 
 
      }
