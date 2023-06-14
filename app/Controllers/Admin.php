@@ -59,6 +59,9 @@ class Admin extends BaseController
 
                ]);
 
+               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Dirubah</div>');
+               return redirect()->to(base_url('admin/situs'))->withinput();
+
           } else {
                $sM->save([
 
@@ -68,9 +71,11 @@ class Admin extends BaseController
 
 
                ]);
+               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+               return redirect()->to(base_url('admin/situs'))->withinput();
           }
 
-          return redirect()->to('admin/situs');
+         // return redirect()->to('admin/situs');
           //     echo view('admin/pages/deskripsi.php');
 
 
