@@ -386,8 +386,7 @@
   });
 </script>
 
-<!-- Ekko Lightbox -->
-<script src="<?= base_url('/plugins/ekko-lightbox/ekko-lightbox.min.js') ?>"></script>
+
 </body>
 
 </html>
