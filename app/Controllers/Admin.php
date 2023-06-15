@@ -113,7 +113,7 @@ class Admin extends BaseController
                [
                     'sosmed' => 'required',
                     'link' => 'required',
-                    'logo' => 'uploaded[customFile]|ext_in[customFile,jpeg]'
+                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpeg]'
                ],
                [
                     'sosmed' => [
@@ -122,7 +122,7 @@ class Admin extends BaseController
                     'link' => [
                          'required' => 'Link harus diisi'
                     ],
-                    'pdfku' => [
+                    'customFile' => [
                          'uploaded' => 'lho kok belum upload',
                          'ext_in' => 'File harus berekstensi JPG/JPEG'
                      ]
@@ -130,7 +130,7 @@ class Admin extends BaseController
                ]
           )) {
 
-              session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+               session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
                return redirect()->to(base_url('admin/sosmed/add'))->withinput();
           }
 
