@@ -46,6 +46,8 @@ $routes->get('/admin/pelatihan', 'Admin::pelatihan');
 //judul & Deskripsi
 $routes->post('/admin/situs/add', 'Admin::addjudul');
 
+//Sosial Media
+$routes->get('/admin/sosmed/add', 'Admin::addsosmed');
 
 // Umum
 $routes->get('/', 'Home::index');

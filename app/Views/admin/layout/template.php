@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="<?= base_url('/adminlte/plugins/daterangepicker/daterangepicker.css'); ?>">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url('/adminlte/plugins/summernote/summernote-bs4.min.css'); ?>">
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="<?= base_url('/plugins/ekko-lightbox/ekko-lightbox.css'); ?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -235,7 +237,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('/admin/sosmed'); ?>" class="nav-link">
+              <a href="<?= base_url('/admin/sosmed'); ?>" class="nav-link <?php if ($menu == "sosmedSitus"){echo "active";} ?>">
                 <i class="nav-icon fas fa-share-nodes"></i>
                 <p>Sosial Media</p>
               </a>
@@ -289,7 +291,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
+                <li class="breadcrumb-item active"><?= $title; ?></li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -383,6 +385,9 @@
     });
   });
 </script>
+
+<!-- Ekko Lightbox -->
+<script src="<?= base_url('/plugins/ekko-lightbox/ekko-lightbox.min.js') ?>"></script>
 </body>
 
 </html>

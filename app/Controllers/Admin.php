@@ -90,8 +90,25 @@ class Admin extends BaseController
      public function sosmed()
      {
 
+           
+          $data = [
+               'title' => 'Pengaturan Sosial Media',
+               'menu' => 'sosmedSitus'
+          ];
+          echo view('admin/pages/sosmed.php',$data);
+      
+     }
 
-          echo view('admin/pages/sosmed.php');
+     public function addsosmed()
+     {
+
+           
+          $data = [
+               'title' => 'Pengaturan Sosial Media',
+               'menu' => 'sosmedSitus'
+          ];
+          echo view('admin/pages/tambahsosmed.php',$data);
+        //  return redirect()->to(base_url('admin/sosmed/add'))->withinput();
      }
 
      public function pelatihan()
