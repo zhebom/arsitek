@@ -14,7 +14,7 @@ class Admin extends BaseController
           //    $this->userModel = new UserModel();//Create a instance of the model
           //    helper('form', 'url');
           // $sM = new situsModel();
-          
+
           // $this->sM->query("SELECT * FROM situs ")->getResult();
      }
      public function index()
@@ -23,33 +23,33 @@ class Admin extends BaseController
                'title' => 'Dashboard',
                'menu' => 'dashboard'
           ];
-          echo view('admin/pages/beranda.php',$data);
+          echo view('admin/pages/beranda.php', $data);
      }
 
      public function judul()
      {
           $sM = new situsModel();
-          
+
           $data = [
                'title' => 'Pengaturan Situs',
                'menu' => 'deskripsiSitus',
                'tampil' => $sM->tampilData()
           ];
-          echo view('admin/pages/deskripsi.php',$data);
+          echo view('admin/pages/deskripsi.php', $data);
      }
 
      public function addjudul()
      {
 
-          
-           $sM = new situsModel();
+
+          $sM = new situsModel();
           //  $sM1 = $sM->query("SELECT * FROM situs ")->getResult();
           $today = date("Y-m-d H:i:s");
           if ($sM->tampilData()) {
-               
-               
-                    
-               
+
+
+
+
                $sM->replace([
 
                     'judul_situs' =>  $this->request->getVar('judul'),
@@ -61,7 +61,6 @@ class Admin extends BaseController
 
                session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Dirubah</div>');
                return redirect()->to(base_url('admin/situs'))->withinput();
-
           } else {
                $sM->save([
 
@@ -74,10 +73,6 @@ class Admin extends BaseController
                session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
                return redirect()->to(base_url('admin/situs'))->withinput();
           }
-
-         
-
-
      }
 
      public function faq()
@@ -90,25 +85,56 @@ class Admin extends BaseController
      public function sosmed()
      {
 
-           
+
           $data = [
                'title' => 'Pengaturan Sosial Media',
                'menu' => 'sosmedSitus'
           ];
-          echo view('admin/pages/sosmed.php',$data);
-      
+          echo view('admin/pages/sosmed.php', $data);
      }
 
      public function addsosmed()
      {
+          $validasi =  \Config\Services::validation();
 
-           
           $data = [
                'title' => 'Pengaturan Sosial Media',
-               'menu' => 'sosmedSitus'
+               'menu' => 'sosmedSitus',
+               'validasi' => $validasi
           ];
-          echo view('admin/pages/tambahsosmed.php',$data);
-        //  return redirect()->to(base_url('admin/sosmed/add'))->withinput();
+          echo view('admin/pages/tambahsosmed.php', $data);
+          //return redirect()->to(base_url('admin/sosmed/add'))->withinput();
+     }
+
+     public function prosesaddsosmed()
+     {
+
+          if (!$this->validate(
+               [
+                    'sosmed' => 'required',
+                    'link' => 'required',
+                    'logo' => 'uploaded[customFile]|ext_in[customFile,jpeg]'
+               ],
+               [
+                    'sosmed' => [
+                         'required' => 'Nama Sosial Media harus diisi'
+                    ],
+                    'link' => [
+                         'required' => 'Link harus diisi'
+                    ],
+                    'pdfku' => [
+                         'uploaded' => 'lho kok belum upload',
+                         'ext_in' => 'File harus berekstensi JPG/JPEG'
+                     ]
+
+               ]
+          )) {
+
+              session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+               return redirect()->to(base_url('admin/sosmed/add'))->withinput();
+          }
+
+
      }
 
      public function pelatihan()

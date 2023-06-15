@@ -48,6 +48,7 @@ $routes->post('/admin/situs/add', 'Admin::addjudul');
 
 //Sosial Media
 $routes->get('/admin/sosmed/add', 'Admin::addsosmed');
+$routes->post('/admin/sosmed/prosesadd', 'Admin::prosesaddsosmed');
 
 // Umum
 $routes->get('/', 'Home::index');

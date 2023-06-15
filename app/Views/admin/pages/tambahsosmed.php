@@ -11,11 +11,13 @@
 
     <div class="card-body">
         <div class="card-body">
-            <form action="<?= base_url('/admin/sosmed/add'); ?>" method="Post" enctype="multipart/form-data">
+        
+            <form action="<?= base_url('/admin/sosmed/prosesadd'); ?>" method="Post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm-6">
                         <!-- text input -->
                         <?= session()->getFlashdata('msg'); ?>
+                        <?= $validasi->listErrors();?>
                         <div class="form-group">
                             <label>Nama Sosial Media</label>
                             <input type="text" class="form-control" placeholder="Masukan Nama Sosial Media ..." id="sosmed" name="sosmed">
@@ -27,7 +29,7 @@
                         <div class="form-group">
                             <label>Logo</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
+                                <input type="file" class="custom-file-input" id="customFile" name="customFile">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
                         </div>
