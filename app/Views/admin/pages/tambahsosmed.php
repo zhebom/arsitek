@@ -17,7 +17,7 @@
                     <div class="col-sm-6">
                         <!-- text input -->
                         
-                        
+                        <?= session()->getFlashdata('msg'); ?>
                         <?= validation_list_errors() ?>
                         <div class="form-group">
                             <label>Nama Sosial Media</label>

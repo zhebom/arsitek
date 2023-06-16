@@ -126,7 +126,7 @@ class Admin extends BaseController
                ]
           )) {
               
-              session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+               session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
                return redirect()->to(base_url('admin/sosmed/add'))->withinput();
           } else {
                $sM = new sosmedModel();

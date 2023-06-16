@@ -20,7 +20,7 @@
                 <div class="card-header">
 
                 <?= session()->getFlashdata('msg'); ?>
-                  <a type="button" class="btn btn-success btn-block btn-sm" href="<?= base_url('/admin/sosmed/add'); ?>"><i class="fas fa-plus"></i> Tambah Data</a>
+                  <a type="button" class="btn btn-warning btn-block btn-sm" href="<?= base_url('/admin/sosmed/add'); ?>"><i class="fas fa-plus"></i> Tambah Data</a>
                   <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
                 </div>
                 <!-- /.card-header -->
