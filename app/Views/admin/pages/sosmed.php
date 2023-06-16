@@ -6,7 +6,7 @@
 <!-- Default box -->
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Title</h3>
+    <h3 class="card-title"><?= $title; ?></h3>
 
   </div>
   <div class="card-body">
@@ -38,14 +38,14 @@
                     <tbody>
                       <?php
                       $i = 0;
+                      if ($sosmed){
                       foreach ($sosmed as $s): 
                         $i++;
                         
                         ?>
                       <tr>
                         <td><?= $i; ?></td>
-                        <td>Internet
-                          Explorer 4.0
+                        <td><img src="<?= base_url('/sosmed/'.$s->logo); ?>" width="50" height="50" >
                         </td>
                         <td><?= $s->nama; ?></td>
                         <td><?= $s->link; ?></td>
@@ -53,8 +53,14 @@
                         <a type="button" class="btn btn-danger btn-sm" href="#"><i class="fas fa-trash"></i></a>
                       </td>
                       </tr>
-                      <?php endforeach; ?>
+                      <?php endforeach; } else {?>
                       
+                      <tr>
+                        <td colspan="5" class="middle">Tidak ada data</td>
+                        
+                      </td>
+                      </tr>
+                      <?php } ?>
                     </tbody>
                     <tfoot>
                       <tr>

@@ -110,7 +110,7 @@ class Admin extends BaseController
                [
                     'sosmed' => 'required',
                     'link' => 'required',
-                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg]'
+                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg,png]'
                ],
                [
                     'sosmed' => [
@@ -121,7 +121,8 @@ class Admin extends BaseController
                     ],
                     'customFile' => [
                          'uploaded' => 'lho kok belum upload',
-                         'ext_in' => 'File harus berekstensi JPG/JPEG'
+                         'ext_in' => 'File harus berekstensi JPG/PNG'
+                      
                      ]
 
                ]

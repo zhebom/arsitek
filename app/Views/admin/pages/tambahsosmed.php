@@ -21,11 +21,11 @@
                         <?= validation_list_errors() ?>
                         <div class="form-group">
                             <label>Nama Sosial Media</label>
-                            <input type="text" class="form-control" placeholder="Masukan Nama Sosial Media ..." id="sosmed" name="sosmed">
+                            <input type="text" class="form-control" placeholder="Masukan Nama Sosial Media ..." id="sosmed" name="sosmed" value="<?= old('sosmed'); ?>">
                         </div>
                         <div class="form-group">
                             <label>Link Sosmed</label>
-                            <input type="text" class="form-control" placeholder="Masukan Link Sosial Media ..." id="link" name="link">
+                            <input type="text" class="form-control" placeholder="Masukan Link Sosial Media ..." id="link" name="link" value="<?= old('link'); ?>">
                         </div>
                         <div class="form-group">
                             <label>Logo</label>
