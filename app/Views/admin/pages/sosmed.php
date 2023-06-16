@@ -49,7 +49,9 @@
                         </td>
                         <td><?= $s->nama; ?></td>
                         <td><?= $s->link; ?></td>
-                        <td>X</td>
+                        <td> <a type="button" class="btn btn-warning btn-sm" href="#"><i class="fas fa-pen"></i></a> 
+                        <a type="button" class="btn btn-danger btn-sm" href="#"><i class="fas fa-trash"></i></a>
+                      </td>
                       </tr>
                       <?php endforeach; ?>
                       
