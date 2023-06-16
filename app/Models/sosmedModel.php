@@ -18,9 +18,10 @@ class sosmedModel extends Model
         
     }
 
-    public function editData(){
+    public function deleteData($id){
         $sM = new sosmedModel();
-        return  $sM->query("SELECT * FROM sosmed ")->getResult();
-        
+        $sM->where('id', $id);
+        $sM->delete();
+               
     }
 }

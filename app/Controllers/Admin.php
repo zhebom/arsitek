@@ -90,6 +90,15 @@ class Admin extends BaseController
           echo view('admin/pages/sosmed.php', $data);
      }
 
+     public function deletesosmed($id)
+     {
+          $sM = new sosmedModel();
+          $sM->deleteData($id);
+         
+          session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Berhasil Dihapus</div>');
+          return redirect()->to(base_url('admin/sosmed'))->withinput();
+     }
+
      public function addsosmed()
      {
           $validasi =  \Config\Services::validation();
@@ -100,6 +109,7 @@ class Admin extends BaseController
                'validasi' => $validasi
           ];
           echo view('admin/pages/tambahsosmed.php', $data);
+          
           //return redirect()->to(base_url('admin/sosmed/add'))->withinput();
      }
 

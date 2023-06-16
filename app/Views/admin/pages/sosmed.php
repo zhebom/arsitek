@@ -19,7 +19,7 @@
               <div class="card">
                 <div class="card-header">
 
-                <?= session()->getFlashdata('msg'); ?>
+                  <?= session()->getFlashdata('msg'); ?>
                   <a type="button" class="btn btn-warning btn-block btn-sm" href="<?= base_url('/admin/sosmed/add'); ?>"><i class="fas fa-plus"></i> Tambah Data</a>
                   <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
                 </div>
@@ -38,28 +38,33 @@
                     <tbody>
                       <?php
                       $i = 0;
-                      if ($sosmed){
-                      foreach ($sosmed as $s): 
-                        $i++;
-                        
-                        ?>
-                      <tr>
-                        <td><?= $i; ?></td>
-                        <td><img src="<?= base_url('/sosmed/'.$s->logo); ?>" width="50" height="50" >
-                        </td>
-                        <td><?= $s->nama; ?></td>
-                        <td><?= $s->link; ?></td>
-                        <td> <a type="button" class="btn btn-warning btn-sm" href="#"><i class="fas fa-pen"></i></a> 
-                        <a type="button" class="btn btn-danger btn-sm" href="#"><i class="fas fa-trash"></i></a>
-                      </td>
-                      </tr>
-                      <?php endforeach; } else {?>
-                      
-                      <tr>
-                        <td colspan="5" class="middle">Tidak ada data</td>
-                        
-                      </td>
-                      </tr>
+                      if ($sosmed) {
+                        foreach ($sosmed as $s) :
+                          $i++;
+
+                      ?>
+                          <tr>
+                            <td><?= $i; ?></td>
+                            <td><img src="<?= base_url('/sosmed/' . $s->logo); ?>" width="50" height="50">
+                            </td>
+                            <td><?= $s->nama; ?></td>
+                            <td><?= $s->link; ?></td>
+                            <td> <a type="button" class="btn btn-warning btn-sm" href="#"><i class="fas fa-pen"></i></a>
+                              <form action="<?= base_url('/admin/sosmed/'.$s->id); ?>" method="post" class="d-inline">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                              </form>
+
+                            </td>
+                          </tr>
+                        <?php endforeach;
+                      } else { ?>
+
+                        <tr>
+                          <td colspan="5" class="middle">Tidak ada data</td>
+
+                          </td>
+                        </tr>
                       <?php } ?>
                     </tbody>
                     <tfoot>

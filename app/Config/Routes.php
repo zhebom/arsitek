@@ -49,6 +49,7 @@ $routes->post('/admin/situs/add', 'Admin::addjudul');
 //Sosial Media
 $routes->get('/admin/sosmed/add', 'Admin::addsosmed');
 $routes->post('/admin/sosmed/prosesadd', 'Admin::prosesaddsosmed');
+$routes->delete('/admin/sosmed/(:num)', 'Admin::deletesosmed/$1');
 
 // Umum
 $routes->get('/', 'Home::index');
