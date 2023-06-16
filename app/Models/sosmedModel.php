@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class sosmedModel extends Model
+{
+    protected $table      = 'sosmed';
+    protected $primaryKey = 'id';
+
+    protected $useAutoIncrement = true;
+    protected $allowedFields = ['id', 'nama','link','logo','updated_at','deleted_at'];
+    
+    public function tampilData(){
+        $sM = new situsModel();
+        return  $sM->query("SELECT * FROM situs ")->getResult();
+        
+    }
+}

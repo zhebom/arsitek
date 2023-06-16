@@ -3,20 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\situsModel;
+use App\Models\sosmedModel;
 use CodeIgniter\Database\Query;
 
 class Admin extends BaseController
 {
 
      //  protected $sM;
-     public function __construct()
-     {
-          //    $this->userModel = new UserModel();//Create a instance of the model
-          //    helper('form', 'url');
-          // $sM = new situsModel();
-
-          // $this->sM->query("SELECT * FROM situs ")->getResult();
-     }
+     protected $helpers = ['form'];
+  
+    
      public function index()
      {
           $data = [
@@ -113,7 +109,7 @@ class Admin extends BaseController
                [
                     'sosmed' => 'required',
                     'link' => 'required',
-                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpeg]'
+                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg]'
                ],
                [
                     'sosmed' => [
@@ -129,9 +125,27 @@ class Admin extends BaseController
 
                ]
           )) {
-
-               session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+              
+              session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
                return redirect()->to(base_url('admin/sosmed/add'))->withinput();
+          } else {
+               $sM = new sosmedModel();
+               $today = date("Y-m-d H:i:s");
+               $filePend = $this->request->getFile('customFile');       
+               $filePend->move('sosmed');
+               $namaFile = $filePend->getName();
+               $sM->save([
+
+                    'nama' =>  $this->request->getVar('sosmed'),
+                    'link' =>  $this->request->getVar('link'),
+                    'logo' =>  $namaFile,
+                    'updated_at' => $today,
+
+
+               ]);
+               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+               return redirect()->to(base_url('admin/sosmed'))->withinput();
+
           }
 
 

@@ -11,13 +11,14 @@
 
     <div class="card-body">
         <div class="card-body">
-        
+   
             <form action="<?= base_url('/admin/sosmed/prosesadd'); ?>" method="Post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm-6">
                         <!-- text input -->
                         <?= session()->getFlashdata('msg'); ?>
-                        <?= $validasi->listErrors();?>
+                        
+                        <?= validation_list_errors() ?>
                         <div class="form-group">
                             <label>Nama Sosial Media</label>
                             <input type="text" class="form-control" placeholder="Masukan Nama Sosial Media ..." id="sosmed" name="sosmed">
@@ -35,7 +36,7 @@
                         </div>
                         <div class="form-group">
 
-                            <div class="card card-primary">
+                            <div class="card card-info">
                                 <div class="card-header">
                                     <h4 class="card-title">Logo Preview</h4>
                                 </div>
