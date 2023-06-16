@@ -13,8 +13,8 @@ class sosmedModel extends Model
     protected $allowedFields = ['id', 'nama','link','logo','updated_at','deleted_at'];
     
     public function tampilData(){
-        $sM = new situsModel();
-        return  $sM->query("SELECT * FROM situs ")->getResult();
+        $sM = new sosmedModel();
+        return  $sM->query("SELECT * FROM sosmed ")->getResult();
         
     }
 }

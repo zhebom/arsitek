@@ -80,11 +80,12 @@ class Admin extends BaseController
 
      public function sosmed()
      {
-
-
+          $sM = new sosmedModel();
+          $sM = $sM->tampilData();
           $data = [
                'title' => 'Pengaturan Sosial Media',
-               'menu' => 'sosmedSitus'
+               'menu' => 'sosmedSitus',
+               'sosmed' => $sM
           ];
           echo view('admin/pages/sosmed.php', $data);
      }
