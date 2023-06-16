@@ -17,4 +17,10 @@ class sosmedModel extends Model
         return  $sM->query("SELECT * FROM sosmed ")->getResult();
         
     }
+
+    public function editData(){
+        $sM = new sosmedModel();
+        return  $sM->query("SELECT * FROM sosmed ")->getResult();
+        
+    }
 }
