@@ -385,7 +385,15 @@
     });
   });
 </script>
+<script>
+  function fileupload() {
+    const custom = document.querySelector('#customFile');
+    const namafile = document.querySelector('.custom-file-label');
+    namafile.textContent = custom.files[0].name;
+  }
 
+
+</script>
 
 </body>
 

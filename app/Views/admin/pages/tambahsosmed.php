@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <!-- text input -->
-                        <?= session()->getFlashdata('msg'); ?>
+                        
                         
                         <?= validation_list_errors() ?>
                         <div class="form-group">
@@ -30,11 +30,11 @@
                         <div class="form-group">
                             <label>Logo</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile" name="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <input type="file" class="custom-file-input" id="customFile" name="customFile" onchange="fileupload()">
+                                <label class="custom-file-label" for="custo mFile">Choose file</label>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
 
                             <div class="card card-info">
                                 <div class="card-header">
@@ -52,7 +52,7 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
