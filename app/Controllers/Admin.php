@@ -3,21 +3,25 @@
 namespace App\Controllers;
 
 use App\Models\situsModel;
+use App\Models\sosmedModel;
 use CodeIgniter\Database\Query;
 
 class Admin extends BaseController
 {
 
      //  protected $sM;
+<<<<<<< HEAD
      public function __construct()
      {
          
           //    $this->userModel = new UserModel();//Create a instance of the model
           //    helper('form', 'url');
           // $sM = new situsModel();
+=======
+     protected $helpers = ['form'];
 
-          // $this->sM->query("SELECT * FROM situs ")->getResult();
-     }
+>>>>>>> e198461dd8fe8d2e9a50e7c7c6df9b217eb47329
+
      public function index()
      {
           $data = [
@@ -85,13 +89,23 @@ class Admin extends BaseController
 
      public function sosmed()
      {
-
-
+          $sM = new sosmedModel();
+          $sM = $sM->tampilData();
           $data = [
                'title' => 'Pengaturan Sosial Media',
-               'menu' => 'sosmedSitus'
+               'menu' => 'sosmedSitus',
+               'sosmed' => $sM
           ];
           echo view('admin/pages/sosmed.php', $data);
+     }
+
+     public function deletesosmed($id)
+     {
+          $sM = new sosmedModel();
+          $sM->deleteData($id);
+
+          session()->setFlashdata('msg', '<div class="alert alert-info" role="alert">Data Berhasil Dihapus</div>');
+          return redirect()->to(base_url('admin/sosmed'))->withinput();
      }
 
      public function addsosmed()
@@ -104,17 +118,37 @@ class Admin extends BaseController
                'validasi' => $validasi
           ];
           echo view('admin/pages/tambahsosmed.php', $data);
+
           //return redirect()->to(base_url('admin/sosmed/add'))->withinput();
      }
 
-     public function prosesaddsosmed()
+     public function editsosmed($id)
      {
+<<<<<<< HEAD
          
+=======
+          $validasi =  \Config\Services::validation();
+          $sM = new sosmedModel();
+          $data = [
+               'title' => 'Pengaturan Sosial Media',
+               'menu' => 'sosmedSitus',
+               'validasi' => $validasi,
+               'tampil' => $sM->singleData($id)
+          ];
+
+          echo view('admin/pages/editsosmed.php', $data);
+
+          //return redirect()->to(base_url('admin/sosmed/add'))->withinput();
+     }
+
+     public function proseseditsosmed($id)
+     {
+>>>>>>> e198461dd8fe8d2e9a50e7c7c6df9b217eb47329
           if (!$this->validate(
                [
                     'sosmed' => 'required',
                     'link' => 'required',
-                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpeg]'
+                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg,png]'
                ],
                [
                     'sosmed' => [
@@ -125,17 +159,84 @@ class Admin extends BaseController
                     ],
                     'customFile' => [
                          'uploaded' => 'lho kok belum upload',
-                         'ext_in' => 'File harus berekstensi JPG/JPEG'
-                     ]
+                         'ext_in' => 'File harus berekstensi JPG/PNG'
+
+                    ]
+
+               ]
+          )) {
+
+               session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+               return redirect()->to(base_url('admin/sosmed/edit/' . $id))->withinput();
+          } else {
+          $sM = new sosmedModel();
+          $today = date("Y-m-d H:i:s");
+          $filePend = $this->request->getFile('customFile');
+          $filePend->move('sosmed');
+          $namaFile = $filePend->getName();
+        
+               $sM->replace([
+                    'id' => $id,
+                    'nama' =>  $this->request->getVar('sosmed'),
+                    'link' =>  $this->request->getVar('link'),
+                    'logo' =>  $namaFile,
+                    'updated_at' => $today,
+
+
+               ]);
+         
+          session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Diubah</div>');
+          return redirect()->to(base_url('admin/sosmed'))->withinput();
+          }
+     }
+
+
+
+     public function prosesaddsosmed()
+     {
+
+          if (!$this->validate(
+               [
+                    'sosmed' => 'required',
+                    'link' => 'required',
+                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg,png]'
+               ],
+               [
+                    'sosmed' => [
+                         'required' => 'Nama Sosial Media harus diisi'
+                    ],
+                    'link' => [
+                         'required' => 'Link harus diisi'
+                    ],
+                    'customFile' => [
+                         'uploaded' => 'lho kok belum upload',
+                         'ext_in' => 'File harus berekstensi JPG/PNG'
+
+                    ]
 
                ]
           )) {
 
                session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
                return redirect()->to(base_url('admin/sosmed/add'))->withinput();
+          } else {
+               $sM = new sosmedModel();
+               $today = date("Y-m-d H:i:s");
+               $filePend = $this->request->getFile('customFile');
+               $filePend->move('sosmed');
+               $namaFile = $filePend->getName();
+               $sM->save([
+
+                    'nama' =>  $this->request->getVar('sosmed'),
+                    'link' =>  $this->request->getVar('link'),
+                    'logo' =>  $namaFile,
+                    'updated_at' => $today,
+
+
+               ]);
+               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+               return redirect()->to(base_url('admin/sosmed'))->withinput();
           }
-
-
      }
 
      public function pelatihan()
