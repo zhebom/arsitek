@@ -50,6 +50,7 @@ $routes->post('/admin/situs/add', 'Admin::addjudul');
 $routes->get('/admin/sosmed/add', 'Admin::addsosmed');
 $routes->post('/admin/sosmed/prosesadd', 'Admin::prosesaddsosmed');
 $routes->delete('/admin/sosmed/(:num)', 'Admin::deletesosmed/$1');
+$routes->get('/admin/sosmed/edit/(:num)', 'Admin::editsosmed/$1');
 
 // Umum
 $routes->get('/', 'Home::index');

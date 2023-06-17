@@ -18,6 +18,12 @@ class sosmedModel extends Model
         
     }
 
+    public function singleData($id){
+        $sM = new sosmedModel();
+        return  $sM->query("SELECT * FROM sosmed where id = $id")->getResult();
+        
+    }
+
     public function deleteData($id){
         $sM = new sosmedModel();
         $sM->where('id', $id);

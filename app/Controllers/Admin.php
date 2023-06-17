@@ -95,7 +95,7 @@ class Admin extends BaseController
           $sM = new sosmedModel();
           $sM->deleteData($id);
          
-          session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Berhasil Dihapus</div>');
+          session()->setFlashdata('msg', '<div class="alert alert-info" role="alert">Data Berhasil Dihapus</div>');
           return redirect()->to(base_url('admin/sosmed'))->withinput();
      }
 
@@ -109,6 +109,22 @@ class Admin extends BaseController
                'validasi' => $validasi
           ];
           echo view('admin/pages/tambahsosmed.php', $data);
+          
+          //return redirect()->to(base_url('admin/sosmed/add'))->withinput();
+     }
+
+     public function editsosmed($id)
+     {
+          $validasi =  \Config\Services::validation();
+          $sM = new sosmedModel();
+          $data = [
+               'title' => 'Pengaturan Sosial Media',
+               'menu' => 'sosmedSitus',
+               'validasi' => $validasi,
+               'tampil' => $sM->singleData($id)
+          ];
+          
+          echo view('admin/pages/editsosmed.php', $data);
           
           //return redirect()->to(base_url('admin/sosmed/add'))->withinput();
      }
