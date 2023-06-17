@@ -11,17 +11,17 @@
 
     <div class="card-body">
         <div class="card-body">
-   
-            <form action="<?= base_url('/admin/sosmed/prosesadd'); ?>" method="Post" enctype="multipart/form-data">
+        <?php if ($tampil){
+                            foreach ($tampil as $t):
+                            ?>
+            <form action="<?= base_url('/admin/sosmed/prosesedit/' . $t->id ); ?>" method="Post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm-6">
                         <!-- text input -->
                         
                         <?= session()->getFlashdata('msg'); ?>
                         <?= validation_list_errors() ?>
-                        <?php if ($tampil){
-                            foreach ($tampil as $t):
-                            ?>
+                       
                         <div class="form-group">
                             <label>Nama Sosial Media</label>
                             <input type="text" class="form-control" placeholder="Masukan Nama Sosial Media ..." id="sosmed" name="sosmed" value="<?= $t->nama; ?>">
@@ -34,7 +34,7 @@
                             <label>Logo</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="customFile" onchange="fileupload()">
-                                <label class="custom-file-label" for="custo mFile">Choose file</label>
+                                <label class="custom-file-label" for="custo mFile"><?= $t->logo; ?></label>
                             </div>
                         </div>
                         <?php 
@@ -45,7 +45,7 @@
                                 // throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
 
                             }?>
-                        <!-- <div class="form-group">
+                        <div class="form-group">
 
                             <div class="card card-info">
                                 <div class="card-header">
@@ -55,7 +55,7 @@
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
-                                                <img src="https://via.placeholder.com/300/FFFFFF?text=1" class="img-fluid mb-2" alt="white sample" />
+                                                <img src="<?= base_url('sosmed/' . $t->logo); ?>" class="img-fluid mb-2" alt="white sample" />
                                             </a>
                                         </div>
                                         
@@ -63,7 +63,7 @@
                                 </div>
 
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Ubah Data</button>
