@@ -11,6 +11,7 @@ class Admin extends BaseController
      //  protected $sM;
      public function __construct()
      {
+         
           //    $this->userModel = new UserModel();//Create a instance of the model
           //    helper('form', 'url');
           // $sM = new situsModel();
@@ -108,7 +109,7 @@ class Admin extends BaseController
 
      public function prosesaddsosmed()
      {
-
+         
           if (!$this->validate(
                [
                     'sosmed' => 'required',
