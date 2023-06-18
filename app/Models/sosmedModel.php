@@ -28,6 +28,7 @@ class sosmedModel extends Model
         $sM = new sosmedModel();
         $sM->where('id', $id);
         $sM->delete();
+        
                
     }
 }

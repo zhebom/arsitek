@@ -51,6 +51,7 @@
                             <td><?= $s->link; ?></td>
                             <td> <a type="button" class="btn btn-warning btn-sm" href="<?= base_url('admin/sosmed/edit/' . $s->id); ?>"><i class="fas fa-pen"></i></a>
                               <form action="<?= base_url('/admin/sosmed/'.$s->id); ?>" method="post" class="d-inline">
+                              <input type="hidden" name="fileLama" id="fileLama" value="<?= $s->logo; ?>">
                               <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
                               </form>

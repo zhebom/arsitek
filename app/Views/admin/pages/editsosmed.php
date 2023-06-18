@@ -25,6 +25,9 @@
                         <div class="form-group">
                             <label>Nama Sosial Media</label>
                             <input type="text" class="form-control" placeholder="Masukan Nama Sosial Media ..." id="sosmed" name="sosmed" value="<?= $t->nama; ?>">
+                            
+                            <input type="hidden" class="form-control"  id="fileLama" name="fileLama" value="<?= $t->logo; ?>">
+                            
                         </div>
                         <div class="form-group">
                             <label>Link Sosmed</label>
@@ -33,8 +36,8 @@
                         <div class="form-group">
                             <label>Logo</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile" name="customFile" onchange="fileupload()">
-                                <label class="custom-file-label" for="custo mFile"><?= $t->logo; ?></label>
+                                <input type="file" class="custom-file-input" id="customFile" name="customFile" onchange="fileupload()" value="<?= $t->logo; ?>">
+                                <label class="custom-file-label" for="customFile"><?= $t->logo; ?></label>
                             </div>
                         </div>
                         <?php 
