@@ -10,11 +10,12 @@
     </div>
     <div class="card-body">
         <div class="card-body">
-            <form action="<?= base_url('/admin/situs/add'); ?>" method="POST">
+            <form action="<?= base_url('/admin/faqs/prosesadd'); ?>" method="POST">
                 <div class="row">
                     <div class="col-sm-6">
                         <!-- text input -->
                         <?= session()->getFlashdata('msg'); ?>
+                        <?= validation_list_errors() ?>
                         <?php if ($tampil) { ?>
                             <div class="form-group">
                                 <label>Pertanyaan FAQ</label>
@@ -35,7 +36,7 @@
                             } else { ?>
                 <div class="form-group">
                     <label>Pertanyaan FAQ</label>
-                    <input type="text" class="form-control" placeholder="Masukan Pertanyaan FAQ ..." id="pertanyaan" name="pertanyaan">
+                    <input type="text" class="form-control" placeholder="Masukan Pertanyaan FAQ ..." id="pertanyaan" name="pertanyaan" value="<?= old('pertanyaan'); ?>">
                 </div>
                 </div>
         </div>
@@ -44,7 +45,7 @@
                 <!-- textarea -->
                 <div class="form-group">
                     <label>Keterangan FAQ</label>
-                    <textarea class="form-control" rows="3" placeholder="Masukan Jawaban ..." id="keterangan" name="keterangan"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Masukan Jawaban ..." id="keterangan" name="keterangan" value="<?= old('keterangan'); ?>"></textarea>
                 </div>
             </div>
         <?php } ?>

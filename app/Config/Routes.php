@@ -56,6 +56,7 @@ $routes->post('/admin/sosmed/prosesedit/(:num)', 'Admin::proseseditsosmed/$1');
 //faq
 $routes->get('/admin/faqs', 'Admin::faq');
 $routes->get('/admin/faqs/add', 'Admin::addfaq');
+$routes->post('/admin/faqs/prosesadd', 'Admin::prosesaddfaq');
 
 // Umum
 $routes->get('/', 'Home::index');

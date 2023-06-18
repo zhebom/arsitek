@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\situsModel;
 use App\Models\sosmedModel;
+use App\Models\faqModel;
 use CodeIgniter\Database\Query;
 
 class Admin extends BaseController
@@ -77,7 +78,7 @@ class Admin extends BaseController
           $data = [
                'title' => 'Pengaturan Sosial Media',
                'menu' => 'faqSitus',
-               
+
           ];
 
           echo view('admin/pages/faq.php', $data);
@@ -92,6 +93,51 @@ class Admin extends BaseController
           ];
 
           echo view('admin/pages/addfaq.php', $data);
+     }
+
+     public function prosesaddfaq()
+     {
+          if (!$this->validate(
+               [
+                    'pertanyaan' => 'required',
+                    'keterangan' => 'required',
+
+               ],
+               [
+                    'pertanyaan' => [
+                         'required' => 'Kolom harus diisi'
+                    ],
+                    'keterangan' => [
+                         'required' => 'Keterangan harus diisi'
+                    ]
+
+               ]
+          )) {
+
+                session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+                return redirect()->to(base_url('admin/faqs/add'))->withinput();
+          }
+
+          else
+
+          {
+
+               $sM = new faqModel();
+               $today = date("Y-m-d H:i:s");
+              
+               $sM->save([
+
+                    'pertanyaan' =>  $this->request->getVar('pertanyaan'),
+                    'keterangan' =>  $this->request->getVar('keterangan'),
+                    'updated_at' => $today,
+
+
+               ]);
+               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+               return redirect()->to(base_url('admin/faqs'))->withinput();
+
+          }
+         
      }
 
      public function sosmed()
@@ -111,7 +157,7 @@ class Admin extends BaseController
           $sM = new sosmedModel();
           $sM->deleteData($id);
           $oldFile = $this->request->getVar('fileLama');
-          unlink('sosmed/'.$oldFile);
+          unlink('sosmed/' . $oldFile);
           session()->setFlashdata('msg', '<div class="alert alert-info" role="alert">Data Berhasil Dihapus</div>');
           return redirect()->to(base_url('admin/sosmed'))->withinput();
      }
@@ -181,11 +227,11 @@ class Admin extends BaseController
                $namaFile = $filePend->getName();
 
 
-               
 
-               if ($filePend->getError()==4) {
 
-                    
+               if ($filePend->getError() == 4) {
+
+
                     $sM->replace([
                          'id' => $id,
                          'nama' =>  $this->request->getVar('sosmed'),
@@ -197,22 +243,20 @@ class Admin extends BaseController
                     ]);
                     session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Diubah</div>');
                     return redirect()->to(base_url('admin/sosmed'))->withinput();
-               }
-
-               else {
+               } else {
                     $oldFile = $this->request->getVar('fileLama');
                     $filePend->move('sosmed');
-               $sM->replace([
-                    'id' => $id,
-                    'nama' =>  $this->request->getVar('sosmed'),
-                    'link' =>  $this->request->getVar('link'),
-                    'logo' => $namaFile,
-                    'updated_at' => $today,
-               ]);
-               unlink('sosmed/'.$oldFile);
-               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Diubah</div>');
-               return redirect()->to(base_url('admin/sosmed'))->withinput();
-          }
+                    $sM->replace([
+                         'id' => $id,
+                         'nama' =>  $this->request->getVar('sosmed'),
+                         'link' =>  $this->request->getVar('link'),
+                         'logo' => $namaFile,
+                         'updated_at' => $today,
+                    ]);
+                    unlink('sosmed/' . $oldFile);
+                    session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Diubah</div>');
+                    return redirect()->to(base_url('admin/sosmed'))->withinput();
+               }
           }
      }
 
