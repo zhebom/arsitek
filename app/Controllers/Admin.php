@@ -74,8 +74,24 @@ class Admin extends BaseController
      public function faq()
      {
 
+          $data = [
+               'title' => 'Pengaturan Sosial Media',
+               'menu' => 'faqSitus',
+               
+          ];
 
-          echo view('admin/pages/faq.php');
+          echo view('admin/pages/faq.php', $data);
+     }
+     public function addfaq()
+     {
+
+          $data = [
+               'title' => 'Pengaturan Sosial Media',
+               'menu' => 'faqSitus',
+               'tampil' => null
+          ];
+
+          echo view('admin/pages/addfaq.php', $data);
      }
 
      public function sosmed()

@@ -39,7 +39,7 @@ $routes->get('/login/kontraktor', 'LoginKontrak::list');
 //admin
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/situs', 'Admin::judul');
-$routes->get('/admin/faqs', 'Admin::faq');
+
 $routes->get('/admin/sosmed', 'Admin::sosmed');
 $routes->get('/admin/pelatihan', 'Admin::pelatihan');
 
@@ -52,6 +52,10 @@ $routes->post('/admin/sosmed/prosesadd', 'Admin::prosesaddsosmed');
 $routes->delete('/admin/sosmed/(:num)', 'Admin::deletesosmed/$1');
 $routes->get('/admin/sosmed/edit/(:num)', 'Admin::editsosmed/$1');
 $routes->post('/admin/sosmed/prosesedit/(:num)', 'Admin::proseseditsosmed/$1');
+
+//faq
+$routes->get('/admin/faqs', 'Admin::faq');
+$routes->get('/admin/faqs/add', 'Admin::addfaq');
 
 // Umum
 $routes->get('/', 'Home::index');

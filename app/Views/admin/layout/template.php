@@ -243,7 +243,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('/admin/faqs'); ?>" class="nav-link">
+              <a href="<?= base_url('/admin/faqs'); ?>" class="nav-link <?php if ($menu == "faqSitus"){echo "active";} ?>">
                 <i class="nav-icon fas fa-question"></i>
                 <p>Faq</p>
               </a>
