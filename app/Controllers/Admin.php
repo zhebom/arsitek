@@ -51,6 +51,7 @@ class Admin extends BaseController
 
                     'judul_situs' =>  $this->request->getVar('judul'),
                     'desc_situs' =>  $this->request->getVar('desc'),
+                    'alamat' =>  $this->request->getVar('alamat'),
                     'updated_at' => $today,
 
 
@@ -63,6 +64,7 @@ class Admin extends BaseController
 
                     'judul_situs' =>  $this->request->getVar('judul'),
                     'desc_situs' =>  $this->request->getVar('desc'),
+                    'alamat' =>  $this->request->getVar('alamat'),
                     'updated_at' => $today,
 
 
@@ -75,9 +77,12 @@ class Admin extends BaseController
      public function faq()
      {
 
+          $sm = new faqModel();
+
           $data = [
-               'title' => 'Pengaturan Sosial Media',
+               'title' => 'Pengaturan FAQ',
                'menu' => 'faqSitus',
+               'tampil' => $sm->tampilData()
 
           ];
 
@@ -87,7 +92,7 @@ class Admin extends BaseController
      {
 
           $data = [
-               'title' => 'Pengaturan Sosial Media',
+               'title' => 'Pengaturan FAQ',
                'menu' => 'faqSitus',
                'tampil' => null
           ];

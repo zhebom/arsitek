@@ -31,13 +31,25 @@
                             <textarea class="form-control" rows="3" placeholder="Masukan deskripsi ..." id="desc" name="desc"><?= $t->desc_situs; ?></textarea>
                         </div>
                     </div>
-                <?php }
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label>Alamat Kantor</label>
+                            <textarea class="form-control" rows="3" placeholder="Masukan deskripsi ..." id="alamat" name="alamat"><?= $t->alamat; ?></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+            <?php }
                             } else { ?>
+            <div class="row">
                 <div class="form-group">
                     <label>Judul Situs</label>
                     <input type="text" class="form-control" placeholder="Masukan Judul Situs ..." id="judul" name="judul">
                 </div>
-                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
@@ -47,8 +59,17 @@
                     <textarea class="form-control" rows="3" placeholder="Masukan deskripsi ..." id="desc" name="desc"></textarea>
                 </div>
             </div>
-        <?php } ?>
         </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- textarea -->
+                <div class="form-group">
+                    <label>Alamat Kantor</label>
+                    <textarea class="form-control" rows="3" placeholder="Masukan alamat ..." id="alamat" name="alamat"></textarea>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

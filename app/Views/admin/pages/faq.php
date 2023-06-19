@@ -31,29 +31,25 @@
                     <th>Judul</th>
                     <th>Uraian Kegiatan</th>
                     <th>Aksi</th>
-                    <th>CSS grade</th>
+                   
                   </tr>
                   </thead>
                   <tbody>
+                    <?php if ($tampil){
+                      $i=0;
+                      foreach ($tampil as $t):
+                        $i++;
+                      ?>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                    <td><?= $i; ?></td>
+                    <td><?= $t->pertanyaan; ?>
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
+                    <td><?= $t->keterangan; ?></td>
+                    
                     <td>X</td>
+                    <?php endforeach; } else {echo "<td colspan='4'>Data tidak ditemukan</td>";} ?>
                   </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                  </tr>
-                  
+                 
                   </tbody>
                   <tfoot>
                   <tr>
@@ -61,7 +57,7 @@
                     <th>Judul</th>
                     <th>Uraian Kegiatan</th>
                     <th>Engine version</th>
-                    <th>CSS grade</th>
+                    
                   </tr>
                   </tfoot>
                 </table>
