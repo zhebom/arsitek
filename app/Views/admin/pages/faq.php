@@ -18,7 +18,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-
+              <?= session()->getFlashdata('msg'); ?>
               <a type="button" href="<?= base_url('admin/faqs/add'); ?>" class="btn btn-warning btn-block btn-sm"><i class="fas fa-plus"></i> Tambah Data</a>
                 <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
               </div>
@@ -46,7 +46,14 @@
                     </td>
                     <td><?= $t->keterangan; ?></td>
                     
-                    <td>X</td>
+                    <td>
+                    <a type="button" class="btn btn-warning btn-sm" href="<?= base_url('admin/faqs/edit/' . $t->id); ?>"><i class="fas fa-pen"></i></a>
+                    <form action="<?= base_url('/admin/faqs/'.$t->id); ?>" method="post" class="d-inline">
+                              
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
+                              </form>
+                    </td>
                     <?php endforeach; } else {echo "<td colspan='4'>Data tidak ditemukan</td>";} ?>
                   </tr>
                  

@@ -91,6 +91,7 @@ class Admin extends BaseController
      public function addfaq()
      {
 
+
           $data = [
                'title' => 'Pengaturan FAQ',
                'menu' => 'faqSitus',
@@ -98,6 +99,20 @@ class Admin extends BaseController
           ];
 
           echo view('admin/pages/addfaq.php', $data);
+     }
+
+     public function editfaq($id)
+     {
+
+          $sm = new faqModel();
+          $tampil = $sm->singleData($id);
+          $data = [
+               'title' => 'Pengaturan FAQ',
+               'menu' => 'faqSitus',
+               'tampil' => $tampil
+          ];
+
+          echo view('admin/pages/editfaq.php', $data);
      }
 
      public function prosesaddfaq()
@@ -119,17 +134,13 @@ class Admin extends BaseController
                ]
           )) {
 
-                session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
-                return redirect()->to(base_url('admin/faqs/add'))->withinput();
-          }
-
-          else
-
-          {
+               session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+               return redirect()->to(base_url('admin/faqs/add'))->withinput();
+          } else {
 
                $sM = new faqModel();
                $today = date("Y-m-d H:i:s");
-              
+
                $sM->save([
 
                     'pertanyaan' =>  $this->request->getVar('pertanyaan'),
@@ -140,9 +151,55 @@ class Admin extends BaseController
                ]);
                session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
                return redirect()->to(base_url('admin/faqs'))->withinput();
-
           }
+     }
+
+     public function proseseditfaq($id)
+     {
+          if (!$this->validate(
+               [
+                    'pertanyaan' => 'required',
+                    'keterangan' => 'required',
+
+               ],
+               [
+                    'pertanyaan' => [
+                         'required' => 'Kolom harus diisi'
+                    ],
+                    'keterangan' => [
+                         'required' => 'Keterangan harus diisi'
+                    ]
+
+               ]
+          )) {
+
+               session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+               return redirect()->to(base_url('admin/faqs/edit/' . $id))->withinput();
+          } else {
+
+               $sM = new faqModel();
+               $today = date("Y-m-d H:i:s");
+
+               $sM->save([
+                    'id' => $id,
+                    'pertanyaan' =>  $this->request->getVar('pertanyaan'),
+                    'keterangan' =>  $this->request->getVar('keterangan'),
+                    'updated_at' => $today,
+
+
+               ]);
+               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Dirubah</div>');
+               return redirect()->to(base_url('admin/faqs/edit/'.$id))->withinput();
+          }
+     }
+
+     public function deletefaq($id)
+     {
+          $sM = new faqModel();
+          $sM->deleteData($id);
          
+          session()->setFlashdata('msg', '<div class="alert alert-info" role="alert">Data Berhasil Dihapus</div>');
+          return redirect()->to(base_url('admin/faqs'))->withinput();
      }
 
      public function sosmed()
