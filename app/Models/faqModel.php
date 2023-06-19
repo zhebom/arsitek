@@ -10,25 +10,24 @@ class faqModel extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id', 'pertanyaan','keterangan','updated_at'];
-    
-    public function tampilData(){
+    protected $allowedFields = ['id', 'pertanyaan', 'keterangan', 'updated_at'];
+
+    public function tampilData()
+    {
         $sM = new faqModel();
         return  $sM->query("SELECT * FROM faq ")->getResult();
-        
     }
 
-    public function singleData($id){
+    public function singleData($id)
+    {
         $sM = new faqModel();
         return  $sM->query("SELECT * FROM faq where id = $id")->getResult();
-        
     }
 
-    public function deleteData($id){
+    public function deleteData($id)
+    {
         $sM = new faqModel();
         $sM->where('id', $id);
         $sM->delete();
-        
-               
     }
 }

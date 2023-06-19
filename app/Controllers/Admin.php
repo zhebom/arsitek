@@ -189,7 +189,7 @@ class Admin extends BaseController
 
                ]);
                session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Dirubah</div>');
-               return redirect()->to(base_url('admin/faqs/edit/'.$id))->withinput();
+               return redirect()->to(base_url('admin/faqs/edit/' . $id))->withinput();
           }
      }
 
@@ -197,7 +197,6 @@ class Admin extends BaseController
      {
           $sM = new faqModel();
           $sM->deleteData($id);
-         
           session()->setFlashdata('msg', '<div class="alert alert-info" role="alert">Data Berhasil Dihapus</div>');
           return redirect()->to(base_url('admin/faqs'))->withinput();
      }

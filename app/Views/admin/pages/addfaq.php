@@ -54,9 +54,5 @@
         </form>
     </div>
 </div>
-
-
 <!-- /.card -->
-
-
 <?= $this->endSection(); ?>
