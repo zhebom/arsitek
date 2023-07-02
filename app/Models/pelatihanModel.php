@@ -10,23 +10,23 @@ class pelatihanModel extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id', 'pelatihan', 'slug', ,'kuota','gambar','tglpelatihan','endpendaftaran', 'updated_at' , 'deleted_at'];
+    protected $allowedFields = ['id', 'pelatihan', 'slug' ,'kuota','gambar','tglpelatihan','endpendaftaran', 'updated_at' , 'deleted_at'];
 
     public function tampilData()
     {
-        $sM = new faqModel();
-        return  $sM->query("SELECT * FROM faq ")->getResult();
+        $sM = new pelatihanModel();
+        return  $sM->query("SELECT * FROM pelatihan ")->getResult();
     }
 
     public function singleData($id)
     {
-        $sM = new faqModel();
-        return  $sM->query("SELECT * FROM faq where id = $id")->getResult();
+        $sM = new pelatihanModel();
+        return  $sM->query("SELECT * FROM pelatihan where id = $id")->getResult();
     }
 
     public function deleteData($id)
     {
-        $sM = new faqModel();
+        $sM = new pelatihanModel();
         $sM->where('id', $id);
         $sM->delete();
     }

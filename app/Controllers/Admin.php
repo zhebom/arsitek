@@ -417,10 +417,12 @@ class Admin extends BaseController
                $sM = new pelatihanModel();
                $today = date("Y-m-d H:i:s");
                $filePend = $this->request->getFile('customFile');
-               $filePend->move('sosmed');
+               $filePend->move('thumbnails');
                $namaFile = $filePend->getName();
+               $slug = url_title($this->request->getVar('pelatihan'),("-"));
                $sM->save([
-                    'pelatihan' =>  $this->request->getVar('sosmed'),
+                    'pelatihan' =>  $this->request->getVar('pelatihan'),
+                    'slug' => $slug,
                     'kuota' =>  $this->request->getVar('kuota'),
                     'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
                     'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),

@@ -25,11 +25,11 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal Pelatihan Dimulai</label>
-                            <input type="date" class="form-control" placeholder="Masukan Tanggal Pelatihan ..." id="link" name="link" value="<?= old('link'); ?>">
+                            <input type="date" class="form-control" placeholder="Masukan Tanggal Pelatihan ..." id="tglpelatihan" name="tglpelatihan" value="<?= old('tglpelatihan'); ?>">
                         </div>
                         <div class="form-group">
                             <label>Tanggal Pendaftaran Terakhir</label>
-                            <input type="date" class="form-control" placeholder="Masukan Tanggal Pelatihan ..." id="link" name="link" value="<?= old('link'); ?>">
+                            <input type="date" class="form-control" placeholder="Masukan Tanggal Pelatihan ..." id="endpendaftaran" name="endpendaftaran" value="<?= old('endpendaftaran'); ?>">
                         </div>
                         <div class="form-group">
                             <label>Kuota Peserta</label>
