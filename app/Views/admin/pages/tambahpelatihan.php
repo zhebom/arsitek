@@ -12,7 +12,7 @@
     <div class="card-body">
         <div class="card-body">
    
-            <form action="<?= base_url('/admin/sosmed/prosesadd'); ?>" method="Post" enctype="multipart/form-data">
+            <form action="<?= base_url('/admin/pelatihan/add/save'); ?>" method="Post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm-6">
                         <!-- text input -->

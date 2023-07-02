@@ -64,6 +64,7 @@ $routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1');
 //pelatihan
 $routes->get('/admin/pelatihan', 'Admin::pelatihan');
 $routes->get('/admin/pelatihan/add', 'Admin::addpelatihan');
+$routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan');
 
 
 // Umum

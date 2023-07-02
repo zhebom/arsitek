@@ -63,7 +63,7 @@
                         <th>No</th>
                         <th>Judul</th>
                         <th>Uraian Kegiatan</th>
-                        <th>Engine version</th>
+                        <th>Aksi</th>
                       </tr>
                     </tfoot>
                   </table>

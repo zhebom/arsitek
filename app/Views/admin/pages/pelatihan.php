@@ -18,7 +18,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-
+              <?= session()->getFlashdata('msg'); ?>
               <a type="button" href="<?= base_url('admin/pelatihan/add'); ?>" class="btn btn-warning btn-block btn-sm"><i class="fas fa-plus"></i> Tambah Data</a>
                 <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
               </div>

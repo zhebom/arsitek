@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\situsModel;
 use App\Models\sosmedModel;
+use App\Models\pelatihanModel;
 use App\Models\faqModel;
 use CodeIgniter\Database\Query;
 
@@ -386,15 +387,22 @@ class Admin extends BaseController
                [
                     'pelatihan' => 'required',
                     'kuota' => 'required',
-                    
+                    'tglpelatihan' => 'required',
+                    'endpendaftaran' => 'required',
                     'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg,png]'
                ],
                [
-                    'sosmed' => [
-                         'required' => 'Nama Sosial Media harus diisi'
+                    'pelatihan' => [
+                         'required' => 'Nama Pelatihan harus diisi'
                     ],
-                    'link' => [
-                         'required' => 'Link harus diisi'
+                    'kuota' => [
+                         'required' => 'Kuota harus diisi'
+                    ],
+                    'tglpelatihan' => [
+                         'required' => 'Tanggal Pelatihan harus diisi'
+                    ],
+                    'endpendaftaran' => [
+                         'required' => 'Batas akhir pendaftaran harus diisi'
                     ],
                     'customFile' => [
                          'uploaded' => 'lho kok belum upload',
@@ -404,23 +412,25 @@ class Admin extends BaseController
           )) {
 
                session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
-               return redirect()->to(base_url('admin/sosmed/add'))->withinput();
+               return redirect()->to(base_url('admin/pelatihan/add'))->withinput();
           } else {
-               $sM = new sosmedModel();
+               $sM = new pelatihanModel();
                $today = date("Y-m-d H:i:s");
                $filePend = $this->request->getFile('customFile');
                $filePend->move('sosmed');
                $namaFile = $filePend->getName();
                $sM->save([
-                    'nama' =>  $this->request->getVar('sosmed'),
-                    'link' =>  $this->request->getVar('link'),
-                    'logo' =>  $namaFile,
+                    'pelatihan' =>  $this->request->getVar('sosmed'),
+                    'kuota' =>  $this->request->getVar('kuota'),
+                    'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
+                    'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
+                    'gambar' =>  $namaFile,
                     'updated_at' => $today,
 
 
                ]);
                session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
-               return redirect()->to(base_url('admin/sosmed'))->withinput();
+               return redirect()->to(base_url('admin/pelatihan'))->withinput();
           }
      }
 }
