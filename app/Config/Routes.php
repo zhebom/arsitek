@@ -41,7 +41,7 @@ $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/situs', 'Admin::judul');
 
 $routes->get('/admin/sosmed', 'Admin::sosmed');
-$routes->get('/admin/pelatihan', 'Admin::pelatihan');
+
 
 //judul & Deskripsi
 $routes->post('/admin/situs/add', 'Admin::addjudul');
@@ -60,6 +60,11 @@ $routes->post('/admin/faqs/prosesadd', 'Admin::prosesaddfaq');
 $routes->get('/admin/faqs/edit/(:num)', 'Admin::editfaq/$1');
 $routes->post('/admin/faqs/prosesedit/(:num)', 'Admin::proseseditfaq/$1');
 $routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1');
+
+//pelatihan
+$routes->get('/admin/pelatihan', 'Admin::pelatihan');
+$routes->get('/admin/pelatihan/add', 'Admin::addpelatihan');
+
 
 // Umum
 $routes->get('/', 'Home::index');

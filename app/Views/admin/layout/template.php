@@ -250,7 +250,7 @@
             </li>
             <li class="nav-header">Pengaturan Konten</li>
             <li class="nav-item">
-              <a href="<?= base_url('/admin/pelatihan'); ?>" class="nav-link">
+              <a href="<?= base_url('/admin/pelatihan'); ?>" class="nav-link <?php if ($menu == "pelatihan"){echo "active";} ?>">
                 <i class="nav-icon fas fa-pen-to-square"></i>
                 <p>Pelatihan</p>
               </a>
