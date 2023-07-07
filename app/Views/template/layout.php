@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Architect Hub</title>
+    <?php foreach ($situs as $situs): ?>
+    <title><?= $situs->judul_situs;  ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <style>
@@ -75,7 +76,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?= base_url(); ?>"><strong>Architect Hub</strong></a>
+            <a class="navbar-brand" href="<?= base_url(); ?>"><strong><?=  $situs->judul_situs; ?> </strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -161,11 +162,11 @@
             <div class="col mb-4">
                 <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
 
-                    <h3>Architect Hub</h3>
+                    <h3><?= $situs->judul_situs; ?></h3>
 
                 </a>
-                <p class="text-muted">Architect Hub berdiri pada tahun 2023 yang diawali dengan kemerdekaan indonesia,
-                    mengenai pemindahan kekuasaan dan lain - lain akan dilaksanakan dengan cara seksama dan dalam tempo yang sesingkat singkatnya.
+                <p class="text-muted">
+                <?= $situs->desc_situs; ?>
 
                 </p>
             </div>
@@ -175,7 +176,7 @@
             <div class="col mb-3">
                 <h5>Informasi Kontak</h5>
                 <strong>Alamat</strong>
-                <p> 01, Jl. Halmahera No.KM, Mintaragen, Kec. Tegal Tim., Kota Tegal, Jawa Tengah 52121
+                <p> <?= $situs->alamat; ?>
                 </p>
                 <strong>Kontak</strong>
                 <p> Telp : +62 2833 51082
@@ -186,11 +187,13 @@
             <div class="col mb-3">
                 <h5>Sosial Media</h5>
 
+
             </div>
 
 
         </footer>
     </div>
+    <?php endforeach;?> ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 <script>

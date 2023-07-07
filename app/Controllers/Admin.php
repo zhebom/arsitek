@@ -357,13 +357,14 @@ class Admin extends BaseController
 
      public function pelatihan()
      {
-
+          $sM = new pelatihanModel();
 
            $validasi =  \Config\Services::validation();
           $data = [
                'title' => 'Pengaturan Pelatihan',
                'menu' => 'pelatihan',
-               'validasi' => $validasi
+               'validasi' => $validasi,
+               'sM' => $sM->tampilData() 
           ];
           echo view('admin/pages/pelatihan.php',$data);
      }
@@ -376,6 +377,7 @@ class Admin extends BaseController
                'title' => 'Pengaturan Pelatihan',
                'menu' => 'pelatihan',
                'validasi' => $validasi
+               
           ];
           echo view('admin/pages/tambahpelatihan.php',$data);
      }
