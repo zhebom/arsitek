@@ -35,7 +35,7 @@
                 <div class="middle">
                 <h5 class="card-title text-primary text-white text"><?=$pel->pelatihan; ?></h5>
                 
-                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-black">Last update 2 mins ago</a>
+                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-black">Batas Pendaftaran <?php $date = date_create($pel->endpendaftaran); echo  date_format($date, 'd F Y');  ?></a>
                 </div>
               </div>
             </div>

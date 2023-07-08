@@ -79,8 +79,8 @@
             .middle {
                 transition: .5s ease;
                 opacity: 0;
-                position: absolute;
-                top: 50%;
+                position: relative;
+                top: 10%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 -ms-transform: translate(-50%, -50%);
@@ -96,10 +96,10 @@
             }
 
             .text {
-                background-color: #04AA6D;
+                background-color: black;
                 color: white;
                 font-size: 16px;
-                padding: 16px 32px;
+                padding: 8px 32px;
 
             }
         </style>

@@ -10,7 +10,7 @@ class pelatihanModel extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id', 'pelatihan', 'slug' ,'kuota','gambar','tglpelatihan','endpendaftaran', 'updated_at' , 'deleted_at'];
+    protected $allowedFields = ['id', 'pelatihan', 'slug', 'kuota', 'gambar', 'tglpelatihan', 'endpendaftaran', 'updated_at', 'deleted_at'];
 
     public function tampilData()
     {
@@ -30,4 +30,6 @@ class pelatihanModel extends Model
         $sM->where('id', $id);
         $sM->delete();
     }
+
+  
 }
