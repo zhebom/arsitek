@@ -24,23 +24,27 @@
 
   <div class="container">
     <h5 class="mb-2">Pelatihan Terbaru</h5>
-    <?php foreach ($pelatihan as $pel) : ?>
+   
       <div class="card-body">
         <div class="row">
+        <?php foreach ($pelatihan as $pel) : ?>
           <div class="col-md-12 col-lg-6 col-xl-4">
-            <div class="card mb-2 bg-gradient-dark">
-              <img class="card-img-top" src="<?= base_url('/thumbnails/' . $pel->gambar); ?>" alt="Dist Photo 1">
+            <div class="card mb-2 bg-gradient-dark bungkus">
+              <img class="card-img-top image" src="<?= base_url('/thumbnails/' . $pel->gambar); ?>" alt="Dist Photo 1" >
               <div class="card-img-overlay d-flex flex-column justify-content-end">
-                <h5 class="card-title text-primary text-white"><?=$pel->pelatihan; ?></h5>
-                <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-white">Last update 2 mins ago</a>
+                <div class="middle">
+                <h5 class="card-title text-primary text-white text"><?=$pel->pelatihan; ?></h5>
+                
+                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-black">Last update 2 mins ago</a>
+                </div>
               </div>
             </div>
           </div>
-
+          <?php endforeach; ?>
         </div>
+        
       </div>
-    <?php endforeach; ?>
+   
   </div>
 </div>
 <?php endforeach; ?>
