@@ -102,6 +102,14 @@
                 padding: 8px 32px;
 
             }
+
+            .btn:hover  {
+                background-color: orange;
+                color: black;
+                font-size: 16px;
+                padding: 8px 32px;
+
+            }
         </style>
         <!-- Custom styles for this template -->
         <link href="./heroes/heroes.css" rel="stylesheet">
@@ -234,7 +242,7 @@
 
         </footer>
     </div>
-<?php endforeach; ?> ?>
+<?php endforeach; ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 <script>

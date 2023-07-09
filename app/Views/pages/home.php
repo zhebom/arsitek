@@ -30,12 +30,12 @@
         <?php foreach ($pelatihan as $pel) : ?>
           <div class="col-md-12 col-lg-6 col-xl-4">
             <div class="card mb-2 bg-gradient-dark bungkus">
-              <img class="card-img-top image" src="<?= base_url('/thumbnails/' . $pel->gambar); ?>" alt="Dist Photo 1" >
+              <img  class="card-img-top image" src="<?= base_url('/thumbnails/' . $pel->gambar); ?>" alt="Dist Photo 1" >
               <div class="card-img-overlay d-flex flex-column justify-content-end">
                 <div class="middle">
-                <h5 class="card-title text-primary text-white text"><?=$pel->pelatihan; ?></h5>
+                <a  href="<?= base_url('pekerjaan/detail'); ?>" class="card-title text-primary text-white text btn"><?=$pel->pelatihan; ?></a>
                 
-                <a href="<?= base_url('pekerjaan/detail'); ?>" class="text-black">Batas Pendaftaran <?php $date = date_create($pel->endpendaftaran); echo  date_format($date, 'd F Y');  ?></a>
+                <a class="text-black">Batas Pendaftaran <?php $date = date_create($pel->endpendaftaran); echo  date_format($date, 'd F Y');  ?></a>
                 </div>
               </div>
             </div>
