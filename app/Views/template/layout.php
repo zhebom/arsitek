@@ -208,7 +208,7 @@
 
     <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-            <div class="col mb-4">
+            <div class="col-md-6">
                 <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
 
                     <h3><?= $situs->judul_situs; ?></h3>
@@ -220,9 +220,8 @@
                 </p>
             </div>
 
-            <div class="col mb-3">
-            </div>
-            <div class="col mb-3">
+           
+            <div class="col-md-3">
                 <h5>Informasi Kontak</h5>
                 <strong>Alamat</strong>
                 <p> <?= $situs->alamat; ?>
@@ -233,7 +232,7 @@
                 </p>
             </div>
 
-            <div class="col mb-3">
+            <div class="col-md-3">
                 <h5>Sosial Media</h5>
 
 
