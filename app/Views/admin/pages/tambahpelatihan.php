@@ -36,6 +36,10 @@
                             <input type="text" class="form-control" placeholder="Masukan Kuota Peserta ..." id="kuota" name="kuota" value="<?= old('kuota'); ?>">
                         </div>
                         <div class="form-group">
+                            <label>Tempat Pelatihan</label>
+                            <input type="text" class="form-control" placeholder="Masukan Tempat Pelatihan ..." id="tempat" name="tempat" value="<?= old('tempat'); ?>">
+                        </div>
+                        <div class="form-group">
                             <label>Thumbnail Pelatihan</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="customFile" onchange="fileupload()">

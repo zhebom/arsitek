@@ -10,12 +10,12 @@ class pelatihanModel extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id', 'pelatihan', 'slug', 'kuota', 'gambar', 'tglpelatihan', 'endpendaftaran', 'updated_at', 'deleted_at'];
+    protected $allowedFields = ['id', 'pelatihan', 'slug', 'kuota', 'tempat','gambar', 'tglpelatihan', 'endpendaftaran', 'updated_at', 'deleted_at'];
 
     public function tampilData()
     {
         $sM = new pelatihanModel();
-        return  $sM->query("SELECT * FROM pelatihan ")->getResult();
+        return  $sM->query("SELECT * FROM pelatihan ORDER BY endpendaftaran DESC LIMIT 6")->getResult();
     }
 
     public function singleData($id)

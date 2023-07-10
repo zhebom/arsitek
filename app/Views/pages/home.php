@@ -33,7 +33,7 @@
               <img  class="card-img-top image" src="<?= base_url('/thumbnails/' . $pel->gambar); ?>" alt="Dist Photo 1" >
               <div class="card-img-overlay d-flex flex-column justify-content-end">
                 <div class="middle">
-                <a  href="<?= base_url('pekerjaan/detail'); ?>" class="card-title text-primary text-white text btn"><?=$pel->pelatihan; ?></a>
+                <a  href="<?= base_url('pekerjaan/detail'); ?>" class="card-title text-primary text-white text btn d-flex justify-content-center"><?=$pel->pelatihan; ?></a>
                 
                 <a class="text-black">Batas Pendaftaran <?php $date = date_create($pel->endpendaftaran); echo  date_format($date, 'd F Y');  ?></a>
                 </div>

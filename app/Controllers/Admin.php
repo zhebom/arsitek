@@ -389,9 +389,10 @@ class Admin extends BaseController
                [
                     'pelatihan' => 'required',
                     'kuota' => 'required',
+                    'tempat' => 'required',
                     'tglpelatihan' => 'required',
                     'endpendaftaran' => 'required',
-                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg,png]'
+                    'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg,jpeg,png]'
                ],
                [
                     'pelatihan' => [
@@ -399,6 +400,9 @@ class Admin extends BaseController
                     ],
                     'kuota' => [
                          'required' => 'Kuota harus diisi'
+                    ],
+                    'tempat' => [
+                         'required' => 'Tempat harus diisi'
                     ],
                     'tglpelatihan' => [
                          'required' => 'Tanggal Pelatihan harus diisi'
@@ -426,6 +430,7 @@ class Admin extends BaseController
                     'pelatihan' =>  $this->request->getVar('pelatihan'),
                     'slug' => $slug,
                     'kuota' =>  $this->request->getVar('kuota'),
+                    'tempat' =>  $this->request->getVar('tempat'),
                     'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
                     'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
                     'gambar' =>  $namaFile,

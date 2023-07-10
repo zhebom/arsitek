@@ -100,6 +100,8 @@
                 color: white;
                 font-size: 16px;
                 padding: 8px 32px;
+                text-align: center;
+                
 
             }
 
