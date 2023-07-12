@@ -390,6 +390,7 @@ class Admin extends BaseController
                     'pelatihan' => 'required',
                     'kuota' => 'required',
                     'tempat' => 'required',
+                    'biaya' => 'required',
                     'tglpelatihan' => 'required',
                     'endpendaftaran' => 'required',
                     'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg,jpeg,png]'
@@ -400,6 +401,9 @@ class Admin extends BaseController
                     ],
                     'kuota' => [
                          'required' => 'Kuota harus diisi'
+                    ],
+                    'biaya' => [
+                         'required' => 'Biaya harus diisi'
                     ],
                     'tempat' => [
                          'required' => 'Tempat harus diisi'
@@ -426,10 +430,17 @@ class Admin extends BaseController
                $filePend->move('thumbnails');
                $namaFile = $filePend->getName();
                $slug = url_title($this->request->getVar('pelatihan'),("-"));
+               if ($sM->slugData($slug)>0){session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan Karena Judul Pelatihan Sudah Ada</div>');
+                    return redirect()->to(base_url('admin/pelatihan/add'))->withinput();
+               }
+
+               else
+               {
                $sM->save([
                     'pelatihan' =>  $this->request->getVar('pelatihan'),
                     'slug' => $slug,
                     'kuota' =>  $this->request->getVar('kuota'),
+                    'biaya' =>  $this->request->getVar('biaya'),
                     'tempat' =>  $this->request->getVar('tempat'),
                     'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
                     'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
@@ -440,6 +451,6 @@ class Admin extends BaseController
                ]);
                session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
                return redirect()->to(base_url('admin/pelatihan'))->withinput();
-          }
+          }}
      }
 }

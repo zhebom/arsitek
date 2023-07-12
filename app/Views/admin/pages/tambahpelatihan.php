@@ -19,6 +19,7 @@
                         
                         <?= session()->getFlashdata('msg'); ?>
                         <?= validation_list_errors() ?>
+                        
                         <div class="form-group">
                             <label>Judul Pelatihan</label>
                             <input type="text" class="form-control" placeholder="Masukan Judul Pelatihan ..." id="pelatihan" name="pelatihan" value="<?= old('pelatihan'); ?>">
@@ -34,6 +35,10 @@
                         <div class="form-group">
                             <label>Kuota Peserta</label>
                             <input type="text" class="form-control" placeholder="Masukan Kuota Peserta ..." id="kuota" name="kuota" value="<?= old('kuota'); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Biaya</label>
+                            <input type="text" class="form-control" placeholder="Masukan Biaya Pendaftaran ..." id="biaya" name="biaya" value="<?= old('biaya'); ?>">
                         </div>
                         <div class="form-group">
                             <label>Tempat Pelatihan</label>
