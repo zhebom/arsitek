@@ -359,27 +359,27 @@ class Admin extends BaseController
      {
           $sM = new pelatihanModel();
 
-           $validasi =  \Config\Services::validation();
+          $validasi =  \Config\Services::validation();
           $data = [
                'title' => 'Pengaturan Pelatihan',
                'menu' => 'pelatihan',
                'validasi' => $validasi,
-               'sM' => $sM->tampilData() 
+               'sM' => $sM->tampilData()
           ];
-          echo view('admin/pages/pelatihan.php',$data);
+          echo view('admin/pages/pelatihan.php', $data);
      }
      public function addpelatihan()
      {
 
 
-           $validasi =  \Config\Services::validation();
+          $validasi =  \Config\Services::validation();
           $data = [
                'title' => 'Pengaturan Pelatihan',
                'menu' => 'pelatihan',
                'validasi' => $validasi
-               
+
           ];
-          echo view('admin/pages/tambahpelatihan.php',$data);
+          echo view('admin/pages/tambahpelatihan.php', $data);
      }
 
      public function prosesaddpelatihan()
@@ -429,28 +429,27 @@ class Admin extends BaseController
                $filePend = $this->request->getFile('customFile');
                $filePend->move('thumbnails');
                $namaFile = $filePend->getName();
-               $slug = url_title($this->request->getVar('pelatihan'),("-"));
-               if ($sM->slugData($slug)>0){session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan Karena Judul Pelatihan Sudah Ada</div>');
+               $slug = url_title($this->request->getVar('pelatihan'), ("-"));
+               if ($sM->slugData($slug) > 0) {
+                    session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan Karena Judul Pelatihan Sudah Ada</div>');
                     return redirect()->to(base_url('admin/pelatihan/add'))->withinput();
+               } else {
+                    $sM->save([
+                         'pelatihan' =>  $this->request->getVar('pelatihan'),
+                         'slug' => $slug,
+                         'kuota' =>  $this->request->getVar('kuota'),
+                         'biaya' =>  $this->request->getVar('biaya'),
+                         'tempat' =>  $this->request->getVar('tempat'),
+                         'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
+                         'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
+                         'gambar' =>  $namaFile,
+                         'updated_at' => $today,
+
+
+                    ]);
+                    session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+                    return redirect()->to(base_url('admin/pelatihan'))->withinput();
                }
-
-               else
-               {
-               $sM->save([
-                    'pelatihan' =>  $this->request->getVar('pelatihan'),
-                    'slug' => $slug,
-                    'kuota' =>  $this->request->getVar('kuota'),
-                    'biaya' =>  $this->request->getVar('biaya'),
-                    'tempat' =>  $this->request->getVar('tempat'),
-                    'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
-                    'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
-                    'gambar' =>  $namaFile,
-                    'updated_at' => $today,
-
-
-               ]);
-               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
-               return redirect()->to(base_url('admin/pelatihan'))->withinput();
-          }}
+          }
      }
 }

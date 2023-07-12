@@ -32,6 +32,7 @@
                         <th>Gambar</th>
                         <th>Judul</th>
                         <th>Kuota</th>
+                        <th>Biaya</th>
                         <th>Rekap Pendaftar</th>
                         <th>Aksi</th>
                       </tr>
@@ -47,6 +48,7 @@
                           </td>
                           <td><?= $s->pelatihan; ?></td>
                           <td> <?= $s->kuota; ?></td>
+                          <td> <?= $s->biaya; ?></td>
                           <td> <a type="button" class="btn btn-warning btn-sm" href="<?= $s->slug; ?>" target="_blank" rel="noopener noreferrer">Lihat Pendaftar</a></td>
                           <td>X</td>
                         </tr>
@@ -58,6 +60,7 @@
                         <th>Gambar</th>
                         <th>Judul</th>
                         <th>Kuota</th>
+                        <th>Biaya</th>
                         <th>Rekap Pendaftar</th>
                         <th>Aksi</th>
                       </tr>
