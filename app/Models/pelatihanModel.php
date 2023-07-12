@@ -24,6 +24,12 @@ class pelatihanModel extends Model
         return  $sM->query("SELECT * FROM pelatihan where id = $id")->getResult();
     }
 
+    public function slugData($slug)
+    {
+        $sM = new pelatihanModel();
+        return  $sM->where(['slug'=> $slug])->first();
+    }
+
     public function deleteData($id)
     {
         $sM = new pelatihanModel();

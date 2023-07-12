@@ -62,7 +62,9 @@ $routes->post('/admin/faqs/prosesedit/(:num)', 'Admin::proseseditfaq/$1');
 $routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1');
 
 //pelatihan
+$routes->get('/pelatihan/(:segment)', 'Pelatihan::detailPelatihan/$1');
 $routes->get('/admin/pelatihan', 'Admin::pelatihan');
+
 $routes->get('/admin/pelatihan/add', 'Admin::addpelatihan');
 $routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan');
 
