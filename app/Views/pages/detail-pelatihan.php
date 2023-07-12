@@ -13,106 +13,80 @@
       </div>
       <div class="card-body">
         <div class="row mb-5">
-          <div class="card-img-top"><img src="<?= base_url('thumbnails/'.$pelatihan['gambar']); ?>"></div>
-          
-        </div>
-        <div class="row">
-          <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
-            <div class="row">
-              <div class="col-12 col-sm-6">
-                <div class="alert alert-danger" role="alert">
-                  <h4 class="alert-heading">Judul Pelatihan</h4>
-                  <p>
-                   
+          <div class="col-md-12 col-lg-6 col-xl-4">
+            <div class="card mb-2 bg-gradient-dark bungkus">
+              <img class="card-img-top image" src="<?= base_url('/thumbnails/' . $pelatihan['gambar']); ?>" alt="Dist Photo 1">
 
-                      <?= $pelatihan['pelatihan']; ?>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 col-xl-8">
+            <div class="alert alert-danger" role="alert">
+              <h4 class="alert-heading">Kuota Pendaftar</h4>
+              <p>
+                <?= $pelatihan['kuota']; ?>
+              </p>
+            </div>
+            <div class="alert alert-dark" role="alert">
+              <h4 class="alert-heading">Batas Pendaftaran</h4>
+              <p><?php
 
-                    
-                    </p>
-
-                </div>
-
-                <!-- <div class="info-box bg-light">
-                  <div class="info-box-content">
-                    <span class="info-box-text text-center text-muted">Estimasi Biaya</span>
-                    <span class="info-box-number text-center text-muted mb-0">2300</span>
-                  </div>
-                </div> -->
-              </div>
-
-              <div class="col-12 col-sm-6">
-
-                <div class="alert alert-dark" role="alert">
-                  <h4 class="alert-heading">Batas Pendaftaran</h4>
-                  <p><?php
-                  
                   $date = date_create($pelatihan['endpendaftaran']);
                   echo date_format($date, 'd F Y'); ?></p>
 
-                </div>
-                <!-- <div class="info-box bg-light">
-                  <div class="info-box-content">
-                    <span class="info-box-text text-center text-muted">Perkiraan Waktu (hari)</span>
-                    <span class="info-box-number text-center text-muted mb-0">20</span>
-                  </div>
-                </div> -->
-              </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <h3 class="text-primary"><i class="fas fa-paint-brush"></i>Tanggal Pelatihan</h3>
-                <p class="text-muted">Pelatihan akan dilaksanakan pada tanggal <?php $akan = date_create($pelatihan['tglpelatihan']);
-                echo date_format($akan, 'd F Y');
-                ?> bertempat di <?= $pelatihan['tempat']; ?></p>
-                <br>
-                
-                
-              </div>
+            <div class="alert alert-dark" role="alert">
+              <h4 class="alert-heading">Pelaksanaan</h4>
+              <p><?php $akan = date_create($pelatihan['tglpelatihan']);
+                  echo date_format($akan, 'd F Y');
+                  ?> | <?= $pelatihan['tempat']; ?></p>
+
             </div>
           </div>
-          <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-
-            <div class="d-grid mt-2 p-1 ">
-
-
-              <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Kirim Penawaran
+          <div class="row">
+            <div class="col-md-12 d-grid">
+              <button type="button" class="btn btn-warning center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <h5> Daftar Sekarang</h5>
               </button>
             </div>
           </div>
         </div>
+
+
+
       </div>
-      <!-- /.card-body -->
+
     </div>
-    <!-- /.card -->
-
-
-
+    <!-- /.card-body -->
   </div>
+  <!-- /.card -->
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">kirim penawaran ke klien</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Nama Projek : lomba
-          Detail PRoject : sekiatn
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Form Pendaftaran Pelatihan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <!-- /.card-body -->
+      <div class="modal-body">
+        Nama Projek : lomba
+        Detail PRoject : sekiatn
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-    <!-- /.card -->
-
-
-
+    <!-- /.card-body -->
   </div>
-  <?= $this->endSection(); ?>
+  <!-- /.card -->
+
+
+
+</div>
+<?= $this->endSection(); ?>
