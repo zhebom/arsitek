@@ -45,7 +45,12 @@
           <div class="row">
             <div class="col-md-12 d-grid">
               <button type="button" class="btn btn-warning center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <h5> Daftar Sekarang</h5>
+                <h5> <?php 
+                helper('number');
+                $number =  $pelatihan['biaya'];
+                echo number_to_currency($number,'IDR','id_ID',0);
+                
+                ?></h5>
               </button>
             </div>
           </div>
