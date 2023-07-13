@@ -12,6 +12,7 @@
 
       echo form_open('pelatihan/add/daftar'); 
       echo form_hidden('id', $pelatihan['id']);
+      echo form_hidden('slug', $pelatihan['slug']);
       echo form_hidden('price', $pelatihan['biaya']);
       echo form_hidden('name', $pelatihan['pelatihan']);
       echo form_hidden('gambar', $pelatihan['gambar']);
@@ -19,11 +20,13 @@
 
 
       ?>
+      
       <div class="card-header">
         <h3 class="card-title"><?= $pelatihan['pelatihan']; ?></h3>
 
       </div>
       <div class="card-body">
+      <?= session()->getFlashdata('msg'); ?>
         <div class="row mb-5">
           <div class="col-md-12 col-lg-6 col-xl-4">
             <div class="card mb-2 bg-gradient-dark bungkus">

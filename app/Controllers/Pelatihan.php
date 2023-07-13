@@ -54,11 +54,15 @@ class Pelatihan extends BaseController
             'price' => $this->request->getVar('price'),
             'name' => $this->request->getVar('name'),
             'option' => array(
-                'gambar' => $this->request->getVar('gambar')
+                'gambar' => $this->request->getVar('gambar'),
+                'slug' => $this->request->getVar('slug')
             )
            
         ));
-        return redirect()->to(base_url('pelatihan/cek/cart'));
+        $slug = $this->request->getVar('slug');
+        $nama = $this->request->getVar('name');
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pelatihan '.$nama.' Berhasil Ditambahkan </div>');
+        return redirect()->to(base_url('pelatihan/'.$slug));
     }
 
 }
