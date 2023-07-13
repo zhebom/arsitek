@@ -7,8 +7,20 @@
   <div class="container p-3">
     <!-- Default box -->
     <div class="card">
+      <?php
+      
+
+      echo form_open('pelatihan/add/daftar'); 
+      echo form_hidden('id', $pelatihan['id']);
+      echo form_hidden('price', $pelatihan['biaya']);
+      echo form_hidden('name', $pelatihan['pelatihan']);
+      echo form_hidden('gambar', $pelatihan['gambar']);
+
+
+
+      ?>
       <div class="card-header">
-        <h3 class="card-title">Detail Pelatihan</h3>
+        <h3 class="card-title"><?= $pelatihan['pelatihan']; ?></h3>
 
       </div>
       <div class="card-body">
@@ -44,13 +56,13 @@
           </div>
           <div class="row">
             <div class="col-md-12 d-grid">
-              <button type="button" class="btn btn-warning center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <h5> <?php 
-                helper('number');
-                $number =  $pelatihan['biaya'];
-                echo number_to_currency($number,'IDR','id_ID',0);
-                
-                ?></h5>
+              <button type="submit" class="btn btn-warning center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <h5> <?php
+                      helper('number');
+                      $number =  $pelatihan['biaya'];
+                      echo number_to_currency($number, 'IDR', 'id_ID', 0);
+
+                      ?></h5>
               </button>
             </div>
           </div>
@@ -59,12 +71,11 @@
 
 
       </div>
-
+      <?php echo form_close(); ?>
     </div>
     <!-- /.card-body -->
   </div>
   <!-- /.card -->
-
 
 
 </div>
