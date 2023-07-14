@@ -66,10 +66,16 @@ $routes->get('/pelatihan/(:segment)', 'Pelatihan::detailPelatihan/$1');
 $routes->get('/pelatihan/cek/cart', 'Pelatihan::cekCart');
 $routes->get('/pelatihan/cek/clear', 'Pelatihan::clear');
 $routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart');
-$routes->get('/admin/pelatihan', 'Admin::pelatihan');
+$routes->get('/cart', 'Pelatihan::cart');
+
+//cart
+$routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart');
+
 
 $routes->get('/admin/pelatihan/add', 'Admin::addpelatihan');
 $routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan');
+
+
 
 
 // Umum

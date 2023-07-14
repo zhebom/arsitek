@@ -65,4 +65,20 @@ class Pelatihan extends BaseController
         return redirect()->to(base_url('pelatihan/'.$slug));
     }
 
+    public function cart(){
+    
+        $situs = new situsModel();
+        $sosmed = new sosmedModel();
+        $pelatihan = new pelatihanModel();
+        $faq = new faqModel();
+
+        $data = [
+            'situs' => $situs->tampilData(),
+            'sosmed' => $sosmed->tampilData(),
+            'faq' => $faq->tampilData()
+        ];
+  
+         echo view('pages/cart', $data);
+    
+    }
 }
