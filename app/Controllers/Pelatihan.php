@@ -12,6 +12,26 @@ class Pelatihan extends BaseController
         helper('form');
       
     }
+
+    public function blog()
+    {
+        $situs = new situsModel();
+        $sosmed = new sosmedModel();
+        $pelatihan = new pelatihanModel();
+        $faq = new faqModel();
+
+        $data = [
+            'situs' => $situs->tampilData(),
+            'sosmed' => $sosmed->tampilData(),
+            'pelatihan' => $pelatihan->tampilData(),
+            'faq' => $faq->tampilData()
+        ];
+  
+         echo view('pages/pelatihan', $data);
+
+    }
+
+
     public function detailPelatihan($slug)
     {
         

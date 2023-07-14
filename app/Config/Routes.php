@@ -63,6 +63,7 @@ $routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1');
 
 //pelatihan
 $routes->get('/pelatihan/(:segment)', 'Pelatihan::detailPelatihan/$1');
+$routes->get('/pelatihan', 'Pelatihan::blog');
 $routes->get('/pelatihan/cek/cart', 'Pelatihan::cekCart');
 $routes->get('/pelatihan/cek/clear', 'Pelatihan::clear');
 $routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart');
