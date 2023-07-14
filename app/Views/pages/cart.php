@@ -36,14 +36,14 @@
                     <tr>
                       <th>Qty</th>
                       <th>Product</th>
-                       
                       <th>Subtotal</th>
+                      <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
                       <?php foreach ($cart as $key => $value): ?>
                     <tr>
-                      <td><?= $value['qty']; ?></td>
+                      <td><input type="number" class="min-1" value="<?= $value['qty']; ?>"></td>
                       <td><?= $value['name'];?></td>
                       
                       <td><?php
@@ -53,6 +53,7 @@
  
                       
                       ?></td>
+                      <td><a href="#" class="btn btn-danger p-1">Delete</a></td>
                     </tr>
                    <?php endforeach; ?>
                     </tbody>
@@ -75,7 +76,7 @@
                     <table class="table" style="text-align:right;"  >
                      
                       <tr>
-                        <th>Total:</th>
+                        <th >Total:</th>
                         <th style="text-align= right"><?php 
                         helper('number');
                         $number =  $total ;
