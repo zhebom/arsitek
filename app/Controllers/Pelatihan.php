@@ -75,7 +75,7 @@ class Pelatihan extends BaseController
         $sosmed = new sosmedModel();
         $pelatihan = new pelatihanModel();
         $faq = new faqModel();
-
+       
         $data = [
             'situs' => $situs->tampilData(),
             'sosmed' => $sosmed->tampilData(),
@@ -87,5 +87,14 @@ class Pelatihan extends BaseController
   
          echo view('pages/cart', $data);
     
+    }
+
+    public function delCart ($rowid){
+        $cart = \Config\Services::cart();
+   
+        $cart->remove($rowid);
+
+         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pelatihan Berhasil Dihapus</div>');
+        return redirect()->to(base_url('cart'));
     }
 }
