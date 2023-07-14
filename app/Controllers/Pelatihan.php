@@ -10,6 +10,7 @@ class Pelatihan extends BaseController
 {
     public function __construct() {
         helper('form');
+      
     }
     public function detailPelatihan($slug)
     {
@@ -61,12 +62,15 @@ class Pelatihan extends BaseController
         ));
         $slug = $this->request->getVar('slug');
         $nama = $this->request->getVar('name');
-        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pelatihan '.$nama.' Berhasil Ditambahkan </div>');
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pelatihan '.$nama.' Berhasil Ditambahkan Ke Keranjang</div>');
         return redirect()->to(base_url('pelatihan/'.$slug));
     }
 
     public function cart(){
     
+        $c = \Config\Services::cart();
+        $cart = $c->contents();
+        $total = $c->total();
         $situs = new situsModel();
         $sosmed = new sosmedModel();
         $pelatihan = new pelatihanModel();
@@ -75,6 +79,9 @@ class Pelatihan extends BaseController
         $data = [
             'situs' => $situs->tampilData(),
             'sosmed' => $sosmed->tampilData(),
+            'pelatihan' => $pelatihan->tampilData(),
+            'cart' => $cart,
+            'total' => $total,
             'faq' => $faq->tampilData()
         ];
   

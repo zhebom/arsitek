@@ -31,45 +31,30 @@
               <!-- Table row -->
               <div class="row">
                 <div class="col-12 table-responsive">
-                  <table class="table table-striped">
+                  <table class="table table-striped" style="text-align:right;">
                     <thead>
                     <tr>
                       <th>Qty</th>
                       <th>Product</th>
-                      <th>Serial #</th>
-                      <th>Description</th>
+                       
                       <th>Subtotal</th>
                     </tr>
                     </thead>
                     <tbody>
+                      <?php foreach ($cart as $key => $value): ?>
                     <tr>
-                      <td>1</td>
-                      <td>Call of Duty</td>
-                      <td>455-981-221</td>
-                      <td>El snort testosterone trophy driving gloves handsome</td>
-                      <td>$64.50</td>
+                      <td><?= $value['qty']; ?></td>
+                      <td><?= $value['name'];?></td>
+                      
+                      <td><?php
+                       helper('number');
+                       $number =  $value['subtotal']; ;
+                       echo number_to_currency($number, 'IDR', 'id_ID', 0);
+ 
+                      
+                      ?></td>
                     </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Need for Speed IV</td>
-                      <td>247-925-726</td>
-                      <td>Wes Anderson umami biodiesel</td>
-                      <td>$50.00</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Monsters DVD</td>
-                      <td>735-845-642</td>
-                      <td>Terry Richardson helvetica tousled street art master</td>
-                      <td>$10.70</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Grown Ups Blue Ray</td>
-                      <td>422-568-642</td>
-                      <td>Tousled lomo letterpress</td>
-                      <td>$25.99</td>
-                    </tr>
+                   <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
@@ -84,25 +69,19 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-6">
-                  <p class="lead">Amount Due 2/22/2014</p>
+                  
 
                   <div class="table-responsive">
-                    <table class="table">
-                      <tr>
-                        <th style="width:50%">Subtotal:</th>
-                        <td>$250.30</td>
-                      </tr>
-                      <tr>
-                        <th>Tax (9.3%)</th>
-                        <td>$10.34</td>
-                      </tr>
-                      <tr>
-                        <th>Shipping:</th>
-                        <td>$5.80</td>
-                      </tr>
+                    <table class="table" style="text-align:right;"  >
+                     
                       <tr>
                         <th>Total:</th>
-                        <td>$265.24</td>
+                        <th style="text-align= right"><?php 
+                        helper('number');
+                        $number =  $total ;
+                        echo number_to_currency($number, 'IDR', 'id_ID', 0);
+                        
+                         ?></th>
                       </tr>
                     </table>
                   </div>

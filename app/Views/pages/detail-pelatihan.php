@@ -12,6 +12,7 @@
 
       echo form_open('pelatihan/add/daftar');
       echo form_hidden('id', $pelatihan['id']);
+      
       echo form_hidden('slug', $pelatihan['slug']);
       echo form_hidden('price', $pelatihan['biaya']);
       echo form_hidden('name', $pelatihan['pelatihan']);
@@ -68,7 +69,7 @@
                       ?></h5>
               </button>
               <a href="<?= base_url('/cart'); ?>" class="btn btn-success center">
-                <h5> View Cart </h5>
+                <h5> Lihat Keranjang </h5>
               </a>
             </div>
           </div>
