@@ -43,7 +43,7 @@
                     <tbody>
                       <?php foreach ($cart as $key => $value): ?>
                     <tr>
-                      <td><input type="number" class="min-1" value="<?= $value['qty']; ?>"></td>
+                      <td><?= $value['qty'];?></td>
                       <td><?= $value['name'];?></td>
                       
                       <td><?php
@@ -94,8 +94,8 @@
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                 
-                  <button type="button" class="btn btn-danger float-right" onclick="return confirm('Apakah anda yakin untuk melakukan pembayaran sekarang?')"><i class="far fa-credit-card"></i> Submit
+              
+                  <button type="button" class="btn btn-warning float-right" onclick="return confirm('Apakah anda yakin untuk melakukan pembayaran sekarang?')"><i class="fas fa-credit-card"></i> Submit
                     Payment
                   </button>
                  
