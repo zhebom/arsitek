@@ -71,7 +71,7 @@ $routes->get('/cart', 'Pelatihan::cart');
 //cart
 $routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart');
 
-
+$routes->get('/admin/pelatihan', 'Admin::pelatihan');
 $routes->get('/admin/pelatihan/add', 'Admin::addpelatihan');
 $routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan');
 
