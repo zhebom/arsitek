@@ -153,6 +153,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url("faq"); ?>"> Cara Penggunaan Aplikasi</a>
                                 </li>
+                                
                                 <!-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Dropdown
@@ -188,6 +189,7 @@
 
                             </ul>
                         </li>
+                        
                     </ul>
                     <!-- //   <button class="btn btn-dangerg" type="submit"><strong>Login</strong></button> -->
 
