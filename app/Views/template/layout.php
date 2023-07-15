@@ -101,11 +101,11 @@
                 font-size: 16px;
                 padding: 8px 32px;
                 text-align: center;
-                
+
 
             }
 
-            .btn:hover  {
+            .btn:hover {
                 background-color: orange;
                 color: black;
                 font-size: 16px;
@@ -113,6 +113,7 @@
 
             }
         </style>
+        
         <!-- Custom styles for this template -->
         <link href="./heroes/heroes.css" rel="stylesheet">
         <!-- Google Font: Source Sans Pro -->
@@ -153,7 +154,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url("faq"); ?>"> Cara Penggunaan Aplikasi</a>
                                 </li>
-                                
+
                                 <!-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Dropdown
@@ -189,7 +190,7 @@
 
                             </ul>
                         </li>
-                        
+
                     </ul>
                     <!-- //   <button class="btn btn-dangerg" type="submit"><strong>Login</strong></button> -->
 
@@ -224,7 +225,7 @@
                 </p>
             </div>
 
-           
+
             <div class="col-md-3">
                 <h5>Informasi Kontak</h5>
                 <strong>Alamat</strong>

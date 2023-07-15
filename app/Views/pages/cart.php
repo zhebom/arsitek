@@ -111,10 +111,11 @@
     <div class="row no-print">
       <div class="col-12">
 
-        <button type="button" class="btn btn-warning float-right" onclick="return confirm('Apakah anda yakin untuk melakukan pembayaran sekarang?')"><i class="fas fa-credit-card"></i> Submit
+      <?= form_open('pelatihan/payment');  ?>
+        <button type="submit" class="btn btn-warning float-right" onclick="return confirm('Apakah anda yakin untuk melakukan pembayaran sekarang?')"><i class="fas fa-credit-card"></i> Submit
           Payment
         </button>
-
+        <?= form_close(); ?>
       </div>
     </div>
   </div>
