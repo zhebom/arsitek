@@ -145,7 +145,7 @@
                                     <a class="nav-link active" aria-current="page" href="<?= base_url(); ?>">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url("pekerjaan"); ?>">Projek</a>
+                                    <a class="nav-link" href="<?= base_url("pelatihan"); ?>">Pelatihan</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url("kontraktor"); ?>">Penyedia Jasa</a>

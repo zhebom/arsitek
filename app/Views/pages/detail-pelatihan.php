@@ -8,10 +8,11 @@
     <!-- Default box -->
     <div class="card">
       <?php
-      
 
-      echo form_open('pelatihan/add/daftar'); 
+
+      echo form_open('pelatihan/add/daftar');
       echo form_hidden('id', $pelatihan['id']);
+      
       echo form_hidden('slug', $pelatihan['slug']);
       echo form_hidden('price', $pelatihan['biaya']);
       echo form_hidden('name', $pelatihan['pelatihan']);
@@ -20,13 +21,13 @@
 
 
       ?>
-      
+
       <div class="card-header">
         <h3 class="card-title"><?= $pelatihan['pelatihan']; ?></h3>
 
       </div>
       <div class="card-body">
-      <?= session()->getFlashdata('msg'); ?>
+        <?= session()->getFlashdata('msg'); ?>
         <div class="row mb-5">
           <div class="col-md-12 col-lg-6 col-xl-4">
             <div class="card mb-2 bg-gradient-dark bungkus">
@@ -59,7 +60,7 @@
           </div>
           <div class="row">
             <div class="col-md-12 d-grid">
-              <button type="submit" class="btn btn-warning center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button type="submit" class="btn btn-dark center mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <h5> <?php
                       helper('number');
                       $number =  $pelatihan['biaya'];
@@ -67,12 +68,12 @@
 
                       ?></h5>
               </button>
+              <a href="<?= base_url('/cart'); ?>" class="btn btn-success center">
+                <h5> Lihat Keranjang </h5>
+              </a>
             </div>
           </div>
         </div>
-
-
-
       </div>
       <?php echo form_close(); ?>
     </div>

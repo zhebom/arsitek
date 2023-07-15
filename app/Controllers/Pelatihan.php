@@ -10,7 +10,28 @@ class Pelatihan extends BaseController
 {
     public function __construct() {
         helper('form');
+      
     }
+
+    public function blog()
+    {
+        $situs = new situsModel();
+        $sosmed = new sosmedModel();
+        $pelatihan = new pelatihanModel();
+        $faq = new faqModel();
+
+        $data = [
+            'situs' => $situs->tampilData(),
+            'sosmed' => $sosmed->tampilData(),
+            'pelatihan' => $pelatihan->tampilData(),
+            'faq' => $faq->tampilData()
+        ];
+  
+         echo view('pages/pelatihan', $data);
+
+    }
+
+
     public function detailPelatihan($slug)
     {
         
@@ -61,8 +82,39 @@ class Pelatihan extends BaseController
         ));
         $slug = $this->request->getVar('slug');
         $nama = $this->request->getVar('name');
-        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pelatihan '.$nama.' Berhasil Ditambahkan </div>');
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pelatihan '.$nama.' Berhasil Ditambahkan Ke Keranjang</div>');
         return redirect()->to(base_url('pelatihan/'.$slug));
     }
 
+    public function cart(){
+    
+        $c = \Config\Services::cart();
+        $cart = $c->contents();
+        $total = $c->total();
+        $situs = new situsModel();
+        $sosmed = new sosmedModel();
+        $pelatihan = new pelatihanModel();
+        $faq = new faqModel();
+       
+        $data = [
+            'situs' => $situs->tampilData(),
+            'sosmed' => $sosmed->tampilData(),
+            'pelatihan' => $pelatihan->tampilData(),
+            'cart' => $cart,
+            'total' => $total,
+            'faq' => $faq->tampilData()
+        ];
+  
+         echo view('pages/cart', $data);
+    
+    }
+
+    public function delCart ($rowid){
+        $cart = \Config\Services::cart();
+   
+        $cart->remove($rowid);
+
+         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pelatihan Berhasil Dihapus</div>');
+        return redirect()->to(base_url('cart'));
+    }
 }
