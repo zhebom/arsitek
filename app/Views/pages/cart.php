@@ -113,7 +113,11 @@
       <div class="col-12">
 
       <?= form_open('pelatihan/prosespayment');  ?>
-        <button type="submit" class="btn btn-warning float-right" onclick="return confirm('Apakah anda yakin untuk melakukan pembayaran sekarang?')"><i class="fas fa-credit-card"></i> Submit
+        <button type="submit" class="btn btn-warning float-right <?php if (empty($cart))
+           { echo "disabled";?>
+               
+           <?php }
+           ?>" onclick="return confirm('Apakah anda yakin untuk melakukan pembayaran sekarang?')"><i class="fas fa-credit-card"></i> Submit
           Payment
         </button>
         <?= form_close(); ?>
