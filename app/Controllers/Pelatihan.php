@@ -174,7 +174,7 @@ class Pelatihan extends BaseController
 
         $c = \Config\Services::cart();
         $cart = $c->contents();
-        
+        $total = $c->total();
         $transaksiId = time();
     //    $bpel[] = $cart['price'];
        
@@ -182,18 +182,20 @@ class Pelatihan extends BaseController
         $pM = new cartModel();
         foreach ($cart as $c){
         $pM->save([
-            'id_pelatihan' => $transaksiId,
+            'kode_pesanan' => $transaksiId,
             'biaya_pelatihan' => $c['price'],
             'total_pesanan' => $c['qty']
         ]);
+     
        }
+      
 
        
         
         $params = array(
             'transaction_details' => array(
-                'order_id' => time(),
-                'gross_amount' => 100000,
+                'order_id' => $transaksiId,
+                'gross_amount' => $total,
             ),
             'customer_details' => array(
                 'first_name' => 'budi',
@@ -204,5 +206,7 @@ class Pelatihan extends BaseController
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
+       
+        return redirect()->to('https://app.sandbox.midtrans.com/snap/v2/vtweb/'.$snapToken);
     }
 }
