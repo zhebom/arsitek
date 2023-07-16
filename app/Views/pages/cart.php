@@ -53,6 +53,7 @@
            ?>
             <?php foreach ($cart as $key => $value) : ?>
               <tr>
+                
                 <td><?= $value['qty']; ?></td>
                 <td><?= $value['name']; ?></td>
 
@@ -111,7 +112,7 @@
     <div class="row no-print">
       <div class="col-12">
 
-      <?= form_open('pelatihan/payment');  ?>
+      <?= form_open('pelatihan/prosespayment');  ?>
         <button type="submit" class="btn btn-warning float-right" onclick="return confirm('Apakah anda yakin untuk melakukan pembayaran sekarang?')"><i class="fas fa-credit-card"></i> Submit
           Payment
         </button>

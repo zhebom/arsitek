@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\situsModel;
 use App\Models\sosmedModel;
 use App\Models\pelatihanModel;
+use App\Models\cartModel;
 use App\Models\faqModel;
 use CodeIgniter\Database\Query;
 
@@ -135,12 +136,12 @@ class Pelatihan extends BaseController
         $params = array(
             'transaction_details' => array(
                 'order_id' => time(),
-                'gross_amount' => 10000,
+                'gross_amount' => 100000,
             ),
             'customer_details' => array(
                 'first_name' => 'budi',
                 'last_name' => 'pratama',
-                'email' => 'budi.pra@example.com',
+                'email' => 'zhebom@example.com',
                 'phone' => '08111222333',
             ),
         );
@@ -159,5 +160,49 @@ class Pelatihan extends BaseController
             'token' => $snapToken
         ];
         echo view('pages/payment', $data);
+    }
+    public function payment2()
+    {
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-cwHft3LdLPzlKt8TO-KLybjA';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $c = \Config\Services::cart();
+        $cart = $c->contents();
+        
+        $transaksiId = time();
+    //    $bpel[] = $cart['price'];
+       
+        $jml_data = $c->totalItems();
+        $pM = new cartModel();
+        foreach ($cart as $c){
+        $pM->save([
+            'id_pelatihan' => $transaksiId,
+            'biaya_pelatihan' => $c['price'],
+            'total_pesanan' => $c['qty']
+        ]);
+       }
+
+       
+        
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => time(),
+                'gross_amount' => 100000,
+            ),
+            'customer_details' => array(
+                'first_name' => 'budi',
+                'last_name' => 'pratama',
+                'email' => 'zhebom@example.com',
+                'phone' => '08111222333',
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
     }
 }

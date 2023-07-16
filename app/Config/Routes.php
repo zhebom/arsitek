@@ -68,6 +68,7 @@ $routes->get('/pelatihan/cek/cart', 'Pelatihan::cekCart');
 $routes->get('/pelatihan/cek/clear', 'Pelatihan::clear');
 $routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart');
 $routes->post('/pelatihan/payment', 'Pelatihan::payment');
+$routes->post('/pelatihan/prosespayment', 'Pelatihan::payment2');
 $routes->get('/cart', 'Pelatihan::cart');
 
 //cart
