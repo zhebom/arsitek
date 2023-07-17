@@ -18,12 +18,13 @@ class Admin extends BaseController
 
      public function index()
      {
-          $session = session();
+          $session = \Config\Services::session();
+          
           
           $data = [
                'title' => 'Dashboard',
                'menu' => 'dashboard',
-               'sess' => $session->get('nama')
+               'admin' => $session->nama
           ];
           echo view('admin/pages/beranda.php', $data);
      }
@@ -56,6 +57,7 @@ class Admin extends BaseController
         
         if($data){
             $pass = $data['pass'];
+            
             $authenticatePassword = password_verify($password, $pass);
             if($authenticatePassword){
                 $ses_data = [
@@ -64,8 +66,10 @@ class Admin extends BaseController
                     'role' => $data['role'],
                     'isLoggedIn' => TRUE
                 ];
+               
                 $session->set($ses_data);
-                return redirect()->to('/admin');
+               
+                return redirect()->withInput()->to('/admin');
             
             }else{
                 $session->setFlashdata('msg', 'User atau Pass does not exist.');
