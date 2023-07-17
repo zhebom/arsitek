@@ -31,14 +31,17 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 //validasi
-$routes->get('/login', 'LoginUser::index');
+$routes->get('/mylogin', 'LoginUser::index');
+$routes->post('/mylogin/auth', 'Admin::loginAuth');
+$routes->post('/save', 'Admin::insert');
 $routes->get('/login/user', 'LoginUser::list');
 $routes->get('/login/kontraktor', 'LoginKontrak::list');
 
 
 //admin
-$routes->get('/admin', 'Admin::index');
+$routes->get('/admin', 'Admin::index',['filter' => 'authGuard']);
 $routes->get('/admin/situs', 'Admin::judul');
+$routes->get('/bom', 'Admin::bom');
 
 $routes->get('/admin/sosmed', 'Admin::sosmed');
 

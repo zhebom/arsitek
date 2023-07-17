@@ -113,7 +113,7 @@
 
             }
         </style>
-        
+
         <!-- Custom styles for this template -->
         <link href="./heroes/heroes.css" rel="stylesheet">
         <!-- Google Font: Source Sans Pro -->
@@ -178,29 +178,32 @@
                     </div>
                 </div>
 
-                <form class="d-grid gap-2 p-2" role="search">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <button class="btn btn-dangerg" type="submit"><strong>Login</strong></button>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?= base_url('/login/user'); ?>">Pengguna Jasa</a></li>
-                                <li><a class="dropdown-item" href="<?= base_url('/login/kontraktor'); ?>">Kontraktor</a></li>
+                <div class="container text-center">
+                    <div class="row align-items-center">
 
+                        <div class="col">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                
+                                <li class="nav-item">
+                                <a class="btn btn-danger mr-2"  href="<?= base_url('/login/user'); ?>"><strong>Login</strong></a>  <a class="btn btn-outline-warning" href="#"><strong>Daftar</strong></a>
+                                </li>
+                               
                             </ul>
-                        </li>
 
-                    </ul>
-                    <!-- //   <button class="btn btn-dangerg" type="submit"><strong>Login</strong></button> -->
+                        </div>
+
+                    </div>
+                </div>
 
 
-                </form>
-                <form class="d-grid gap-2 p-1" role="search">
+                
+                   
+                   
+                
 
-                    <button class="btn btn-outline-warning" type="submit"><strong>Posting Pekerjaan</strong></button>
 
-                </form>
+
+
 
 
 

@@ -6,6 +6,7 @@ use App\Models\situsModel;
 use App\Models\sosmedModel;
 use App\Models\pelatihanModel;
 use App\Models\faqModel;
+use App\Models\adminModel;
 use CodeIgniter\Database\Query;
 
 class Admin extends BaseController
@@ -23,6 +24,55 @@ class Admin extends BaseController
           ];
           echo view('admin/pages/beranda.php', $data);
      }
+
+     public function bom(){
+          session()->destroy();
+     }
+
+     public function insert(){
+          $role =1;
+          $user = $this->request->getVar('user');
+          $pass = password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT);
+          
+      
+          $adminModel = new adminModel();
+          $adminModel->save([
+               'user' => $user,
+               'pass' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT)
+          ]);
+          
+     }
+     public function loginAuth()
+    {
+        $session = session();
+        $adminModel = new adminModel();
+        $user = $this->request->getVar('user');
+        $password = $this->request->getVar('pass');
+        
+        $data = $adminModel->where('user', $user)->first();
+        
+        if($data){
+            $pass = $data['pass'];
+            $authenticatePassword = password_verify($password, $pass);
+            if($authenticatePassword){
+                $ses_data = [
+                    'id' => $data['id'],
+                    'nama' => $data['nama'],
+                    'role' => $data['role'],
+                    'isLoggedIn' => TRUE
+                ];
+                $session->set($ses_data);
+                return redirect()->to('/admin');
+            
+            }else{
+                $session->setFlashdata('msg', 'User atau Pass does not exist.');
+                return redirect()->to('/mylogin');
+            }
+        }else{
+            $session->setFlashdata('msg', 'User atau Pass does not exist.');
+            return redirect()->to('/mylogin');
+        }
+    }
 
      public function judul()
      {
