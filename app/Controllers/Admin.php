@@ -19,13 +19,21 @@ class Admin extends BaseController
      public function index()
      {
           $session = \Config\Services::session();
-          
-          
+          $situs = new situsModel();
+          $sosmed = new sosmedModel();
+          $pelatihan = new pelatihanModel();
+          $faq = new faqModel();
+  
           $data = [
-               'title' => 'Dashboard',
-               'menu' => 'dashboard',
-               'admin' => $session->nama
+              'situs' => $situs->tampilData(),
+              'sosmed' => $sosmed->tampilData(),
+              'pelatihan' => $pelatihan->tampilData(),
+              'faq' => $faq->tampilData(),
+              'title' => 'Dashboard',
+              'menu' => 'dashboard',
+              'admin' => $session->nama
           ];
+        
           echo view('admin/pages/beranda.php', $data);
      }
 
