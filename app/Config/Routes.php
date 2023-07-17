@@ -33,36 +33,36 @@ $routes->set404Override();
 //validasi
 $routes->get('/mylogin', 'LoginUser::index');
 $routes->post('/mylogin/auth', 'Admin::loginAuth');
-$routes->post('/save', 'Admin::insert');
+//$routes->post('/save', 'Admin::insert');
 $routes->get('/login/user', 'LoginUser::list');
 $routes->get('/login/kontraktor', 'LoginKontrak::list');
 
 
 //admin
 $routes->get('/admin', 'Admin::index',['filter' => 'authGuard']);
-$routes->get('/admin/situs', 'Admin::judul');
+$routes->get('/admin/situs', 'Admin::judul',['filter' => 'authGuard']);
 $routes->get('/bom', 'Admin::bom');
 
-$routes->get('/admin/sosmed', 'Admin::sosmed');
+$routes->get('/admin/sosmed', 'Admin::sosmed',['filter' => 'authGuard']);
 
 
 //judul & Deskripsi
-$routes->post('/admin/situs/add', 'Admin::addjudul');
+$routes->post('/admin/situs/add', 'Admin::addjudul',['filter' => 'authGuard']);
 
 //Sosial Media
-$routes->get('/admin/sosmed/add', 'Admin::addsosmed');
-$routes->post('/admin/sosmed/prosesadd', 'Admin::prosesaddsosmed');
-$routes->delete('/admin/sosmed/(:num)', 'Admin::deletesosmed/$1');
-$routes->get('/admin/sosmed/edit/(:num)', 'Admin::editsosmed/$1');
-$routes->post('/admin/sosmed/prosesedit/(:num)', 'Admin::proseseditsosmed/$1');
+$routes->get('/admin/sosmed/add', 'Admin::addsosmed',['filter' => 'authGuard']);
+$routes->post('/admin/sosmed/prosesadd', 'Admin::prosesaddsosmed',['filter' => 'authGuard']);
+$routes->delete('/admin/sosmed/(:num)', 'Admin::deletesosmed/$1',['filter' => 'authGuard']);
+$routes->get('/admin/sosmed/edit/(:num)', 'Admin::editsosmed/$1',['filter' => 'authGuard']);
+$routes->post('/admin/sosmed/prosesedit/(:num)', 'Admin::proseseditsosmed/$1',['filter' => 'authGuard']);
 
 //faq
-$routes->get('/admin/faqs', 'Admin::faq');
-$routes->get('/admin/faqs/add', 'Admin::addfaq');
-$routes->post('/admin/faqs/prosesadd', 'Admin::prosesaddfaq');
-$routes->get('/admin/faqs/edit/(:num)', 'Admin::editfaq/$1');
-$routes->post('/admin/faqs/prosesedit/(:num)', 'Admin::proseseditfaq/$1');
-$routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1');
+$routes->get('/admin/faqs', 'Admin::faq',['filter' => 'authGuard']);
+$routes->get('/admin/faqs/add', 'Admin::addfaq',['filter' => 'authGuard']);
+$routes->post('/admin/faqs/prosesadd', 'Admin::prosesaddfaq',['filter' => 'authGuard']);
+$routes->get('/admin/faqs/edit/(:num)', 'Admin::editfaq/$1',['filter' => 'authGuard']);
+$routes->post('/admin/faqs/prosesedit/(:num)', 'Admin::proseseditfaq/$1',['filter' => 'authGuard']);
+$routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1',['filter' => 'authGuard']);
 
 //pelatihan
 $routes->get('/pelatihan/(:segment)', 'Pelatihan::detailPelatihan/$1');
@@ -77,9 +77,9 @@ $routes->get('/cart', 'Pelatihan::cart');
 //cart
 $routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart');
 $routes->delete('/cart/delete/(:any)', 'Pelatihan::delCart/$1');
-$routes->get('/admin/pelatihan', 'Admin::pelatihan');
-$routes->get('/admin/pelatihan/add', 'Admin::addpelatihan');
-$routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan');
+$routes->get('/admin/pelatihan', 'Admin::pelatihan',['filter' => 'authGuard']);
+$routes->get('/admin/pelatihan/add', 'Admin::addpelatihan',['filter' => 'authGuard']);
+$routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan',['filter' => 'authGuard']);
 
 
 

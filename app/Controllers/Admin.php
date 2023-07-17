@@ -18,9 +18,12 @@ class Admin extends BaseController
 
      public function index()
      {
+          $session = session();
+          
           $data = [
                'title' => 'Dashboard',
-               'menu' => 'dashboard'
+               'menu' => 'dashboard',
+               'sess' => $session->get('nama')
           ];
           echo view('admin/pages/beranda.php', $data);
      }
