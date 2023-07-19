@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Login Page</title>
+  <title>Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,7 +19,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="<?= base_url('mylogin'); ?>" class="h1"><b>Admin</b> Login</a>
+      <a href="<?= base_url('/login'); ?>" class="h1"><b>User</b> Login</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Masukkan Username & Password Anda</p>

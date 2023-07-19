@@ -113,7 +113,7 @@
       <div class="col-12">
 
       <?= form_open('pelatihan/prosespayment');  ?>
-        <button type="submit" class="btn btn-warning float-right <?php if (empty($cart))
+        <button target="_blank" type="submit" class="btn btn-warning float-right <?php if (empty($cart))
            { echo "disabled";?>
                
            <?php }
