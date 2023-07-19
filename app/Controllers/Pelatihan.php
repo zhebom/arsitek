@@ -33,6 +33,24 @@ class Pelatihan extends BaseController
         echo view('pages/pelatihan', $data);
     }
 
+    public function idPelatihan($id)
+    {
+        $cart = new cartModel();
+        $situs = new situsModel();
+
+        $data = [
+            'situs' => $situs->tampilData(),
+            'cart' => $cart->singleData($id),
+            'title' => 'Pengaturan Pelatihan',
+            'situs' => $situs->tampilData(),
+            'admin' => session()->get('nama'),
+            'menu' => 'pelatihan'
+
+        ];
+
+        echo view('admin/pages/rekappendaftar', $data);
+    }
+
 
     public function detailPelatihan($slug)
     {
@@ -147,7 +165,7 @@ class Pelatihan extends BaseController
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        
+
         $situs = new situsModel();
         $sosmed = new sosmedModel();
         $pelatihan = new pelatihanModel();
@@ -177,24 +195,23 @@ class Pelatihan extends BaseController
         var_dump($cart);
         $total = $c->total();
         $transaksiId = time();
-    //    $bpel[] = $cart['price'];
-       
+        //    $bpel[] = $cart['price'];
+
         $jml_data = $c->totalItems();
         $pM = new cartModel();
-        foreach ($cart as $c){
-        $pM->save([
-            'kode_pesanan' => $transaksiId,
-            'biaya_pelatihan' => $c['price'],
-            'total_pesanan' => $c['qty'],
-            'id_pelatihan' => $c['id'],
-            'id_user' => session()->get('id')
-        ]);
-     
-       }
-      
+        foreach ($cart as $c) {
+            $pM->save([
+                'kode_pesanan' => $transaksiId,
+                'biaya_pelatihan' => $c['price'],
+                'total_pesanan' => $c['qty'],
+                'id_pelatihan' => $c['id'],
+                'id_user' => session()->get('id')
+            ]);
+        }
 
-       
-        
+
+
+
         $params = array(
             'transaction_details' => array(
                 'order_id' => $transaksiId,
@@ -209,7 +226,7 @@ class Pelatihan extends BaseController
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-       
-        return redirect()->to('https://app.sandbox.midtrans.com/snap/v2/vtweb/'.$snapToken);
+
+        return redirect()->to('https://app.sandbox.midtrans.com/snap/v2/vtweb/' . $snapToken);
     }
 }

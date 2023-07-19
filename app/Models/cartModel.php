@@ -15,13 +15,13 @@ class cartModel extends Model
     public function tampilData()
     {
         $sM = new cartModel();
-        return  $sM->query("SELECT * FROM pelatihan ORDER BY endpendaftaran DESC LIMIT 6")->getResult();
+        return  $sM->query("SELECT * FROM shopping_cart ORDER BY endpendaftaran DESC LIMIT 6")->getResult();
     }
 
     public function singleData($id)
     {
         $sM = new cartModel();
-        return  $sM->query("SELECT * FROM pelatihan where id = $id")->getResult();
+        return  $sM->query("SELECT * FROM shopping_cart where id_pelatihan = $id")->getResult();
     }
 
     public function slugData($slug)

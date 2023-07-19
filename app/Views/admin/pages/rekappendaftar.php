@@ -29,10 +29,10 @@
 
                       <tr>
                         <th>No</th>
-                        <th>Gambar</th>
-                        <th>Judul</th>
-                        <th>Kuota</th>
-                        <th>Biaya</th>
+                        <th>Nama</th>
+                        <th>WA</th>
+                        <th>Pembayaran</th>
+                        <th>Status</th>
                         <th>Rekap Pendaftar</th>
                         <th>Aksi</th>
                       </tr>
@@ -41,16 +41,18 @@
                     <tbody>
                       <?php
                       $i = 1;
-                      foreach ($sM as $s) : ?>
+                      var_dump($cart);
+                      foreach ($cart as $s) : ?>
                         <tr>
                           <td><?= $i++; ?></td>
-                          <td><img src="<?= base_url('/thumbnails/'. $s->gambar); ?>" width="50" height="50">
+                          <td><?= $s->id_user; ?>
                           </td>
-                          <td><?= $s->id_user; ?></td>
-                          <td> <?= $s->kuota; ?></td>
-                          <td> <?= $s->biaya; ?></td>
-                          <td> <a type="button" class="btn btn-warning btn-sm" href="<?= base_url('admin/pelatihan/id/'.$s->id) ; ?>" target="_blank" rel="noopener noreferrer">Lihat Pendaftar</a></td>
-                          <td>Xn</td>
+                          <td>-</td>
+                          <td><?php $transfer = $s->total_pesanan*$s->biaya_pelatihan;
+                          echo $transfer; ?></td>
+                          <td> </td>
+                          <td></td>
+                          <td></td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>

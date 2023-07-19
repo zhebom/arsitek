@@ -41,6 +41,7 @@ $routes->get('/login/kontraktor', 'LoginKontrak::list');
 //admin
 $routes->get('/admin', 'Admin::index',['filter' => 'authGuard']);
 $routes->get('/admin/situs', 'Admin::judul',['filter' => 'authGuard']);
+
 $routes->get('/bom', 'Admin::bom');
 
 $routes->get('/admin/sosmed', 'Admin::sosmed',['filter' => 'authGuard']);
@@ -65,6 +66,7 @@ $routes->post('/admin/faqs/prosesedit/(:num)', 'Admin::proseseditfaq/$1',['filte
 $routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1',['filter' => 'authGuard']);
 
 //pelatihan
+$routes->get('/admin/pelatihan/id/(:num)', 'pelatihan::idPelatihan/$1',['filter' => 'authGuard']);
 $routes->get('/pelatihan/(:segment)', 'Pelatihan::detailPelatihan/$1');
 $routes->get('/pelatihan', 'Pelatihan::blog');
 $routes->get('/pelatihan/cek/cart', 'Pelatihan::cekCart');
