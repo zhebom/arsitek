@@ -23,6 +23,7 @@
       ?>
 
       <div class="card-header">
+        
         <h3 class="card-title"><?= $pelatihan['pelatihan']; ?></h3>
 
       </div>

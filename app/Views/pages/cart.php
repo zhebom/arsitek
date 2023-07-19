@@ -51,7 +51,11 @@
                <td colspan='4' center><strong>Data Kosong</strong></td>
            <?php }
            ?>
-            <?php foreach ($cart as $key => $value) : ?>
+           
+            <?php
+            
+           
+            foreach ($cart as $key => $value) : ?>
               <tr>
                 
                 <td><?= $value['qty']; ?></td>

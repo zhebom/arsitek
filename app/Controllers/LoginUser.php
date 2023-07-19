@@ -7,7 +7,7 @@ class LoginUser extends BaseController
     public function index()
     {
   
-         echo view('validasi/login-user.php');
+         echo view('validasi/login.php');
     }
 
     public function list()

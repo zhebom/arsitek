@@ -34,7 +34,7 @@ $routes->set404Override();
 $routes->get('/mylogin', 'LoginUser::index');
 $routes->post('/mylogin/auth', 'Admin::loginAuth');
 //$routes->post('/save', 'Admin::insert');
-$routes->get('/login', 'LoginUser::index');
+//$routes->get('/login', 'LoginUser::index');
 $routes->get('/login/kontraktor', 'LoginKontrak::list');
 
 

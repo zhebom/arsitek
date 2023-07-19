@@ -15,6 +15,17 @@ class Admin extends BaseController
      //  protected $sM;
      protected $helpers = ['form'];
 
+     // protected $session;
+     // protected $situs;
+     // protected $sosmed;
+     // protected $pelatihan;
+     public function __construct() {
+          $session = \Config\Services::session();
+          $situs = new situsModel();
+          $sosmed = new sosmedModel();
+          $pelatihan = new pelatihanModel();
+     }
+   
 
      public function index()
      {
@@ -92,9 +103,11 @@ class Admin extends BaseController
      public function judul()
      {
           $sM = new situsModel();
-
+          
           $data = [
                'title' => 'Pengaturan Situs',
+               'situs' => $sM->tampilData(),
+               'admin' => session()->get('nama'),
                'menu' => 'deskripsiSitus',
                'tampil' => $sM->tampilData()
           ];
@@ -144,9 +157,12 @@ class Admin extends BaseController
      {
 
           $sm = new faqModel();
+          $situs = new situsModel();
 
           $data = [
                'title' => 'Pengaturan FAQ',
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
                'menu' => 'faqSitus',
                'tampil' => $sm->tampilData()
 
@@ -157,10 +173,12 @@ class Admin extends BaseController
      public function addfaq()
      {
 
-
+          $situs = new situsModel();
           $data = [
                'title' => 'Pengaturan FAQ',
                'menu' => 'faqSitus',
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
                'tampil' => null
           ];
 
@@ -172,9 +190,12 @@ class Admin extends BaseController
 
           $sm = new faqModel();
           $tampil = $sm->singleData($id);
+          $situs = new situsModel();
           $data = [
                'title' => 'Pengaturan FAQ',
                'menu' => 'faqSitus',
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
                'tampil' => $tampil
           ];
 
@@ -270,9 +291,12 @@ class Admin extends BaseController
      public function sosmed()
      {
           $sM = new sosmedModel();
+          $situs = new situsModel();
           $sM = $sM->tampilData();
           $data = [
                'title' => 'Pengaturan Sosial Media',
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
                'menu' => 'sosmedSitus',
                'sosmed' => $sM
           ];
@@ -292,8 +316,11 @@ class Admin extends BaseController
      public function addsosmed()
      {
           $validasi =  \Config\Services::validation();
+          $situs = new situsModel();
           $data = [
                'title' => 'Pengaturan Sosial Media',
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
                'menu' => 'sosmedSitus',
                'validasi' => $validasi
           ];
@@ -306,11 +333,14 @@ class Admin extends BaseController
      {
           $validasi =  \Config\Services::validation();
           $sM = new sosmedModel();
+          $situs = new situsModel();
           $data = [
                'title' => 'Pengaturan Sosial Media',
                'menu' => 'sosmedSitus',
                'validasi' => $validasi,
-               'tampil' => $sM->singleData($id)
+               'tampil' => $sM->singleData($id),
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
           ];
 
           echo view('admin/pages/editsosmed.php', $data);
@@ -423,10 +453,12 @@ class Admin extends BaseController
      public function pelatihan()
      {
           $sM = new pelatihanModel();
-
+          $situs = new situsModel();
           $validasi =  \Config\Services::validation();
           $data = [
                'title' => 'Pengaturan Pelatihan',
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
                'menu' => 'pelatihan',
                'validasi' => $validasi,
                'sM' => $sM->tampilData()
@@ -436,10 +468,12 @@ class Admin extends BaseController
      public function addpelatihan()
      {
 
-
+          $situs = new situsModel();
           $validasi =  \Config\Services::validation();
           $data = [
                'title' => 'Pengaturan Pelatihan',
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
                'menu' => 'pelatihan',
                'validasi' => $validasi
 

@@ -174,6 +174,7 @@ class Pelatihan extends BaseController
 
         $c = \Config\Services::cart();
         $cart = $c->contents();
+        var_dump($cart);
         $total = $c->total();
         $transaksiId = time();
     //    $bpel[] = $cart['price'];
@@ -184,7 +185,9 @@ class Pelatihan extends BaseController
         $pM->save([
             'kode_pesanan' => $transaksiId,
             'biaya_pelatihan' => $c['price'],
-            'total_pesanan' => $c['qty']
+            'total_pesanan' => $c['qty'],
+            'id_pelatihan' => $c['id'],
+            'id_user' => session()->get('id')
         ]);
      
        }
