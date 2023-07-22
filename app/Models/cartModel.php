@@ -21,7 +21,12 @@ class cartModel extends Model
     public function singleData($id)
     {
         $sM = new cartModel();
-        return  $sM->query("SELECT * FROM shopping_cart where id_pelatihan = $id")->getResult();
+        // return  $sM->query("SELECT * FROM shopping_cart where id_pelatihan = $id")->getResult();
+        return $this->db->table('shopping_cart')
+         ->join('pelatihan','pelatihan.id=shopping_cart.id_pelatihan')
+         ->join('user','user.id=shopping_cart.id_user')
+         ->where('shopping_cart.id_pelatihan',$id)
+         ->get()->getResult();  
     }
 
     public function slugData($slug)

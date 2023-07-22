@@ -133,10 +133,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-
-
-
                 <div class="container text-center">
                     <div class="row align-items-center">
 
@@ -163,50 +159,32 @@
                     </div>
                 </div>
                 <?php if (session()->get('isLoggedIn') == TRUE) {                              ?>
-                    <div class="row align-items-center">
-                        <div class="col text-center">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle btn btn-outlined" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                       <strong><?= session()->get('nama'); ?></strong>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <div class="row align-items-center">
+                            <div class="col text-center">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle btn btn-outlined" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                            <strong><?= session()->get('nama'); ?></strong>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                                            <li><a class="dropdown-item" href="#">Riwayat Pelatihan</a></li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
                                     <a class="nav-link btn btn-danger" href="<?= base_url('/bom'); ?>"><strong>Logout</strong></a>
-                                </li> 
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                <?php 
+                <?php
                 } else {  ?>
                     <a class="btn btn-danger d-grid hidden" href="<?= base_url('/login'); ?>"><strong>Login</strong></a> <a class="btn btn-outline-warning d-grid" href="<?= base_url('register'); ?>"><strong>Daftar</strong></a>
                 <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </div>
     </nav>

@@ -30,41 +30,38 @@
                       <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>WA</th>
+                        <th>Email</th>
                         <th>Pembayaran</th>
                         <th>Status</th>
-                        <th>Rekap Pendaftar</th>
-                        <th>Aksi</th>
+                        
                       </tr>
 
                     </thead>
                     <tbody>
                       <?php
                       $i = 1;
-                      var_dump($cart);
+                      //var_dump($cart);die;
                       foreach ($cart as $s) : ?>
                         <tr>
                           <td><?= $i++; ?></td>
-                          <td><?= $s->id_user; ?>
+                          <td><?= $s->nama; ?>
                           </td>
-                          <td>-</td>
+                          <td><?= $s->user; ?></td>
                           <td><?php $transfer = $s->total_pesanan*$s->biaya_pelatihan;
                           echo $transfer; ?></td>
                           <td> </td>
-                          <td></td>
-                          <td></td>
+                         
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
                     <tfoot>
-                      <tr>
+                    <tr>
                         <th>No</th>
-                        <th>Gambar</th>
-                        <th>Judul</th>
-                        <th>Kuota</th>
-                        <th>Biaya</th>
-                        <th>Rekap Pendaftar</th>
-                        <th>Aksi</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Pembayaran</th>
+                        <th>Status</th>
+                        
                       </tr>
                     </tfoot>
                   </table>

@@ -46,10 +46,10 @@
                           <td><?= $i++; ?></td>
                           <td><img src="<?= base_url('/thumbnails/'. $s->gambar); ?>" width="50" height="50">
                           </td>
-                          <td><?= $s->id_user; ?></td>
+                          <td><?= $s->pelatihan; ?></td>
                           <td> <?= $s->kuota; ?></td>
                           <td> <?= $s->biaya; ?></td>
-                          <td> <a type="button" class="btn btn-warning btn-sm" href="<?= base_url('admin/pelatihan/id/'.$s->id) ; ?>" target="_blank" rel="noopener noreferrer">Lihat Pendaftar</a></td>
+                          <td> <a type="button" class="btn btn-warning btn-sm" href="<?= base_url('admin/pelatihan/'.$s->id) ; ?>" rel="noopener noreferrer">Lihat Pendaftar</a></td>
                           <td>Xn</td>
                         </tr>
                       <?php endforeach; ?>

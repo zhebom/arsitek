@@ -71,7 +71,7 @@ $routes->post('/admin/faqs/prosesedit/(:num)', 'Admin::proseseditfaq/$1',['filte
 $routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1',['filter' => 'authGuard']);
 
 //pelatihan
-$routes->get('/admin/pelatihan/id/(:num)', 'pelatihan::idPelatihan/$1',['filter' => 'authGuard']);
+$routes->get('/admin/pelatihan/(:num)', 'pelatihan::idPelatihan/$1',['filter' => 'authGuard']);
 $routes->get('/pelatihan/(:segment)', 'Pelatihan::detailPelatihan/$1');
 $routes->get('/pelatihan', 'Pelatihan::blog');
 $routes->get('/pelatihan/cek/cart', 'Pelatihan::cekCart');
