@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class adminModel extends Model
+class userModel extends Model
 {
-    protected $table      = 'admin';
+    protected $table      = 'user';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
@@ -15,13 +15,13 @@ class adminModel extends Model
     public function tampilData()
     {
         $sM = new cartModel();
-        return  $sM->query("SELECT * FROM admin ORDER BY endpendaftaran DESC LIMIT 6")->getResult();
+        return  $sM->query("SELECT * FROM user ORDER BY endpendaftaran DESC LIMIT 6")->getResult();
     }
 
     public function singleData($id)
     {
         $sM = new cartModel();
-        return  $sM->query("SELECT * FROM admin where id = $id")->getResult();
+        return  $sM->query("SELECT * FROM user where id = $id")->getResult();
     }
 
     public function slugData($slug)

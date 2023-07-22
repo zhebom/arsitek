@@ -178,22 +178,17 @@
                     </div>
                 </div>
 
-                <div class="container text-center">
-                    <div class="row align-items-center">
-
-                        <div class="col">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
+                           
                                 
-                                <li class="nav-item">
-                                <a class="btn btn-danger mr-2"  href="<?= base_url('/login/user'); ?>"><strong>Login</strong></a>  <a class="btn btn-outline-warning" href="#"><strong>Daftar</strong></a>
-                                </li>
                                
-                            </ul>
+                                <a class="btn btn-danger d-grid"  href="<?= base_url('/login'); ?>"><strong>Login</strong></a>  <a class="btn btn-outline-warning d-grid" href="<?= base_url('register'); ?>"><strong>Daftar</strong></a>
+                               
+                               
+                           
 
-                        </div>
-
-                    </div>
-                </div>
+                     
+               
 
 
                 
