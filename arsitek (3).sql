@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 02:20 AM
+-- Generation Time: Jul 22, 2023 at 09:42 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -117,15 +117,9 @@ CREATE TABLE `shopping_cart` (
 --
 
 INSERT INTO `shopping_cart` (`id`, `id_user`, `id_pelatihan`, `biaya_pelatihan`, `total_pesanan`, `kode_pesanan`, `created_at`, `updated_at`) VALUES
-(1, 0, 1689503004, 0, 2, '50000', '0000-00-00 00:00:00', '2023-07-16 10:23:24'),
-(2, 0, 0, 50000, 1, '1689503311', '0000-00-00 00:00:00', '2023-07-16 10:28:31'),
-(3, 0, 0, 50000, 1, '1689503357', '0000-00-00 00:00:00', '2023-07-16 10:29:17'),
-(4, 0, 0, 50000, 1, '1689503409', '0000-00-00 00:00:00', '2023-07-16 10:30:09'),
-(5, 0, 0, 50000, 1, '1689503501', '0000-00-00 00:00:00', '2023-07-16 10:31:41'),
-(6, 0, 0, 50000, 1, '1689503555', '0000-00-00 00:00:00', '2023-07-16 10:32:35'),
-(7, 0, 0, 50000, 1, '1689503599', '0000-00-00 00:00:00', '2023-07-16 10:33:19'),
-(8, 0, 0, 50000, 1, '1689503622', '0000-00-00 00:00:00', '2023-07-16 10:33:42'),
-(9, 0, 0, 50000, 1, '1689503630', '0000-00-00 00:00:00', '2023-07-16 10:33:50');
+(1, 0, 1, 50000, 1, '1689771261', '0000-00-00 00:00:00', '2023-07-19 12:54:21'),
+(2, 1, 5, 50000, 1, '1689771863', '0000-00-00 00:00:00', '2023-07-19 13:04:23'),
+(3, 2, 5, 50000, 1, '1690010482', '0000-00-00 00:00:00', '2023-07-22 07:21:22');
 
 -- --------------------------------------------------------
 
@@ -163,6 +157,31 @@ CREATE TABLE `sosmed` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(255) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `no_ktp` varchar(25) NOT NULL,
+  `role` int(10) NOT NULL,
+  `created_at` date NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `user`, `pass`, `nama`, `no_ktp`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'admin@ruangteksi.com', 'cc6b6fc05e689a3e5000269f8712e1c9', 'Admin Punya', '', 2, '2023-07-22', '0000-00-00 00:00:00'),
+(2, 'admin2@ruangteksi.com', '$2y$10$MkBqljL9BLBkhf9t14cure8oWUW3o5tS39PCWc858mUImcUc3kms6', 'Widhi', '', 2, '2023-07-22', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -205,6 +224,12 @@ ALTER TABLE `sosmed`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -230,13 +255,19 @@ ALTER TABLE `pelatihan`
 -- AUTO_INCREMENT for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sosmed`
 --
 ALTER TABLE `sosmed`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
