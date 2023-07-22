@@ -155,9 +155,20 @@
                                     <a class="nav-link" href="<?= base_url("faq"); ?>"> Cara Penggunaan Aplikasi</a>
                                 </li>
 
-                                <!-- <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Dropdown
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+                <?php if (session()->get('isLoggedIn') == TRUE) {                              ?>
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle btn btn-outlined" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                       <strong><?= session()->get('nama'); ?></strong>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Action</a></li>
@@ -169,17 +180,13 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link disabled">Disabled</a>
-                                </li> -->
+                                    <a class="nav-link btn btn-danger" href="<?= base_url('/bom'); ?>"><strong>Logout</strong></a>
+                                </li> 
                             </ul>
-
                         </div>
-
                     </div>
-                </div>
-                <?php if (session()->get('isLoggedIn')==TRUE) {                              ?>
-
-                <?php echo "hi"; echo session()->get('nama');} else {  ?>
+                <?php 
+                } else {  ?>
                     <a class="btn btn-danger d-grid hidden" href="<?= base_url('/login'); ?>"><strong>Login</strong></a> <a class="btn btn-outline-warning d-grid" href="<?= base_url('register'); ?>"><strong>Daftar</strong></a>
                 <?php } ?>
 
