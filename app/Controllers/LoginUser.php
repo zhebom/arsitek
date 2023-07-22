@@ -59,7 +59,7 @@ class LoginUser extends BaseController
                return redirect()->to(base_url('register'))->withinput();
           } else {
                $uM = new userModel();
-               $pass = md5($this->request->getVar('pass'));
+               $pass = password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT);
                $today = date("Y-m-d H:i:s");
                $uM->save([
                     'nama' =>  $this->request->getVar('nama'),
@@ -73,5 +73,40 @@ class LoginUser extends BaseController
                session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
                return redirect()->to(base_url('register'))->withinput();
           }
+     }
+
+     public function loginAuth()
+     {
+         $session = session();
+         $userModel = new userModel();
+         $user = $this->request->getVar('user');
+         $password = $this->request->getVar('pass');
+         
+         $data = $userModel->where('user', $user)->first();
+         
+         if($data){
+             $pass = $data['pass'];
+             
+             $authenticatePassword = password_verify($password, $pass);
+             if($authenticatePassword){
+                 $ses_data = [
+                     'id' => $data['id'],
+                     'nama' => $data['nama'],
+                     'role' => $data['role'],
+                     'isLoggedIn' => TRUE
+                 ];
+                
+                 $session->set($ses_data);
+                
+                 return redirect()->withInput()->to('/');
+             
+             }else{
+                 $session->setFlashdata('msg', 'User atau Pass does not exist.');
+                 return redirect()->to('/login');
+             }
+         }else{
+             $session->setFlashdata('msg', 'User atau Pass does not exist.');
+             return redirect()->to('/login');
+         }
      }
 }

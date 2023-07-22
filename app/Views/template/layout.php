@@ -177,24 +177,22 @@
 
                     </div>
                 </div>
+                <?php if (session()->get('isLoggedIn')==TRUE) {                              ?>
 
-             
-                           
-                                
-                               
-                                <a class="btn btn-danger d-grid"  href="<?= base_url('/login'); ?>"><strong>Login</strong></a>  <a class="btn btn-outline-warning d-grid" href="<?= base_url('register'); ?>"><strong>Daftar</strong></a>
-                               
-                               
-                           
-
-                     
-               
+                <?php echo "hi"; echo session()->get('nama');} else {  ?>
+                    <a class="btn btn-danger d-grid hidden" href="<?= base_url('/login'); ?>"><strong>Login</strong></a> <a class="btn btn-outline-warning d-grid" href="<?= base_url('register'); ?>"><strong>Daftar</strong></a>
+                <?php } ?>
 
 
-                
-                   
-                   
-                
+
+
+
+
+
+
+
+
+
 
 
 

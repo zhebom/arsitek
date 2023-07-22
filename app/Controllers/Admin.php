@@ -50,6 +50,7 @@ class Admin extends BaseController
 
      public function bom(){
           session()->destroy();
+          return redirect()->to('/');
      }
 
      public function insert(){

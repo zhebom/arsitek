@@ -24,7 +24,7 @@
     <div class="card-body">
       <p class="login-box-msg">Masukkan Username & Password Anda</p>
       <?= session()->getFlashdata('msg'); ?>
-      <?= form_open('/mylogin/auth'); ?>
+      <?= form_open('/login/auth'); ?>
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="user" id="user" name="user">
           <div class="input-group-append">

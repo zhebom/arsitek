@@ -37,6 +37,7 @@ $routes->post('/mylogin/auth', 'Admin::loginAuth');
 
 //login & Validasi User
 $routes->get('/login', 'LoginUser::user');
+$routes->post('/login/auth', 'LoginUser::loginAuth');
 $routes->get('/register', 'LoginUser::reguser');
 $routes->post('/register/save', 'LoginUser::prosesadduser');
 $routes->get('/login/kontraktor', 'LoginKontrak::list');
