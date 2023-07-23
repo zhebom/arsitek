@@ -29,6 +29,16 @@ class cartModel extends Model
          ->get()->getResult();  
     }
 
+    public function pelatihanku($id)
+    {
+        $sM = new cartModel();
+        // return  $sM->query("SELECT * FROM shopping_cart where id_pelatihan = $id")->getResult();
+        return $this->db->table('shopping_cart')
+         ->join('pelatihan','pelatihan.id=shopping_cart.id_pelatihan')
+         ->join('user','user.id=shopping_cart.id_user')
+         ->where('user.id',$id)
+         ->get()->getResult();  
+    }
     public function slugData($slug)
     {
         $sM = new cartModel();

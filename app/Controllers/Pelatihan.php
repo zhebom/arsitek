@@ -36,6 +36,7 @@ class Pelatihan extends BaseController
 
     public function profil()
     {
+        $cart = new cartModel();
         $situs = new situsModel();
         $user = new userModel();
         $sosmed = new sosmedModel();
@@ -47,7 +48,8 @@ class Pelatihan extends BaseController
             'situs' => $situs->tampilData(),
             'sosmed' => $sosmed->tampilData(),
             'user' => $user->singleData($iduser),
-            'faq' => $faq->tampilData()
+            'faq' => $faq->tampilData(),
+            'cart' => $cart->pelatihanku($iduser),
         ];
 
         echo view('pages/profil', $data);
