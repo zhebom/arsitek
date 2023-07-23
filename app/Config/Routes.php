@@ -40,6 +40,7 @@ $routes->get('/login', 'LoginUser::user');
 $routes->post('/login/auth', 'LoginUser::loginAuth');
 $routes->get('/register', 'LoginUser::reguser');
 $routes->post('/register/save', 'LoginUser::prosesadduser');
+$routes->post('/profil/update', 'LoginUser::edituser');
 $routes->get('/login/kontraktor', 'LoginKontrak::list');
 
 
@@ -94,7 +95,7 @@ $routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan',['filter'
 // Umum
 $routes->get('/', 'Home::index');
 $routes->get('/kontraktor', 'Kontraktor::index');
-$routes->get('/profil', 'Pelatihan::profil');
+$routes->get('/profil', 'Pelatihan::profil',['filter' => 'authUser']);
 $routes->get('/pekerjaan', 'Pekerjaan::index');
 $routes->get('/pekerjaan/detail', 'Pekerjaan::detail');
 

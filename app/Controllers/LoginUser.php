@@ -2,6 +2,12 @@
 
 namespace App\Controllers;
 use App\Models\userModel;
+use App\Models\situsModel;
+use App\Models\sosmedModel;
+use App\Models\pelatihanModel;
+use App\Models\cartModel;
+use App\Models\faqModel;
+
 class LoginUser extends BaseController
 {
      public function index()
@@ -108,5 +114,21 @@ class LoginUser extends BaseController
              $session->setFlashdata('msg', 'User atau Pass does not exist.');
              return redirect()->to('/login');
          }
+     }
+
+     public function editUser(){
+
+        $uM = new userModel();
+          $data = [
+             
+              'id' => $this->request->getVar('id'),
+              'email' => $this->request->getVar('email'),
+              'nama' => $this->request->getVar('nama'),
+          ];
+
+          return $uM->update($data);
+  
+          
+
      }
 }

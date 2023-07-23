@@ -189,17 +189,17 @@
                             <div class="col text-center">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle btn btn-outlined" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                        <a class="nav-link dropdown-toggle btn btn-outlined" href="#" role="button" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                                             <strong><?= session()->get('nama'); ?></strong>
                                         </a>
-                                        <ul class="dropdown-menu ">
-                                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                                            <li><a class="dropdown-item" href="#">Riwayat Pelatihan</a></li>
+                                        <ul class="dropdown-menu dropdown-menu-lg-end">
+                                            <li><a class="dropdown-item " href="<?= base_url('/profil'); ?>">Profil</a></li>
+                                            <li><a class="dropdown-item" href="<?= base_url('/bom'); ?>"><strong>Logout</strong></a></li>
 
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link btn btn-danger" href="<?= base_url('/bom'); ?>"><strong>Logout</strong></a>
+                                        
                                     </li>
                                 </ul>
                             </div>

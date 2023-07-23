@@ -4,23 +4,16 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthGuard implements FilterInterface
+class AuthUser implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-       
-
-        if ((session()->get('role')>1)){
-            return redirect()
-                ->to('/');
-
-        }      
         if (!session()->get('isLoggedIn'))
         {
             return redirect()
-                ->to('/mylogin');
-        } 
-
+                ->to('/');
+        }
+        
     }
     
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
