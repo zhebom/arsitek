@@ -43,7 +43,10 @@ class Pelatihan extends BaseController
         $pelatihan = new pelatihanModel();
         $faq = new faqModel();
         $iduser = session()->get('id');
+
+       
         
+
         $data = [
             'situs' => $situs->tampilData(),
             'sosmed' => $sosmed->tampilData(),
@@ -217,6 +220,23 @@ class Pelatihan extends BaseController
         var_dump($cart);
         $total = $c->total();
         $transaksiId = time();
+       
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $transaksiId,
+                'gross_amount' => $total,
+            ),
+            'customer_details' => array(
+                'first_name' => session()->get('nama'),
+                'last_name' => '-',
+                'email' => session()->get('email'),
+                'phone' => session()->get('hp'),
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        $token = $snapToken;
+        
         //    $bpel[] = $cart['price'];
 
         $jml_data = $c->totalItems();
@@ -227,27 +247,14 @@ class Pelatihan extends BaseController
                 'biaya_pelatihan' => $c['price'],
                 'total_pesanan' => $c['qty'],
                 'id_pelatihan' => $c['id'],
-                'id_user' => session()->get('id')
+                'id_user' => session()->get('id'),
+                'token' => $snapToken
             ]);
         }
 
 
 
 
-        $params = array(
-            'transaction_details' => array(
-                'order_id' => $transaksiId,
-                'gross_amount' => $total,
-            ),
-            'customer_details' => array(
-                'first_name' => 'budi',
-                'last_name' => 'pratama',
-                'email' => 'zhebom@example.com',
-                'phone' => '08111222333',
-            ),
-        );
-
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         return redirect()->to('https://app.sandbox.midtrans.com/snap/v2/vtweb/' . $snapToken);
     }

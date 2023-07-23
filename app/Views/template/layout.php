@@ -203,7 +203,7 @@
     </nav>
 
     <br>
-
+    <?= session()->getFlashdata('msg'); ?>
     <?= $this->renderSection('content'); ?>
 
     <div class="container">

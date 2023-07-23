@@ -73,18 +73,18 @@ $routes->delete('/admin/faqs/(:num)', 'Admin::deletefaq/$1',['filter' => 'authGu
 
 //pelatihan
 $routes->get('/admin/pelatihan/(:num)', 'pelatihan::idPelatihan/$1',['filter' => 'authGuard']);
-$routes->get('/pelatihan/(:segment)', 'Pelatihan::detailPelatihan/$1');
+$routes->get('/pelatihan/(:segment)', 'Pelatihan::detailPelatihan/$1',['filter' => 'authUser']);
 $routes->get('/pelatihan', 'Pelatihan::blog');
-$routes->get('/pelatihan/cek/cart', 'Pelatihan::cekCart');
-$routes->get('/pelatihan/cek/clear', 'Pelatihan::clear');
-$routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart');
+$routes->get('/pelatihan/cek/cart', 'Pelatihan::cekCart',['filter' => 'authUser']);
+$routes->get('/pelatihan/cek/clear', 'Pelatihan::clear',['filter' => 'authUser']);
+$routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart',['filter' => 'authUser']);
 $routes->post('/pelatihan/payment', 'Pelatihan::payment');
-$routes->post('/pelatihan/prosespayment', 'Pelatihan::payment2');
-$routes->get('/cart', 'Pelatihan::cart');
+$routes->post('/pelatihan/prosespayment', 'Pelatihan::payment2',['filter' => 'authUser']);
+$routes->get('/cart', 'Pelatihan::cart',['filter' => 'authUser']);
 
 //cart
-$routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart');
-$routes->delete('/cart/delete/(:any)', 'Pelatihan::delCart/$1');
+$routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart',['filter' => 'authUser']);
+$routes->delete('/cart/delete/(:any)', 'Pelatihan::delCart/$1',['filter' => 'authUser']);
 $routes->get('/admin/pelatihan', 'Admin::pelatihan',['filter' => 'authGuard']);
 $routes->get('/admin/pelatihan/add', 'Admin::addpelatihan',['filter' => 'authGuard']);
 $routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan',['filter' => 'authGuard']);

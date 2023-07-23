@@ -10,7 +10,7 @@ class cartModel extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id', 'id_pelatihan', 'id_user', 'biaya_pelatihan', 'total_pesanan','kode_pesanan','created_at', 'updated_at'];
+    protected $allowedFields = ['id', 'id_pelatihan', 'id_user', 'biaya_pelatihan','token', 'total_pesanan','kode_pesanan','created_at', 'updated_at'];
 
     public function tampilData()
     {

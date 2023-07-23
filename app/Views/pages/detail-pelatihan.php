@@ -28,7 +28,7 @@
 
       </div>
       <div class="card-body">
-        <?= session()->getFlashdata('msg'); ?>
+   
         <div class="row mb-5">
           <div class="col-md-12 col-lg-6 col-xl-4">
             <div class="card mb-2 bg-gradient-dark bungkus">

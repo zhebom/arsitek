@@ -10,6 +10,7 @@ class AuthUser implements FilterInterface
     {
         if (!session()->get('isLoggedIn'))
         {
+            session()->setFlashdata('msg', '<div class="alert alert-danger" role="alert">Anda Harus Login Untuk Mengakses Fitur</div>');
             return redirect()
                 ->to('/');
         }

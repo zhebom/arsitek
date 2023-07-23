@@ -30,7 +30,7 @@
     <!-- /.row -->
 
     <!-- Table row -->
-    <?= session()->getFlashdata('msg'); ?>
+  
     <div class="row">
       <div class="col-12 table-responsive">
         <table class="table table-striped" style="text-align:right;">

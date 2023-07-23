@@ -97,7 +97,9 @@ class LoginUser extends BaseController
              if($authenticatePassword){
                  $ses_data = [
                      'id' => $data['id'],
+                     'email' => $data['user'],
                      'nama' => $data['nama'],
+                     'hp' => $data['no_ktp'],
                      'role' => $data['role'],
                      'isLoggedIn' => TRUE
                  ];

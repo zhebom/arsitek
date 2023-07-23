@@ -70,6 +70,7 @@
 
                                                 <tr>
                                                     <th>No</th>
+                                                    <th>Kode Pesanan</th>
                                                     <th>Nama Pelatihan</th>
                                                     <th>Pembayaran</th>
                                                     <th>Status</th>
@@ -84,6 +85,7 @@
                                                 foreach ($cart as $s) : ?>
                                                     <tr>
                                                         <td><?= $i++; ?></td>
+                                                        <td><?= $s->kode_pesanan; ?></td>
                                                         <td><?= $s->pelatihan; ?></td>
                                                         <td><?php $transfer = $s->total_pesanan * $s->biaya_pelatihan;
                                                             echo $transfer; ?></td>
@@ -95,6 +97,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>No</th>
+                                                    <th>Kode Pesanan</th>
                                                     <th>Nama Pelatihan</th>
                                                     <th>Pembayaran</th>
                                                     <th>Status</th>
