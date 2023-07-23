@@ -7,6 +7,7 @@ use App\Models\sosmedModel;
 use App\Models\pelatihanModel;
 use App\Models\cartModel;
 use App\Models\faqModel;
+use App\Models\userModel;
 use CodeIgniter\Database\Query;
 
 class Pelatihan extends BaseController
@@ -26,11 +27,30 @@ class Pelatihan extends BaseController
         $data = [
             'situs' => $situs->tampilData(),
             'sosmed' => $sosmed->tampilData(),
-            'pelatihan' => $pelatihan->tampilData(),
+            'pelatihan' => $pelatihan->tampilData30(),
             'faq' => $faq->tampilData()
         ];
 
         echo view('pages/pelatihan', $data);
+    }
+
+    public function profil()
+    {
+        $situs = new situsModel();
+        $user = new userModel();
+        $sosmed = new sosmedModel();
+        $pelatihan = new pelatihanModel();
+        $faq = new faqModel();
+        $iduser = session()->get('id');
+        
+        $data = [
+            'situs' => $situs->tampilData(),
+            'sosmed' => $sosmed->tampilData(),
+            'user' => $user->singleData($iduser),
+            'faq' => $faq->tampilData()
+        ];
+
+        echo view('pages/profil', $data);
     }
 
     public function idPelatihan($id)

@@ -18,6 +18,12 @@ class pelatihanModel extends Model
         return  $sM->query("SELECT * FROM pelatihan ORDER BY endpendaftaran DESC LIMIT 6")->getResult();
     }
 
+    public function tampilData30()
+    {
+        $sM = new pelatihanModel();
+        return  $sM->query("SELECT * FROM pelatihan ORDER BY endpendaftaran DESC LIMIT 30")->getResult();
+    }
+
     public function singleData($id)
     {
         $sM = new pelatihanModel();
