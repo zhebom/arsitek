@@ -10,13 +10,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <?= session()->getFlashdata('msg'); ?>
+
                         <h3 class="card-title">Profil Pengguna</h3>
                         <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-
+                        <?= session()->getFlashdata('msg'); ?>
                         <?php
 
 
@@ -53,89 +53,71 @@
                 </div>
                 <!-- /.social-auth-links -->
                 <!-- Default box -->
-               
-                <div class="card mt-3">
-                    <div class="card-header">
-                        <h3 class="card-title">Riwayat Pelatihan</h3>
-
-                    </div>
-
-                    <div class="card-body">
-                        <!-- Main content -->
-                        <section class="content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="card">
-                                            <div class="card-header">
 
 
-                                                <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
-                                            </div>
-                                            <!-- /.card-header -->
-                                            <div class="card-body">
-                                                <table id="example2" class="table table-bordered table-hover">
-                                                    <thead>
+                <!-- Main content -->
+                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Riwayat Pelatihan</h3>
 
-                                                        <tr>
-                                                            <th>No</th>
-                                                            <th>Nama Pelatihan</th>
-                                                            <th>Pembayaran</th>
-                                                            <th>Status</th>
-
-                                                        </tr>
-
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
-                                                        $i = 1;
-                                                        //var_dump($cart);die;
-                                                        foreach ($cart as $s) : ?>
-                                                            <tr>
-                                                                <td><?= $i++; ?></td>
-                                                                <td><?= $s->pelatihan; ?></td>
-                                                                <td><?php $transfer = $s->total_pesanan * $s->biaya_pelatihan;
-                                                                    echo $transfer; ?></td>
-                                                                <td> - </td>
-
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    </tbody>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>No</th>
-                                                            <th>Nama Pelatihan</th>
-                                                            <th>Pembayaran</th>
-                                                            <th>Status</th>
-
-                                                        </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                            <!-- /.card-body -->
-                                        </div>
-                                        <!-- /.card -->
-
-
+                                        <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
                                     </div>
-                                    <!-- /.col -->
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
+                                        <table id="example2" class="table table-bordered table-hover">
+                                            <thead>
+
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Pelatihan</th>
+                                                    <th>Pembayaran</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $i = 1;
+                                                //var_dump($cart);die;
+                                                foreach ($cart as $s) : ?>
+                                                    <tr>
+                                                        <td><?= $i++; ?></td>
+                                                        <td><?= $s->pelatihan; ?></td>
+                                                        <td><?php $transfer = $s->total_pesanan * $s->biaya_pelatihan;
+                                                            echo $transfer; ?></td>
+                                                        <td> - </td>
+
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Pelatihan</th>
+                                                    <th>Pembayaran</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <!-- /.card-body -->
                                 </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.container-fluid -->
-                        </section>
-                        <!-- /.content -->
-                    </div>
-                </div>
+                                <!-- /.card -->
+
+                <!-- /.content -->
+
 
 
 
             </div>
         </div>
     </div>
+</section>
 
 
 
 
-
-    <?= $this->endSection(); ?>
+<?= $this->endSection(); ?>
