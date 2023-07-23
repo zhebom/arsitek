@@ -32,16 +32,16 @@
                                                     <div class="col-sm-12">
                                                         <!-- text input -->
 
-                                                        <?= session()->getFlashdata('msg'); ?>
+                                                       
                                                         <?= validation_list_errors() ?>
 
                                                         <div class="form-group">
-                                                            <input type="hidden" value="<?= $s->id; ?>">
-                                                            <label>Email</label>
-                                                            <input type="text" class="form-control" id="email" name="email" value="<?= $s->user ?>">
+                                                            <input type="hidden" id="id" name="id" value="<?= $s->id; ?>">
+                                                            <label>Nama Lengkap</label>
+                                                            <input type="text" class="form-control" id="nama" name="nama" value="<?= $s->nama; ?>">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label>Nama Lengkap</label>
+                                                            <label>Nomor Handphone</label>
                                                             <input type="text" class="form-control" id="nama" name="nama" value="<?= $s->nama; ?>">
                                                         </div>
 
@@ -70,7 +70,7 @@
                                                                     <div class="col-12">
                                                                         <div class="card">
                                                                             <div class="card-header">
-                                                                                <?= session()->getFlashdata('msg'); ?>
+                                                                             
 
                                                                                 <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
                                                                             </div>

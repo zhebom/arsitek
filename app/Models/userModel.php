@@ -14,25 +14,25 @@ class userModel extends Model
 
     public function tampilData()
     {
-        $sM = new cartModel();
+        $sM = new userModel();
         return  $sM->query("SELECT * FROM user ORDER BY endpendaftaran DESC LIMIT 6")->getResult();
     }
 
     public function singleData($id)
     {
-        $sM = new cartModel();
+        $sM = new userModel();
         return  $sM->query("SELECT * FROM user where id = $id")->getResult();
     }
 
     public function slugData($slug)
     {
-        $sM = new cartModel();
+        $sM = new userModel();
         return  $sM->where(['slug'=> $slug])->first();
     }
 
     public function deleteData($id)
     {
-        $sM = new cartModel();
+        $sM = new userModel();
         $sM->where('id', $id);
         $sM->delete();
     }

@@ -118,15 +118,18 @@ class LoginUser extends BaseController
 
      public function editUser(){
 
+          $session = session();
         $uM = new userModel();
           $data = [
              
               'id' => $this->request->getVar('id'),
-              'email' => $this->request->getVar('email'),
+              'user' => $this->request->getVar('email'),
               'nama' => $this->request->getVar('nama'),
           ];
 
-          return $uM->update($data);
+          $uM->save($data);
+          session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Dirubah</div>');
+          return redirect()->to('profil');
   
           
 
