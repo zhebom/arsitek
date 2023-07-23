@@ -73,7 +73,8 @@
                                     <th>Kode Pesanan</th>
                                     <th>Nama Pelatihan</th>
                                     <th>Pembayaran</th>
-                                    <th>Status</th>
+                                    <th>Status Code</th>
+                                    <th>Keterangan</th>
 
                                 </tr>
 
@@ -88,20 +89,20 @@
                                     $url = "https://api.sandbox.midtrans.com/v2/" . $idpesan . "/status";
                                     $header = array(
                                         'accept: application/json',
-                                        'authorization: Basic ' .$token,
-                                        
+                                        'authorization: Basic ' . $token,
+
 
                                     );
                                     $method = 'GET';
                                     $ch = curl_init();
-                                    curl_setopt($ch,CURLOPT_URL,$url);
-                                    curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
-                                    curl_setopt($ch,CURLOPT_CUSTOMREQUEST,$method);
-                                    curl_setopt($ch,CURLOPT_POSTFIELDS,false);
-                                    curl_setopt($ch,CURLINFO_HEADER_OUT,true);
-                                    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+                                    curl_setopt($ch, CURLOPT_URL, $url);
+                                    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+                                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+                                    curl_setopt($ch, CURLOPT_POSTFIELDS, false);
+                                    curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+                                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                                     $result = curl_exec($ch);
-                                    $hasil = json_decode($result,true);
+                                    $hasil = json_decode($result, true);
 
                                 ?>
 
@@ -112,6 +113,51 @@
                                         <td><?php $transfer = $s->total_pesanan * $s->biaya_pelatihan;
                                             echo $transfer; ?></td>
                                         <td> <?= $hasil['status_code']; ?></td>
+                                        <td>
+                                        <?php 
+                                        switch ($hasil['status_code']) {
+                                            case 200:
+                                              echo "Pembayaran Diterima";
+                                              break;
+                                            case 201:
+                                                echo "Segera Lakukan Pembayaran !!";
+                                              break;
+                                            case 202:
+                                              echo "Transaksi Ditolak !!";
+                                              break;
+                                              case 300:
+                                                echo "Transaksi Dialihkan ";
+                                                break;
+                                                case  500:
+                                                    echo "Internal Server Error";
+                                                    break;
+                                                    case 501:
+                                                        echo "The Feature Is Not Available";
+                                                        break;
+                                                        case 502:
+                                                            echo "Bank Connecton Problem";
+                                                            break;
+                                                            case 503:
+                                                                echo "Masalah Konektifitas";
+                                                                break;
+                                                                case 504:
+                                                                    echo "Internal Server Error : Fraud Detection System is Unavailable";
+                                                                    break;
+                                                                    case 505:
+                                                                        echo "Gagal Request Virtual Account, Coba Lagi Nanti";
+                                                                        break;
+                                            default:
+                                              echo "Transaksi Tidak Ditemukan";
+                                          }
+                                        
+                                        
+                                        
+                                        ?>
+
+
+
+
+                                        </td>
 
                                     </tr>
                                 <?php endforeach; ?>
@@ -122,7 +168,8 @@
                                     <th>Kode Pesanan</th>
                                     <th>Nama Pelatihan</th>
                                     <th>Pembayaran</th>
-                                    <th>Status</th>
+                                    <th>Status Code</th>
+                                    <th>Keterangan</th>
 
                                 </tr>
                             </tfoot>
