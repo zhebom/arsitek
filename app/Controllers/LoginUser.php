@@ -123,8 +123,9 @@ class LoginUser extends BaseController
           $data = [
              
               'id' => $this->request->getVar('id'),
-              'user' => $this->request->getVar('email'),
+              
               'nama' => $this->request->getVar('nama'),
+              'no_ktp' => $this->request->getVar('hp'),
           ];
 
           $uM->save($data);

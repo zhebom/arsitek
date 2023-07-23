@@ -10,7 +10,7 @@ class userModel extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id','user', 'nama','pass', 'role', 'created_at', 'updated_at'];
+    protected $allowedFields = ['id','user', 'nama','pass','no_ktp', 'role', 'created_at', 'updated_at'];
 
     public function tampilData()
     {

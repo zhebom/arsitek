@@ -22,10 +22,12 @@
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
+                                    
                                         <?php
 
 
                                         foreach ($user as $s) : ?>
+                                        <strong><?= $s->user; ?></strong>
                                             <form action="<?= base_url('/profil/update'); ?>" method="Post">
 
                                                 <div class=" row">
@@ -42,7 +44,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Nomor Handphone</label>
-                                                            <input type="text" class="form-control" id="nama" name="nama" value="<?= $s->nama; ?>">
+                                                            <input type="text" class="form-control" id="hp" name="hp" value="<?= $s->no_ktp; ?>">
                                                         </div>
 
 
