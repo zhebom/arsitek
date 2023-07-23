@@ -56,59 +56,81 @@
 
 
                 <!-- Main content -->
-                
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Riwayat Pelatihan</h3>
 
-                                        <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
-                                    </div>
-                                    <!-- /.card-header -->
-                                    <div class="card-body">
-                                        <table id="example2" class="table table-bordered table-hover">
-                                            <thead>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Riwayat Pelatihan</h3>
 
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Kode Pesanan</th>
-                                                    <th>Nama Pelatihan</th>
-                                                    <th>Pembayaran</th>
-                                                    <th>Status</th>
+                        <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
 
-                                                </tr>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Kode Pesanan</th>
+                                    <th>Nama Pelatihan</th>
+                                    <th>Pembayaran</th>
+                                    <th>Status</th>
 
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $i = 1;
-                                                //var_dump($cart);die;
-                                                foreach ($cart as $s) : ?>
-                                                    <tr>
-                                                        <td><?= $i++; ?></td>
-                                                        <td><?= $s->kode_pesanan; ?></td>
-                                                        <td><?= $s->pelatihan; ?></td>
-                                                        <td><?php $transfer = $s->total_pesanan * $s->biaya_pelatihan;
-                                                            echo $transfer; ?></td>
-                                                        <td> - </td>
+                                </tr>
 
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Kode Pesanan</th>
-                                                    <th>Nama Pelatihan</th>
-                                                    <th>Pembayaran</th>
-                                                    <th>Status</th>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $i = 1;
+                                //var_dump($cart);die;
+                                foreach ($cart as $s) :
+                                    $idpesan = $s->kode_pesanan;
+                                    $token = base64_encode("SB-Mid-server-cwHft3LdLPzlKt8TO-KLybjA:");
+                                    $url = "https://api.sandbox.midtrans.com/v2/" . $idpesan . "/status";
+                                    $header = array(
+                                        'accept: application/json',
+                                        'authorization: Basic ' .$token,
+                                        
 
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-                                    <!-- /.card-body -->
-                                </div>
-                                <!-- /.card -->
+                                    );
+                                    $method = 'GET';
+                                    $ch = curl_init();
+                                    curl_setopt($ch,CURLOPT_URL,$url);
+                                    curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
+                                    curl_setopt($ch,CURLOPT_CUSTOMREQUEST,$method);
+                                    curl_setopt($ch,CURLOPT_POSTFIELDS,false);
+                                    curl_setopt($ch,CURLINFO_HEADER_OUT,true);
+                                    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+                                    $result = curl_exec($ch);
+                                    $hasil = json_decode($result,true);
+
+                                ?>
+
+                                    <tr>
+                                        <td><?= $i++; ?></td>
+                                        <td><?= $s->kode_pesanan; ?></td>
+                                        <td><?= $s->pelatihan; ?></td>
+                                        <td><?php $transfer = $s->total_pesanan * $s->biaya_pelatihan;
+                                            echo $transfer; ?></td>
+                                        <td> <?= $hasil['status_code']; ?></td>
+
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Kode Pesanan</th>
+                                    <th>Nama Pelatihan</th>
+                                    <th>Pembayaran</th>
+                                    <th>Status</th>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
 
                 <!-- /.content -->
 
