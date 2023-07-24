@@ -16,7 +16,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <?= session()->getFlashdata('msg'); ?>
+                        
                         <?php
 
 

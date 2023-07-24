@@ -96,6 +96,8 @@ $routes->post('/admin/pelatihan/add/save', 'Admin::prosesaddpelatihan',['filter'
 $routes->get('/', 'Home::index');
 $routes->get('/kontraktor', 'Kontraktor::index');
 $routes->get('/profil', 'Pelatihan::profil',['filter' => 'authUser']);
+$routes->get('/pass', 'LoginUser::editpass',['filter' => 'authUser']);
+$routes->post('/pass/update', 'LoginUser::prosesPass',['filter' => 'authUser']);
 $routes->get('/pekerjaan', 'Pekerjaan::index');
 $routes->get('/pekerjaan/detail', 'Pekerjaan::detail');
 

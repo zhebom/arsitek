@@ -185,6 +185,7 @@
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-lg-end ">
                                             <li><a class="dropdown-item" href="<?= base_url('/profil'); ?>">Profil</a></li>
+                                            <li><a class="dropdown-item" href="<?= base_url('/pass'); ?>">Ubah Password</a></li>
                                             <li><a class="dropdown-item" href="<?= base_url('/bom'); ?>"><strong>Logout</strong></a></li>
 
                                         </ul>
