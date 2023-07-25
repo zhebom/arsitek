@@ -52,8 +52,8 @@
                           <td> <a type="button" class="btn btn-warning btn-sm" href="<?= base_url('admin/pelatihan/'.$s->id) ; ?>" rel="noopener noreferrer">Lihat Pendaftar</a></td>
                           <td>
                               <a type="button" class="btn btn-warning btn-sm d-inline" href="<?= base_url('admin/pelatihan/edit/' . $s->id); ?>"><i class="fas fa-pen"></i></a>
-                              <form action="<?= base_url('/admin/faqs/' . $s->id); ?>" method="post" class="d-inline">
-
+                              <form action="<?= base_url('/admin/pelatihan/delete/' . $s->id); ?>" method="post" class="d-inline">
+                              <input type="hidden" class="custom-file-input"  id="fileLama" name="fileLama"  value="<?= $s->gambar; ?>">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
                               </form>

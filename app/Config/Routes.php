@@ -84,6 +84,8 @@ $routes->post('/pelatihan/prosespayment', 'Pelatihan::payment2',['filter' => 'au
 $routes->get('/cart', 'Pelatihan::cart',['filter' => 'authUser']);
 $routes->get('/admin/pelatihan/edit/(:num)', 'Admin::editpelatihan/$1',['filter' => 'authGuard']);
 $routes->post('/admin/pelatihan/edit/update/(:num)', 'Admin::proseseditpelatihan/$1',['filter' => 'authGuard']);
+$routes->delete('/admin/pelatihan/delete/(:num)', 'Admin::deletepelatihan/$1',['filter' => 'authGuard']);
+
 //cart
 $routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart',['filter' => 'authUser']);
 $routes->delete('/cart/delete/(:any)', 'Pelatihan::delCart/$1',['filter' => 'authUser']);

@@ -707,4 +707,13 @@ class Admin extends BaseController
                }
           }
      }
+     public function deletepelatihan($id)
+     {
+          $sM = new pelatihanModel();
+          $sM->deleteData($id);
+          $oldFile = $this->request->getVar('fileLama');
+          unlink('thumbnails/' . $oldFile);
+          session()->setFlashdata('msg', '<div class="alert alert-info" role="alert">Data Berhasil Dihapus</div>');
+          return redirect()->to(base_url('admin/pelatihan'))->withinput();
+     }
 }
