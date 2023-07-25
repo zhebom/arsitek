@@ -390,6 +390,8 @@ class Admin extends BaseController
                          'logo' =>  $this->request->getVar('fileLama'),
                          'updated_at' => $today,
                     ]);
+                    $oldFile = $this->request->getVar('fileLama');
+                    unlink('sosmed/' . $oldFile);
                     session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Diubah</div>');
                     return redirect()->to(base_url('admin/sosmed'))->withinput();
                } else {
@@ -616,36 +618,35 @@ class Admin extends BaseController
                )) {
 
                     session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
-                    return redirect()->to(base_url('admin/pelatihan/edit/'.$id))->withinput();
+                    return redirect()->to(base_url('admin/pelatihan/edit/' . $id))->withinput();
                } else {
                     $sM = new pelatihanModel();
                     $today = date("Y-m-d H:i:s");
 
                     $filePend->move('thumbnails');
-                    
-                   
-                    
-                         $sM->replace([
-                              'id' => $id,
-                              'pelatihan' =>  $this->request->getVar('pelatihan'),
-                            'slug' => $this->request->getVar('slugLama'),
-                              'kuota' =>  $this->request->getVar('kuota'),
-                              'biaya' =>  $this->request->getVar('biaya'),
-                              'tempat' =>  $this->request->getVar('tempat'),
-                              'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
-                              'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
-                              'gambar' =>  $namaFile,
-                              'updated_at' => $today,
 
 
-                         ]);
-                         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
-                         return redirect()->to(base_url('admin/pelatihan/edit/'.$id))->withinput();
-                    
+
+                    $sM->replace([
+                         'id' => $id,
+                         'pelatihan' =>  $this->request->getVar('pelatihan'),
+                         'slug' => $this->request->getVar('slugLama'),
+                         'kuota' =>  $this->request->getVar('kuota'),
+                         'biaya' =>  $this->request->getVar('biaya'),
+                         'tempat' =>  $this->request->getVar('tempat'),
+                         'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
+                         'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
+                         'gambar' =>  $namaFile,
+                         'updated_at' => $today,
+
+
+                    ]);
+                    $oldFile = $this->request->getVar('fileLama');
+                    unlink('thumbnails/' . $oldFile);
+                    session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+                    return redirect()->to(base_url('admin/pelatihan/edit/' . $id))->withinput();
                }
-          }
-
-          else {
+          } else {
 
                if (!$this->validate(
                     [
@@ -655,7 +656,7 @@ class Admin extends BaseController
                          'biaya' => 'required',
                          'tglpelatihan' => 'required',
                          'endpendaftaran' => 'required'
-                         
+
                     ],
                     [
                          'pelatihan' => [
@@ -680,28 +681,29 @@ class Admin extends BaseController
                )) {
 
                     session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
-                    return redirect()->to(base_url('admin/pelatihan/edit/'.$id))->withinput();
+                    return redirect()->to(base_url('admin/pelatihan/edit/' . $id))->withinput();
                } else {
                     $sM = new pelatihanModel();
                     $today = date("Y-m-d H:i:s");
-                  
-                         $sM->replace([
-                              'id' => $id,
-                              'pelatihan' =>  $this->request->getVar('pelatihan'),
-                              'slug' => $this->request->getVar('slugLama'),
-                              'gambar' => $this->request->getVar('fileLama'),
-                              'kuota' =>  $this->request->getVar('kuota'),
-                              'biaya' =>  $this->request->getVar('biaya'),
-                              'tempat' =>  $this->request->getVar('tempat'),
-                              'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
-                              'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
-                              'updated_at' => $today,
+
+                    $sM->replace([
+                         'id' => $id,
+                         'pelatihan' =>  $this->request->getVar('pelatihan'),
+                         'slug' => $this->request->getVar('slugLama'),
+                         'gambar' => $this->request->getVar('fileLama'),
+                         'kuota' =>  $this->request->getVar('kuota'),
+                         'biaya' =>  $this->request->getVar('biaya'),
+                         'tempat' =>  $this->request->getVar('tempat'),
+                         'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
+                         'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
+                         'updated_at' => $today,
 
 
-                         ]);
-                         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
-                         return redirect()->to(base_url('admin/pelatihan/edit/'.$id))->withinput();
-                    
+                    ]);
+                    $oldFile = $this->request->getVar('fileLama');
+                    unlink('thumbnails/' . $oldFile);
+                    session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+                    return redirect()->to(base_url('admin/pelatihan/edit/' . $id))->withinput();
                }
           }
      }
