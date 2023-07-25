@@ -191,16 +191,8 @@
                                                 default:
                                                     echo "Transaksi Tidak Ditemukan";
                                             }
-
-
-
                                             ?>
-
-
-
-
                                         </td>
-
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -220,12 +212,7 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
-
                 <!-- /.content -->
-
-
-
-
             </div>
         </div>
     </div>

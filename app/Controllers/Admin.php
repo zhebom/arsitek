@@ -19,13 +19,14 @@ class Admin extends BaseController
      // protected $situs;
      // protected $sosmed;
      // protected $pelatihan;
-     public function __construct() {
+     public function __construct()
+     {
           $session = \Config\Services::session();
           $situs = new situsModel();
           $sosmed = new sosmedModel();
           $pelatihan = new pelatihanModel();
      }
-   
+
 
      public function index()
      {
@@ -34,77 +35,77 @@ class Admin extends BaseController
           $sosmed = new sosmedModel();
           $pelatihan = new pelatihanModel();
           $faq = new faqModel();
-  
+
           $data = [
-              'situs' => $situs->tampilData(),
-              'sosmed' => $sosmed->tampilData(),
-              'pelatihan' => $pelatihan->tampilData(),
-              'faq' => $faq->tampilData(),
-              'title' => 'Dashboard',
-              'menu' => 'dashboard',
-              'admin' => $session->nama
+               'situs' => $situs->tampilData(),
+               'sosmed' => $sosmed->tampilData(),
+               'pelatihan' => $pelatihan->tampilData(),
+               'faq' => $faq->tampilData(),
+               'title' => 'Dashboard',
+               'menu' => 'dashboard',
+               'admin' => $session->nama
           ];
-        
+
           echo view('admin/pages/beranda.php', $data);
      }
 
-     public function bom(){
+     public function bom()
+     {
           session()->destroy();
           return redirect()->to('/');
      }
 
-     public function insert(){
-          $role =1;
+     public function insert()
+     {
+          $role = 1;
           $user = $this->request->getVar('user');
           $pass = password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT);
-          
-      
+
+
           $adminModel = new adminModel();
           $adminModel->save([
                'user' => $user,
                'pass' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT)
           ]);
-          
      }
      public function loginAuth()
-    {
-        $session = session();
-        $adminModel = new adminModel();
-        $user = $this->request->getVar('user');
-        $password = $this->request->getVar('pass');
-        
-        $data = $adminModel->where('user', $user)->first();
-        
-        if($data){
-            $pass = $data['pass'];
-            
-            $authenticatePassword = password_verify($password, $pass);
-            if($authenticatePassword){
-                $ses_data = [
-                    'id' => $data['id'],
-                    'nama' => $data['nama'],
-                    'role' => $data['role'],
-                    'isLoggedIn' => TRUE
-                ];
-               
-                $session->set($ses_data);
-               
-                return redirect()->withInput()->to('/admin');
-            
-            }else{
-                $session->setFlashdata('msg', 'User atau Pass does not exist.');
-                return redirect()->to('/mylogin');
-            }
-        }else{
-            $session->setFlashdata('msg', 'User atau Pass does not exist.');
-            return redirect()->to('/mylogin');
-        }
-    }
+     {
+          $session = session();
+          $adminModel = new adminModel();
+          $user = $this->request->getVar('user');
+          $password = $this->request->getVar('pass');
+
+          $data = $adminModel->where('user', $user)->first();
+
+          if ($data) {
+               $pass = $data['pass'];
+
+               $authenticatePassword = password_verify($password, $pass);
+               if ($authenticatePassword) {
+                    $ses_data = [
+                         'id' => $data['id'],
+                         'nama' => $data['nama'],
+                         'role' => $data['role'],
+                         'isLoggedIn' => TRUE
+                    ];
+
+                    $session->set($ses_data);
+
+                    return redirect()->withInput()->to('/admin');
+               } else {
+                    $session->setFlashdata('msg', 'User atau Pass does not exist.');
+                    return redirect()->to('/mylogin');
+               }
+          } else {
+               $session->setFlashdata('msg', 'User atau Pass does not exist.');
+               return redirect()->to('/mylogin');
+          }
+     }
 
      public function judul()
      {
           $sM = new situsModel();
-          
+
           $data = [
                'title' => 'Pengaturan Situs',
                'situs' => $sM->tampilData(),
@@ -482,8 +483,27 @@ class Admin extends BaseController
           echo view('admin/pages/tambahpelatihan.php', $data);
      }
 
+     public function editpelatihan($id)
+     {
+          $pelatihan = new pelatihanModel();
+          $situs = new situsModel();
+          $validasi =  \Config\Services::validation();
+          $data = [
+               'title' => 'Pengaturan Pelatihan',
+               'pelatihan' => $pelatihan->singleData($id),
+               'situs' => $situs->tampilData(),
+               'admin' => session()->get('nama'),
+               'menu' => 'pelatihan',
+               'validasi' => $validasi
+
+          ];
+          echo view('admin/pages/editpelatihan.php', $data);
+     }
+
      public function prosesaddpelatihan()
      {
+
+          $filePend = $this->request->getFile('customFile');
 
           if (!$this->validate(
                [
@@ -526,7 +546,7 @@ class Admin extends BaseController
           } else {
                $sM = new pelatihanModel();
                $today = date("Y-m-d H:i:s");
-               $filePend = $this->request->getFile('customFile');
+
                $filePend->move('thumbnails');
                $namaFile = $filePend->getName();
                $slug = url_title($this->request->getVar('pelatihan'), ("-"));
@@ -549,6 +569,139 @@ class Admin extends BaseController
                     ]);
                     session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
                     return redirect()->to(base_url('admin/pelatihan'))->withinput();
+               }
+          }
+     }
+
+     public function proseseditpelatihan($id)
+     {
+
+          $filePend = $this->request->getFile('customFile');
+          $namaFile = $filePend->getName();
+          if ($namaFile) {
+               if (!$this->validate(
+                    [
+                         'pelatihan' => 'required',
+                         'kuota' => 'required',
+                         'tempat' => 'required',
+                         'biaya' => 'required',
+                         'tglpelatihan' => 'required',
+                         'endpendaftaran' => 'required',
+                         'customFile' => 'uploaded[customFile]|ext_in[customFile,jpg,jpeg,png]'
+                    ],
+                    [
+                         'pelatihan' => [
+                              'required' => 'Nama Pelatihan harus diisi'
+                         ],
+                         'kuota' => [
+                              'required' => 'Kuota harus diisi'
+                         ],
+                         'biaya' => [
+                              'required' => 'Biaya harus diisi'
+                         ],
+                         'tempat' => [
+                              'required' => 'Tempat harus diisi'
+                         ],
+                         'tglpelatihan' => [
+                              'required' => 'Tanggal Pelatihan harus diisi'
+                         ],
+                         'endpendaftaran' => [
+                              'required' => 'Batas akhir pendaftaran harus diisi'
+                         ],
+                         'customFile' => [
+                              'uploaded' => 'lho kok belum upload',
+                              'ext_in' => 'File harus berekstensi JPG/PNG'
+                         ]
+                    ]
+               )) {
+
+                    session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+                    return redirect()->to(base_url('admin/pelatihan/edit/'.$id))->withinput();
+               } else {
+                    $sM = new pelatihanModel();
+                    $today = date("Y-m-d H:i:s");
+
+                    $filePend->move('thumbnails');
+                    
+                   
+                    
+                         $sM->replace([
+                              'id' => $id,
+                              'pelatihan' =>  $this->request->getVar('pelatihan'),
+                            'slug' => $this->request->getVar('slugLama'),
+                              'kuota' =>  $this->request->getVar('kuota'),
+                              'biaya' =>  $this->request->getVar('biaya'),
+                              'tempat' =>  $this->request->getVar('tempat'),
+                              'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
+                              'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
+                              'gambar' =>  $namaFile,
+                              'updated_at' => $today,
+
+
+                         ]);
+                         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+                         return redirect()->to(base_url('admin/pelatihan/edit/'.$id))->withinput();
+                    
+               }
+          }
+
+          else {
+
+               if (!$this->validate(
+                    [
+                         'pelatihan' => 'required',
+                         'kuota' => 'required',
+                         'tempat' => 'required',
+                         'biaya' => 'required',
+                         'tglpelatihan' => 'required',
+                         'endpendaftaran' => 'required'
+                         
+                    ],
+                    [
+                         'pelatihan' => [
+                              'required' => 'Nama Pelatihan harus diisi'
+                         ],
+                         'kuota' => [
+                              'required' => 'Kuota harus diisi'
+                         ],
+                         'biaya' => [
+                              'required' => 'Biaya harus diisi'
+                         ],
+                         'tempat' => [
+                              'required' => 'Tempat harus diisi'
+                         ],
+                         'tglpelatihan' => [
+                              'required' => 'Tanggal Pelatihan harus diisi'
+                         ],
+                         'endpendaftaran' => [
+                              'required' => 'Batas akhir pendaftaran harus diisi'
+                         ]
+                    ]
+               )) {
+
+                    session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+                    return redirect()->to(base_url('admin/pelatihan/edit/'.$id))->withinput();
+               } else {
+                    $sM = new pelatihanModel();
+                    $today = date("Y-m-d H:i:s");
+                  
+                         $sM->replace([
+                              'id' => $id,
+                              'pelatihan' =>  $this->request->getVar('pelatihan'),
+                              'slug' => $this->request->getVar('slugLama'),
+                              'gambar' => $this->request->getVar('fileLama'),
+                              'kuota' =>  $this->request->getVar('kuota'),
+                              'biaya' =>  $this->request->getVar('biaya'),
+                              'tempat' =>  $this->request->getVar('tempat'),
+                              'tglpelatihan' =>  $this->request->getVar('tglpelatihan'),
+                              'endpendaftaran' =>  $this->request->getVar('endpendaftaran'),
+                              'updated_at' => $today,
+
+
+                         ]);
+                         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+                         return redirect()->to(base_url('admin/pelatihan/edit/'.$id))->withinput();
+                    
                }
           }
      }

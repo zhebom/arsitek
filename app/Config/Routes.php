@@ -63,6 +63,7 @@ $routes->delete('/admin/sosmed/(:num)', 'Admin::deletesosmed/$1',['filter' => 'a
 $routes->get('/admin/sosmed/edit/(:num)', 'Admin::editsosmed/$1',['filter' => 'authGuard']);
 $routes->post('/admin/sosmed/prosesedit/(:num)', 'Admin::proseseditsosmed/$1',['filter' => 'authGuard']);
 
+
 //faq
 $routes->get('/admin/faqs', 'Admin::faq',['filter' => 'authGuard']);
 $routes->get('/admin/faqs/add', 'Admin::addfaq',['filter' => 'authGuard']);
@@ -81,7 +82,8 @@ $routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart',['filter' => 'authUs
 $routes->post('/pelatihan/payment', 'Pelatihan::payment');
 $routes->post('/pelatihan/prosespayment', 'Pelatihan::payment2',['filter' => 'authUser']);
 $routes->get('/cart', 'Pelatihan::cart',['filter' => 'authUser']);
-
+$routes->get('/admin/pelatihan/edit/(:num)', 'Admin::editpelatihan/$1',['filter' => 'authGuard']);
+$routes->post('/admin/pelatihan/edit/update/(:num)', 'Admin::proseseditpelatihan/$1',['filter' => 'authGuard']);
 //cart
 $routes->post('/pelatihan/add/daftar', 'Pelatihan::addCart',['filter' => 'authUser']);
 $routes->delete('/cart/delete/(:any)', 'Pelatihan::delCart/$1',['filter' => 'authUser']);
