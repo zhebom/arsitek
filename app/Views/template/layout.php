@@ -159,9 +159,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url("pelatihan"); ?>">Pelatihan</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url("kontraktor"); ?>">Penyedia Jasa</a>
-                                </li>
+                               
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url("faq"); ?>"> Cara Penggunaan Aplikasi</a>
                                 </li>
