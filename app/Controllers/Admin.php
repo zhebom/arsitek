@@ -716,4 +716,75 @@ class Admin extends BaseController
           session()->setFlashdata('msg', '<div class="alert alert-info" role="alert">Data Berhasil Dihapus</div>');
           return redirect()->to(base_url('admin/pelatihan'))->withinput();
      }
+
+     public function editPass()
+     {
+
+          $situs = new situsModel();
+          $user = new adminModel();
+          $sosmed = new sosmedModel();
+          $pelatihan = new pelatihanModel();
+          $faq = new faqModel();
+          $iduser = session()->get('id');
+       
+             
+
+
+
+          $data = [
+               'situs' => $situs->tampilData(),
+               'sosmed' => $sosmed->tampilData(),
+               'user' => $user->singleData($iduser),
+               'faq' => $faq->tampilData(),
+               'title' => 'Pengaturan Password',
+               'admin' => session()->get('nama'),
+               'menu' => 'Ubah Password'
+          ];
+
+          echo view('admin/pages/pass', $data);
+     }
+     public function prosesPass()
+     {
+          if (!$this->validate(
+               [
+
+                    'pass'     => 'required',
+                    'passconf' => 'required|matches[pass]',
+
+               ],
+               [
+
+                    'pass' => [
+                         'required' => 'Password harus diisi',
+
+                    ],
+
+                    'passconf' => [
+                         'required' => 'Password harus diisi',
+                         'matches' => 'Password Tidak Sama',
+
+                    ]
+               ]
+          )) {
+
+               session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+               return redirect()->to(base_url('admin/pass'))->withinput();
+          } else {
+               $uM = new adminModel();
+               $pass = password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT);
+               $today = date("Y-m-d H:i:s");
+               $id = session()->get('id');
+
+               $uM->save([
+                    'id' => $id,
+                    'pass' =>  $pass,
+
+                    'updated_at' => $today,
+
+
+               ]);
+               session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+               return redirect()->to(base_url('admin/pass'))->withinput();
+          }
+     }
 }

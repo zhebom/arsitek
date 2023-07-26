@@ -47,6 +47,8 @@ $routes->get('/login/kontraktor', 'LoginKontrak::list');
 //admin
 $routes->get('/admin', 'Admin::index',['filter' => 'authGuard']);
 $routes->get('/admin/situs', 'Admin::judul',['filter' => 'authGuard']);
+$routes->get('/admin/pass', 'Admin::editpass',['filter' => 'authUser']);
+$routes->post('admin/pass/update', 'Admin::prosesPass',['filter' => 'authGuard']);
 
 $routes->get('/bom', 'Admin::bom');
 
