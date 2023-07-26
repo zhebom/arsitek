@@ -234,8 +234,9 @@
             <div class="col-md-3">
                 <h5>Sosial Media</h5>
                 <div class="card-body">
-                    <?php foreach ($sosmed as $p): ?>
+                  
                                     <div class="row">
+                                    <?php foreach ($sosmed as $p): ?>
                                         <div class="col-sm-3">
                                             <a href="<?= $p->link; ?>" 
                                             target="_blank" 
@@ -243,9 +244,9 @@
                                                 <img src="<?= base_url('/sosmed/'.$p->logo); ?>" class="img-fluid mb-2" alt="<?= $p->nama; ?>" />
                                             </a>
                                         </div>
-                                        
+                                        <?php endforeach; ?>
                                     </div>
-                                    <?php endforeach; ?>
+                                    
                                 </div>
 
             </div>

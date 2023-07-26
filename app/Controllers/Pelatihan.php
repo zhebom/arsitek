@@ -217,7 +217,7 @@ class Pelatihan extends BaseController
 
         $c = \Config\Services::cart();
         $cart = $c->contents();
-        var_dump($cart);
+      
         $total = $c->total();
         $transaksiId = time();
        
@@ -252,7 +252,8 @@ class Pelatihan extends BaseController
             ]);
         }
 
-
+        $cart1 = \Config\Services::cart();
+         $cart1->destroy();
 
 
 
