@@ -63,7 +63,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <a href="£" data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
+                                            <a href="#" data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
                                                 <img src="<?= base_url('/thumbnails/'.$p->gambar); ?>" class="img-fluid mb-2" alt="white sample" />
                                             </a>
                                         </div>

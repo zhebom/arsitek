@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <label>Link Sosmed</label>
-                            <input type="text" class="form-control" placeholder="Masukan Link Sosial Media ..." id="link" name="link" value="<?= old('link'); ?>">
+                            <input type="text" class="form-control" placeholder="Harus diawali https:// ..." id="link" name="link" value="<?= old('link'); ?>">
                         </div>
                         <div class="form-group">
                             <label>Logo</label>
