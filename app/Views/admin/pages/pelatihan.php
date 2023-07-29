@@ -44,7 +44,7 @@
                       foreach ($sM as $s) : ?>
                         <tr>
                           <td><?= $i++; ?></td>
-                          <td><img src="<?= base_url('/thumbnails/'. $s->gambar); ?>" width="50" height="50">
+                          <td><img src="<?= base_url('thumbnails/'. $s->gambar); ?>" width="50" height="50">
                           </td>
                           <td><?= $s->pelatihan; ?></td>
                           <td> <?= $s->kuota; ?></td>

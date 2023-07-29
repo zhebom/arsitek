@@ -168,7 +168,7 @@ class Admin extends BaseController
                'admin' => session()->get('nama'),
                'menu' => 'faqSitus',
                'tampil' => $sm->tampilData(),
-               'sosmed' => $sosmed->tampilData()
+               
 
           ];
 
@@ -626,7 +626,8 @@ class Admin extends BaseController
                     $today = date("Y-m-d H:i:s");
 
                     $filePend->move('thumbnails');
-
+                    $oldFile = $this->request->getVar('fileLama');
+                    unlink('thumbnails/' . $oldFile);
 
 
                     $sM->replace([
@@ -643,8 +644,7 @@ class Admin extends BaseController
 
 
                     ]);
-                    $oldFile = $this->request->getVar('fileLama');
-                    unlink('thumbnails/' . $oldFile);
+                    
                     session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
                     return redirect()->to(base_url('admin/pelatihan/edit/' . $id))->withinput();
                }
@@ -702,8 +702,8 @@ class Admin extends BaseController
 
 
                     ]);
-                    $oldFile = $this->request->getVar('fileLama');
-                    unlink('thumbnails/' . $oldFile);
+                    // $oldFile = $this->request->getVar('fileLama');
+                    // unlink('thumbnails/' . $oldFile);
                     session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
                     return redirect()->to(base_url('admin/pelatihan/edit/' . $id))->withinput();
                }
