@@ -239,7 +239,7 @@ class Pelatihan extends BaseController
         \Midtrans\Config::$serverKey = $sKey;
       //  \Midtrans\Config::$serverKey = 'SB-Mid-server-cwHft3LdLPzlKt8TO-KLybjA';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = $isProduksi;
+        \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true

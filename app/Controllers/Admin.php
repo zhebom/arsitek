@@ -160,13 +160,15 @@ class Admin extends BaseController
 
           $sm = new faqModel();
           $situs = new situsModel();
+          $sosmed = new sosmedModel();
 
           $data = [
                'title' => 'Pengaturan FAQ',
                'situs' => $situs->tampilData(),
                'admin' => session()->get('nama'),
                'menu' => 'faqSitus',
-               'tampil' => $sm->tampilData()
+               'tampil' => $sm->tampilData(),
+               'sosmed' => $sosmed->tampilData()
 
           ];
 
