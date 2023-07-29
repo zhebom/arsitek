@@ -43,8 +43,8 @@
                       //var_dump($cart);die;
                       foreach ($cart as $s) :
                         $idpesan = $s->kode_pesanan;
-                        $token = base64_encode("SB-Mid-server-cwHft3LdLPzlKt8TO-KLybjA:");
-                        $url = "https://api.sandbox.midtrans.com/v2/" . $idpesan . "/status";
+                        $token = base64_encode($server.":");
+                        $url = $api . $idpesan . "/status";
                         $header = array(
                             'accept: application/json',
                             'authorization: Basic ' . $token,

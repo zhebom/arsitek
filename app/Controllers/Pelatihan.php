@@ -8,6 +8,7 @@ use App\Models\pelatihanModel;
 use App\Models\cartModel;
 use App\Models\faqModel;
 use App\Models\userModel;
+use App\Models\midModel;
 use CodeIgniter\Database\Query;
 
 class Pelatihan extends BaseController
@@ -43,6 +44,12 @@ class Pelatihan extends BaseController
         $pelatihan = new pelatihanModel();
         $faq = new faqModel();
         $iduser = session()->get('id');
+        $mM = new midModel();
+        $server =  $mM->first();
+        
+        
+        $apiKey = $server['api'];
+        $sKey = $server['server_key'];
 
        
         
@@ -53,6 +60,9 @@ class Pelatihan extends BaseController
             'user' => $user->singleData($iduser),
             'faq' => $faq->tampilData(),
             'cart' => $cart->pelatihanku($iduser),
+            'api' => $apiKey,
+            'server' => $sKey
+
         ];
 
         echo view('pages/profil', $data);
@@ -62,6 +72,13 @@ class Pelatihan extends BaseController
     {
         $cart = new cartModel();
         $situs = new situsModel();
+        $mM = new midModel();
+        $server =  $mM->first();
+        
+        
+        $apiKey = $server['api'];
+        $sKey = $server['server_key'];
+    
 
         $data = [
             'situs' => $situs->tampilData(),
@@ -69,7 +86,9 @@ class Pelatihan extends BaseController
             'title' => 'Pengaturan Pelatihan',
             'situs' => $situs->tampilData(),
             'admin' => session()->get('nama'),
-            'menu' => 'pelatihan'
+            'menu' => 'pelatihan',
+            'api' => $apiKey,
+            'server' => $sKey
 
         ];
 
@@ -206,10 +225,21 @@ class Pelatihan extends BaseController
     }
     public function payment2()
     {
+       
+     
+        $mM = new midModel();
+        $server =  $mM->first();
+        
+        
+        $sKey = $server['server_key'];
+        $snapKey = $server['snap'];
+        $isProduksi = $server['isProduction'];
+
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-cwHft3LdLPzlKt8TO-KLybjA';
+        \Midtrans\Config::$serverKey = $sKey;
+      //  \Midtrans\Config::$serverKey = 'SB-Mid-server-cwHft3LdLPzlKt8TO-KLybjA';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
+        \Midtrans\Config::$isProduction = $isProduksi;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
@@ -220,6 +250,7 @@ class Pelatihan extends BaseController
       
         $total = $c->total();
         $transaksiId = time();
+        
        
         $params = array(
             'transaction_details' => array(
@@ -236,6 +267,8 @@ class Pelatihan extends BaseController
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         $token = $snapToken;
+
+        
         
         //    $bpel[] = $cart['price'];
 
@@ -257,6 +290,7 @@ class Pelatihan extends BaseController
 
 
 
-        return redirect()->to('https://app.sandbox.midtrans.com/snap/v2/vtweb/' . $snapToken);
+        return redirect()->to($snapKey. $snapToken);
+      // return redirect()->to('https://app.sandbox.midtrans.com/snap/v2/vtweb/' . $snapToken);
     }
 }
