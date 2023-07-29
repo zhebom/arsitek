@@ -119,7 +119,7 @@
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
-       
+
         <!-- tambahan -->
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -159,7 +159,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url("pelatihan"); ?>">Pelatihan</a>
                                 </li>
-                               
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url("faq"); ?>"> Cara Penggunaan Aplikasi</a>
                                 </li>
@@ -233,21 +233,14 @@
 
             <div class="col-md-3">
                 <h5>Sosial Media</h5>
-                <div class="card-body">
-                  
-                                    <div class="row">
-                                    <?php foreach ($sosmed as $p): ?>
-                                        <div class="col-sm-3">
-                                            <a href="<?= $p->link; ?>" 
-                                            target="_blank" 
-                                            data-toggle="lightbox" data-title="<?= $p->nama; ?>" data-gallery="gallery">
-                                                <img src="<?= base_url('/sosmed/'.$p->logo); ?>" class="img-fluid mb-2" alt="<?= $p->nama; ?>" />
-                                            </a>
-                                        </div>
-                                        <?php endforeach; ?>
-                                    </div>
-                                    
-                                </div>
+                <div class="d-flex flex-row">
+                <?php foreach ($sosmed as $p) : ?>
+                    <div class="p-2"> <a href="<?= $p->link; ?>" >
+                                    <img src="<?= base_url('/sosmed/' . $p->logo); ?>" class="img-fluid mb-2" alt="<?= $p->nama; ?>" /></div>
+                    <?php endforeach; ?>
+                   
+                </div>
+              
 
             </div>
 

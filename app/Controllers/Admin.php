@@ -392,8 +392,7 @@ class Admin extends BaseController
                          'logo' =>  $this->request->getVar('fileLama'),
                          'updated_at' => $today,
                     ]);
-                    $oldFile = $this->request->getVar('fileLama');
-                    unlink('sosmed/' . $oldFile);
+                  
                     session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data Berhasil Diubah</div>');
                     return redirect()->to(base_url('admin/sosmed'))->withinput();
                } else {
