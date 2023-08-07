@@ -61,12 +61,13 @@
           </div>
           <div class="row">
             <div class="col-md-12 d-grid">
-              <button type="submit" class="btn btn-dark center mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button type="submit" class="btn btn-dark center mb-2 <?= strtotime(date_format($date, 'd F Y')) < strtotime(date('d F Y'))? "disabled" : ""; ?>" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <h5> <?php
                       helper('number');
                       $number =  $pelatihan['biaya'];
-                      echo number_to_currency($number, 'IDR', 'id_ID', 0);
-
+                      
+                      
+                      echo strtotime(date_format($date, 'd F Y')) < strtotime(date('d F Y'))? "Pendaftaran Telah Ditutup" : number_to_currency($number, 'IDR', 'id_ID', 0);
                       ?></h5>
               </button>
               <a href="<?= base_url('/cart'); ?>" class="btn btn-success center">
