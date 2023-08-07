@@ -67,7 +67,7 @@
                       $number =  $pelatihan['biaya'];
                       
                       
-                      echo strtotime(date_format($date, 'd F Y')) < strtotime(date('d F Y'))? "Pendaftaran Telah Ditutup" : number_to_currency($number, 'IDR', 'id_ID', 0);
+                      echo strtotime(date_format($date, 'd F Y')) < strtotime(date('d F Y'))? "Pendaftaran Telah Ditutup" : 'Daftar Sekarang '. number_to_currency($number, 'IDR', 'id_ID', 0);
                       ?></h5>
               </button>
               <a href="<?= base_url('/cart'); ?>" class="btn btn-success center">

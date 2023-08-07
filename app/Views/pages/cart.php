@@ -17,10 +17,10 @@
     <div class="row invoice-info">
       <div class="col-sm-4 invoice-col">
 
-        <address>
+        <!-- <address>
           <strong>Nama Pembeli</strong><br>
           Alamat Pembeli
-        </address>
+        </address> -->
          
       </div>
       <!-- /.col -->
