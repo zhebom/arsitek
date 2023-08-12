@@ -203,6 +203,7 @@
 
     <br>
     <?= session()->getFlashdata('msg'); ?>
+   
     <?= $this->renderSection('content'); ?>
 
     <div class="container">
@@ -234,13 +235,13 @@
             <div class="col-md-3">
                 <h5>Sosial Media</h5>
                 <div class="d-flex flex-row">
-                <?php foreach ($sosmed as $p) : ?>
-                    <div class="p-2"> <a href="<?= $p->link; ?>" >
-                                    <img src="<?= base_url('/sosmed/' . $p->logo); ?>" class="img-fluid mb-2" alt="<?= $p->nama; ?>" /></div>
+                    <?php foreach ($sosmed as $p) : ?>
+                        <div class="p-2"> <a href="<?= $p->link; ?>">
+                                <img src="<?= base_url('/sosmed/' . $p->logo); ?>" class="img-fluid mb-2" alt="<?= $p->nama; ?>" /></div>
                     <?php endforeach; ?>
-                   
+
                 </div>
-              
+
 
             </div>
 
